@@ -1,0 +1,67 @@
+class_name Player
+extends CharacterBody2D
+
+#region Signals
+#endregion
+#region Enums
+#endregion
+#region Constants
+#endregion
+#region Static Variables
+#endregion
+#region @export Variables
+@export var player_color: Color = Color.YELLOW
+@export var move_speed : float = 500
+@export var attack_radius: float = 100
+@export var knockback_strength: float = 25
+@export var input_vector_deadzone : float = -1;
+@export var is_player_dummy = false
+#endregion
+#region Regular Variables
+var _is_stunned = false
+#endregion
+#region @onready Variables
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var attack_area: AttackArea = $AttackArea
+@onready var attack_area_collision: CollisionShape2D = $AttackArea/CollisionShape2D
+#endregion
+
+#region Event Methods
+func _ready():
+	sprite_2d.self_modulate = player_color
+
+
+func _physics_process(delta):
+	_move(delta)
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if is_player_dummy: return
+	
+	if event.is_action_pressed("attack_action"):
+		attack_area_collision.disabled = false
+#endregion
+#region Signal Handlers
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		var direction = (attack_area.global_position - global_position).normalized()
+		body.get_hit(direction)
+	attack_area_collision.set_deferred("disabled", true)
+#endregion
+#region Regular Methods
+func get_hit(direction):
+	print("%s got hit" % self)
+	_is_stunned = true
+	velocity += direction * knockback_strength
+
+func _move(delta):
+	if !is_player_dummy and !_is_stunned:
+		var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down", input_vector_deadzone)
+		if input_vector != Vector2.ZERO:
+			attack_area.position = input_vector.normalized() * attack_radius
+		
+		velocity = input_vector * move_speed
+	
+	move_and_slide()
+
+#endregion

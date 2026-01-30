@@ -11,7 +11,7 @@ config_version=5
 [application]
 
 config/name="global-game-jam-2026"
-run/main_scene="uid://dwhiw1sduma0r"
+run/main_scene="uid://cnnthot0gwh0t"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 

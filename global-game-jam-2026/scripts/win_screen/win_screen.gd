@@ -10,6 +10,8 @@ extends CanvasLayer
 #region Static Variables
 #endregion
 #region @export Variables
+@export var game_scene: PackedScene
+@export var menu_scene: PackedScene
 #endregion
 #region Regular Variables
 var _winning_player: Player
@@ -24,6 +26,12 @@ var _winning_player: Player
 #region Event Methods
 #endregion
 #region Signal Handlers
+func _on_main_menu_pressed() -> void:
+	get_tree().change_scene_to_packed(menu_scene)
+
+
+func _on_restart_game_pressed() -> void:
+	get_tree().change_scene_to_packed(game_scene)
 #endregion
 #region Regular Methods
 func set_winning_player(player: Player):

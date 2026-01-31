@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bkh15lbxk8ba2"
-path="res://.godot/imported/generic_button_pressed.png-f6088c858f2614e66d325c5d5e62d9e6.ctex"
+uid="uid://df72lpy6b76lw"
+path="res://.godot/imported/arena_background.png-94c109b4cfa03b940388e3174c553cb4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/kenney_input_prompts/generic_button_pressed.png"
-dest_files=["res://.godot/imported/generic_button_pressed.png-f6088c858f2614e66d325c5d5e62d9e6.ctex"]
+source_file="res://art/environment/arena_background.png"
+dest_files=["res://.godot/imported/arena_background.png-94c109b4cfa03b940388e3174c553cb4.ctex"]
 
 [params]
 

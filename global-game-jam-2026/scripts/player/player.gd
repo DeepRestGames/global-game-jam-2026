@@ -7,6 +7,7 @@ signal hit(force)
 signal knocked_back(force)
 signal knocked_out
 signal recovered
+signal knockback_recovered
 signal upgraded(player)
 signal downgraded(player)
 signal move(direction)
@@ -146,7 +147,7 @@ func _handle_movement():
 	if !_is_stunned and !_is_knocked_out:
 		velocity = input_vector * move_speed
 	
-	if velocity != Vector2.ZERO:
+	if !is_zero_approx(velocity.length()):
 		move.emit(velocity)
 
 
@@ -159,4 +160,5 @@ func _handle_knockback(delta):
 	if is_zero_approx(velocity.length()):
 		_knockback_force = Vector2.ZERO
 		_is_stunned = false
+		knockback_recovered.emit()
 #endregion

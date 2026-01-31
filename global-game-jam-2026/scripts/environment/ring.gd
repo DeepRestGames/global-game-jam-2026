@@ -21,10 +21,6 @@ extends Node2D
 #region Signal Handlers
 func _on_border_body_entered(body: Node2D) -> void:
 	if body is Player: body.get_knocked_out()
-
-
-func _on_border_body_exited(body: Node2D) -> void:
-	print("border exited!")
 #endregion
 #region Regular Methods
 #endregion

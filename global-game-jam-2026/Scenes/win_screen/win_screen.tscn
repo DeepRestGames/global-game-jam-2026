@@ -1,0 +1,154 @@
+[gd_scene format=3 uid="uid://qmub7mce6o11"]
+
+[ext_resource type="Script" uid="uid://ds1f1pylj73bp" path="res://scripts/win_screen/win_screen.gd" id="1_2yi6y"]
+
+[sub_resource type="Animation" id="Animation_2yi6y"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Countdown/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["XX"]
+}
+
+[sub_resource type="Animation" id="Animation_misvs"]
+resource_name = "countdown"
+length = 3.0
+step = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Countdown/Label:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["1", "2", "3"]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(3, 3.0001, 3.0001998),
+"transitions": PackedFloat32Array(1, 1, 1),
+"values": [{
+"args": [],
+"method": &"stop_countdown"
+}, {
+"args": [],
+"method": &"show_menu"
+}, {
+"args": [],
+"method": &"stop_countdown"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show_menu"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_1d1ta"]
+_data = {
+&"RESET": SubResource("Animation_2yi6y"),
+&"countdown": SubResource("Animation_misvs")
+}
+
+[node name="WinScreen" type="CanvasLayer" unique_id=2043067076 groups=["WinScreen"]]
+script = ExtResource("1_2yi6y")
+
+[node name="Countdown" type="Control" parent="." unique_id=1381724353]
+visible = false
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Countdown" unique_id=1362813597]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_1d1ta")
+
+[node name="Label" type="Label" parent="Countdown" unique_id=1868741706]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -62.5
+offset_top = -68.5
+offset_right = 62.5
+offset_bottom = 68.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 100
+text = "XX"
+
+[node name="Timer" type="Timer" parent="Countdown" unique_id=361041849]
+one_shot = true
+
+[node name="Menu" type="VBoxContainer" parent="." unique_id=1858692242]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -146.5
+offset_top = -65.5
+offset_right = 146.5
+offset_bottom = 65.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PlayerName" type="Label" parent="Menu" unique_id=1059208635]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "<PLAYER_NAME>"
+
+[node name="WinningText" type="Label" parent="Menu" unique_id=1071150358]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_font_sizes/font_size = 24
+text = "IS THE REAL LUCHA LIBRE"
+
+[node name="Menu" type="VBoxContainer" parent="Menu" unique_id=1731020948]
+layout_mode = 2
+
+[node name="RestartGame" type="Button" parent="Menu/Menu" unique_id=1266303314]
+layout_mode = 2
+text = "Restart Game"
+
+[node name="MainMenu" type="Button" parent="Menu/Menu" unique_id=1772879482]
+layout_mode = 2
+text = "Main Menu"

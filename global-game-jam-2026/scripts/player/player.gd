@@ -159,5 +159,4 @@ func _handle_knockback(delta):
 	if is_zero_approx(velocity.length()):
 		_knockback_force = Vector2.ZERO
 		_is_stunned = false
-		recovered.emit()
 #endregion

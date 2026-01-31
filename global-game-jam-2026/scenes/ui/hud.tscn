@@ -2,9 +2,9 @@
 
 [ext_resource type="Script" uid="uid://bh33c3dtsvlei" path="res://scripts/ui/hud_corner.gd" id="1_5ysmq"]
 [ext_resource type="Script" uid="uid://cxvulddac3dpg" path="res://scripts/ui/join_corner.gd" id="1_6fi6k"]
-[ext_resource type="Texture2D" uid="uid://dk4e3hqpaq5ds" path="res://art/kenney_input_prompts/flair_circle_0.png" id="1_oo0fn"]
-[ext_resource type="Texture2D" uid="uid://5jpk2ikkj057" path="res://art/kenney_input_prompts/flair_circle_8.png" id="2_5ysmq"]
-[ext_resource type="PackedScene" uid="uid://bf403c82bgphu" path="res://scenes/ui/join_dialogue.tscn" id="2_oj5la"]
+[ext_resource type="Texture2D" uid="uid://c1amt1ll3qxa0" path="res://art/kenney_input_prompts/flair_circle_0.svg" id="1_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://i7pol7hsr0kt" path="res://art/kenney_input_prompts/flair_circle_8.svg" id="2_5ysmq"]
+[ext_resource type="PackedScene" uid="uid://bf403c82bgphu" path="res://Scenes/ui/join_dialogue.tscn" id="2_oj5la"]
 [ext_resource type="FontFile" uid="uid://dm6lltnyidosy" path="res://art/Sancreek-Regular.ttf" id="4_oj5la"]
 [ext_resource type="Texture2D" uid="uid://dd36teilvjpxd" path="res://art/mask_ui/maskchacho_icon.png" id="5_4jqwt"]
 [ext_resource type="FontFile" uid="uid://i1bt8t87wphx" path="res://art/Dotrice-Regular.otf" id="7_gss2c"]

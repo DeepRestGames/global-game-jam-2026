@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3y7tynsudfb4"
-path="res://.godot/imported/arena_background.png-65042d782085968208707612c9ace601.ctex"
+uid="uid://binq48dgu2xbr"
+path="res://.godot/imported/ring_foreground.png-61fc06960201d460dfb7885aa5a669b8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/arena_background.png"
-dest_files=["res://.godot/imported/arena_background.png-65042d782085968208707612c9ace601.ctex"]
+source_file="res://art/environment/ring_foreground.png"
+dest_files=["res://.godot/imported/ring_foreground.png-61fc06960201d460dfb7885aa5a669b8.ctex"]
 
 [params]
 

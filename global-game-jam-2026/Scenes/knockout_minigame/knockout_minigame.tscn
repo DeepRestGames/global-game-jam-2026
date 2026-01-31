@@ -1,10 +1,10 @@
 [gd_scene format=3 uid="uid://ha6xmy26ea2q"]
 
 [ext_resource type="Script" uid="uid://ct2gaa3uoe6dj" path="res://scripts/knockout_minigame/knockout_minigame.gd" id="1_o2p6u"]
-[ext_resource type="Texture2D" uid="uid://dyb24fuoim8yi" path="res://art/kenney_input_prompts/generic_button.png" id="3_d73lk"]
-[ext_resource type="Texture2D" uid="uid://bkh15lbxk8ba2" path="res://art/kenney_input_prompts/generic_button_pressed.png" id="3_t6sho"]
-[ext_resource type="Texture2D" uid="uid://dk4e3hqpaq5ds" path="res://art/kenney_input_prompts/flair_circle_0.png" id="4_q6enr"]
-[ext_resource type="Texture2D" uid="uid://5jpk2ikkj057" path="res://art/kenney_input_prompts/flair_circle_8.png" id="5_pfxj0"]
+[ext_resource type="Texture2D" uid="uid://14dgpgxdgm0t" path="res://art/kenney_input_prompts/generic_button.svg" id="3_d73lk"]
+[ext_resource type="Texture2D" uid="uid://s6go5lg55836" path="res://art/kenney_input_prompts/generic_button_pressed.svg" id="3_t6sho"]
+[ext_resource type="Texture2D" uid="uid://c1amt1ll3qxa0" path="res://art/kenney_input_prompts/flair_circle_0.svg" id="4_q6enr"]
+[ext_resource type="Texture2D" uid="uid://i7pol7hsr0kt" path="res://art/kenney_input_prompts/flair_circle_8.svg" id="5_pfxj0"]
 
 [sub_resource type="Animation" id="Animation_t6sho"]
 length = 0.001

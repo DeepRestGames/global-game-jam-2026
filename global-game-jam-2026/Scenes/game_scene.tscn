@@ -3,8 +3,9 @@
 [ext_resource type="Script" uid="uid://cwe6mrae66wek" path="res://scripts/environment/game_scene.gd" id="1_2fmhe"]
 [ext_resource type="Script" uid="uid://co0xlb5mcbjqu" path="res://scripts/environment/camera.gd" id="1_b6fju"]
 [ext_resource type="Script" uid="uid://bk3s2boednv7" path="res://scripts/environment/ring.gd" id="1_x87qo"]
-[ext_resource type="Texture2D" uid="uid://c3y7tynsudfb4" path="res://art/arena_background.png" id="3_bw6k5"]
+[ext_resource type="Texture2D" uid="uid://df72lpy6b76lw" path="res://art/environment/arena_background.png" id="3_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://Scenes/player/player.tscn" id="3_ycayy"]
+[ext_resource type="Texture2D" uid="uid://binq48dgu2xbr" path="res://art/environment/ring_foreground.png" id="5_5dgvu"]
 [ext_resource type="PackedScene" uid="uid://c4wr0j51scdnn" path="res://Scenes/background/audience_member.tscn" id="5_y3j0m"]
 [ext_resource type="PackedScene" uid="uid://daiealbrrehsm" path="res://Scenes/belt/belt.tscn" id="7_7iton"]
 [ext_resource type="PackedScene" uid="uid://d1kwjvqdg8us3" path="res://Scenes/ui/hud.tscn" id="7_kk2rg"]
@@ -1394,28 +1395,33 @@ flip_h = true
 
 [node name="Player" parent="." unique_id=881583183 instance=ExtResource("3_ycayy")]
 position = Vector2(-192, -224)
+player_color = Color(0, 0.58431375, 1, 1)
 
 [node name="Player2" parent="." unique_id=825266784 instance=ExtResource("3_ycayy")]
 position = Vector2(168, -216)
-player_color = Color(1, 0, 0, 1)
+player_color = Color(1, 0.5686275, 0.011764706, 1)
 player_name = "EL MASKADOR"
 player_num = 1
 
 [node name="Player3" parent="." unique_id=1839694508 instance=ExtResource("3_ycayy")]
 position = Vector2(-200, 184)
-player_color = Color(0.011764706, 1, 0, 1)
+player_color = Color(1, 1, 1, 1)
 player_name = "MASKERIÑO"
 player_num = 2
 
 [node name="Player4" parent="." unique_id=49969423 instance=ExtResource("3_ycayy")]
 position = Vector2(184, 184)
-player_color = Color(0, 0, 0.8784314, 1)
+player_color = Color(0.5882353, 0.33333334, 0.7647059, 1)
 player_name = "MASKALIENTE"
 player_num = 3
 
 [node name="Belt" parent="." unique_id=542052037 instance=ExtResource("7_7iton")]
 visible = true
 is_active = true
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1054436377]
+position = Vector2(3, 439)
+texture = ExtResource("5_5dgvu")
 
 [node name="FreezeFrameTimer" type="Timer" parent="." unique_id=463194505]
 one_shot = true

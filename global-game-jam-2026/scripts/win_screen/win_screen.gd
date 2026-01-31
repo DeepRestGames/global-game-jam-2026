@@ -19,8 +19,8 @@ var _winning_player: Player
 #region @onready Variables
 @onready var countdown: Control = $Countdown
 @onready var countdown_animation_player: AnimationPlayer = $Countdown/AnimationPlayer
-@onready var menu: VBoxContainer = $Menu
-@onready var player_name: Label = $Menu/PlayerName
+@onready var menu: Control = $Menu
+@onready var player_name: Label = $Menu/MarginContainer/BoxContainer/PlayerName
 #endregion
 
 #region Event Methods

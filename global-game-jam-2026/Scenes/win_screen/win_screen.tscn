@@ -141,7 +141,8 @@ vertical_alignment = 1
 [node name="Timer" type="Timer" parent="Countdown" unique_id=361041849]
 one_shot = true
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1572656912]
+[node name="Menu" type="PanelContainer" parent="." unique_id=1572656912]
+visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -154,51 +155,51 @@ offset_bottom = 65.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer" unique_id=626466779]
+[node name="MarginContainer" type="MarginContainer" parent="Menu" unique_id=626466779]
 layout_mode = 2
 theme_override_constants/margin_left = 16
 theme_override_constants/margin_top = 16
 theme_override_constants/margin_right = 16
 theme_override_constants/margin_bottom = 16
 
-[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer" unique_id=1858692242]
+[node name="BoxContainer" type="VBoxContainer" parent="Menu/MarginContainer" unique_id=1858692242]
 layout_mode = 2
 
-[node name="PlayerName" type="Label" parent="PanelContainer/MarginContainer/Menu" unique_id=1059208635]
+[node name="PlayerName" type="Label" parent="Menu/MarginContainer/BoxContainer" unique_id=1059208635]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_sqnk6")
 theme_override_font_sizes/font_size = 64
 text = "<PLAYER_NAME>"
 
-[node name="WinningText" type="Label" parent="PanelContainer/MarginContainer/Menu" unique_id=1071150358]
+[node name="WinningText" type="Label" parent="Menu/MarginContainer/BoxContainer" unique_id=1071150358]
 layout_mode = 2
 size_flags_horizontal = 4
 theme_override_fonts/font = ExtResource("3_sqnk6")
 theme_override_font_sizes/font_size = 48
 text = "IS THE REAL LUCHA LIBRE!"
 
-[node name="MarginContainer" type="MarginContainer" parent="PanelContainer/MarginContainer/Menu" unique_id=352268510]
+[node name="MarginContainer" type="MarginContainer" parent="Menu/MarginContainer/BoxContainer" unique_id=352268510]
 layout_mode = 2
 theme_override_constants/margin_left = 32
 theme_override_constants/margin_right = 32
 theme_override_constants/margin_bottom = 8
 
-[node name="Menu" type="VBoxContainer" parent="PanelContainer/MarginContainer/Menu/MarginContainer" unique_id=1731020948]
+[node name="Menu" type="VBoxContainer" parent="Menu/MarginContainer/BoxContainer/MarginContainer" unique_id=1731020948]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="RestartGame" type="Button" parent="PanelContainer/MarginContainer/Menu/MarginContainer/Menu" unique_id=1266303314]
+[node name="RestartGame" type="Button" parent="Menu/MarginContainer/BoxContainer/MarginContainer/Menu" unique_id=1266303314]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_sqnk6")
 theme_override_font_sizes/font_size = 32
 text = "RESTART GAME"
 
-[node name="MainMenu" type="Button" parent="PanelContainer/MarginContainer/Menu/MarginContainer/Menu" unique_id=1772879482]
+[node name="MainMenu" type="Button" parent="Menu/MarginContainer/BoxContainer/MarginContainer/Menu" unique_id=1772879482]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("3_sqnk6")
 theme_override_font_sizes/font_size = 32
 text = "MAIN MENU"
 
-[connection signal="pressed" from="PanelContainer/MarginContainer/Menu/MarginContainer/Menu/RestartGame" to="." method="_on_restart_game_pressed"]
-[connection signal="pressed" from="PanelContainer/MarginContainer/Menu/MarginContainer/Menu/MainMenu" to="." method="_on_main_menu_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/BoxContainer/MarginContainer/Menu/RestartGame" to="." method="_on_restart_game_pressed"]
+[connection signal="pressed" from="Menu/MarginContainer/BoxContainer/MarginContainer/Menu/MainMenu" to="." method="_on_main_menu_pressed"]

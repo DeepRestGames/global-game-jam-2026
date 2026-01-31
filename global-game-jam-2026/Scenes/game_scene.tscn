@@ -6,9 +6,13 @@
 [ext_resource type="Texture2D" uid="uid://c3y7tynsudfb4" path="res://art/arena_background.png" id="3_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://Scenes/player/player.tscn" id="3_ycayy"]
 [ext_resource type="PackedScene" uid="uid://c4wr0j51scdnn" path="res://Scenes/background/audience_member.tscn" id="5_y3j0m"]
+[ext_resource type="Texture2D" uid="uid://k8swq3ajvnpp" path="res://art/player/maskchacho_sprite_sheet.png" id="7_5dgvu"]
 [ext_resource type="PackedScene" uid="uid://daiealbrrehsm" path="res://Scenes/belt/belt.tscn" id="7_7iton"]
 [ext_resource type="PackedScene" uid="uid://d1kwjvqdg8us3" path="res://Scenes/ui/hud.tscn" id="7_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://qmub7mce6o11" path="res://Scenes/win_screen/win_screen.tscn" id="8_ikfsv"]
+[ext_resource type="Texture2D" uid="uid://dkhw30rwv8wbn" path="res://art/player/maskador_sprite_sheet.png" id="8_uscyt"]
+[ext_resource type="Texture2D" uid="uid://ddyqem8hdxkiu" path="res://art/player/maskino_sprite_sheet.png" id="9_4xiap"]
+[ext_resource type="Texture2D" uid="uid://b6vos4q57ylkw" path="res://art/player/maskcaliente_sprite_sheet.png" id="10_wywco"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oqyrl"]
 
@@ -1394,24 +1398,29 @@ flip_h = true
 
 [node name="Player" parent="." unique_id=881583183 instance=ExtResource("3_ycayy")]
 position = Vector2(-192, -224)
+player_color = Color(0, 0.58431375, 1, 1)
+base_sprite_sheet = ExtResource("7_5dgvu")
 
 [node name="Player2" parent="." unique_id=825266784 instance=ExtResource("3_ycayy")]
 position = Vector2(168, -216)
-player_color = Color(1, 0, 0, 1)
+player_color = Color(1, 0.5058824, 0.011764706, 1)
 player_name = "EL MASKADOR"
 player_num = 1
+base_sprite_sheet = ExtResource("8_uscyt")
 
 [node name="Player3" parent="." unique_id=1839694508 instance=ExtResource("3_ycayy")]
 position = Vector2(-200, 184)
-player_color = Color(0.011764706, 1, 0, 1)
+player_color = Color(1, 1, 1, 1)
 player_name = "MASKERIÑO"
 player_num = 2
+base_sprite_sheet = ExtResource("9_4xiap")
 
 [node name="Player4" parent="." unique_id=49969423 instance=ExtResource("3_ycayy")]
 position = Vector2(184, 184)
-player_color = Color(0, 0, 0.8784314, 1)
+player_color = Color(0.5882353, 0.33333334, 0.7647059, 1)
 player_name = "MASKALIENTE"
 player_num = 3
+base_sprite_sheet = ExtResource("10_wywco")
 
 [node name="Belt" parent="." unique_id=542052037 instance=ExtResource("7_7iton")]
 visible = true

@@ -24,6 +24,7 @@ signal move(direction)
 @export var player_color: Color = Color.YELLOW
 @export_enum("MASKCACHO", "EL MASKADOR", "MASKERIÑO", "MASKALIENTE") var player_name: String = "MASKCACHO"
 @export var player_num = 0
+@export var base_sprite_sheet: Texture2D
 @export_group("Movement")
 @export var input_vector_deadzone : float = -1
 @export var move_speed : float = 500
@@ -53,11 +54,13 @@ var _is_boss = false
 @onready var player_indicator_sprite: Sprite2D = $PlayerIndicatorSprite
 @onready var belt: Belt = $"../Belt"
 @onready var knockout_minigame: KnockoutMinigame = $KnockoutMinigame
+@onready var the_mask_sprite_sheet: Texture2D = preload("res://art/player/the_mask_sprite_sheet.png")
 #endregion
 
 #region Event Methods
 func _ready():
 	sprite_2d.self_modulate = player_color
+	sprite_2d.texture = base_sprite_sheet
 	player_indicator_sprite.self_modulate = player_color
 	knockout_minigame.finished.connect(_on_knockout_minigame_finished)
 

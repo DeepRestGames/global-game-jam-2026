@@ -7,8 +7,8 @@ signal hit(force)
 signal knocked_back(force)
 signal knocked_out
 signal recovered
-signal upgraded
-signal downgraded
+signal upgraded(player)
+signal downgraded(player)
 #endregion
 #region Enums
 #endregion
@@ -20,6 +20,7 @@ signal downgraded
 #region @export Variables
 @export_group("General")
 @export var player_color: Color = Color.YELLOW
+@export_enum("MASKCACHO", "EL MASKADOR", "MASKERIÑO", "MASKALIENTE") var player_name: String = "MASKCACHO"
 @export var player_num = 0
 @export_group("Movement")
 @export var input_vector_deadzone : float = -1
@@ -33,7 +34,7 @@ signal downgraded
 @export_group("Boss Modifiers")
 @export var boss_size_factor = 1.7
 @export var boss_move_speed_factor = 0.5
-@export var boss_knockback_strength = 3000
+@export var boss_knockback_strength: float = 3000
 #endregion
 #region Regular Variables
 var _is_input_active: bool = true
@@ -121,7 +122,7 @@ func upgrade_player():
 	_is_boss = true
 	scale *= Vector2.ONE * boss_size_factor
 	move_speed *= boss_move_speed_factor
-	upgraded.emit()
+	upgraded.emit(self)
 
 
 func downgrade_player():
@@ -130,7 +131,7 @@ func downgrade_player():
 	_is_boss = false
 	scale /= Vector2.ONE * boss_size_factor
 	move_speed /= boss_move_speed_factor
-	downgraded.emit()
+	downgraded.emit(self)
 	
 	belt.position = position
 	belt.show()

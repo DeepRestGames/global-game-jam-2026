@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dtc744ifdyncd" path="res://art/mask-solid-full.svg" id="2_fcb3x"]
 [ext_resource type="Texture2D" uid="uid://daok2j868d14i" path="res://art/hand-fist-solid-full.svg" id="3_emvbc"]
 [ext_resource type="Texture2D" uid="uid://caslbj3lm1u2u" path="res://art/x-solid-full.svg" id="4_lvxji"]
-[ext_resource type="PackedScene" uid="uid://ha6xmy26ea2q" path="res://Scenes/knockout_minigame/knockout_minigame.tscn" id="5_p47bc"]
+[ext_resource type="PackedScene" uid="uid://ha6xmy26ea2q" path="res://scenes/knockout_minigame/knockout_minigame.tscn" id="5_p47bc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fcb3x"]
 radius = 40.0
@@ -13,7 +13,7 @@ height = 128.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_emvbc"]
 radius = 16.0
 
-[node name="Player" type="CharacterBody2D" unique_id=881583183]
+[node name="Player" type="CharacterBody2D" unique_id=881583183 groups=["Player"]]
 process_mode = 1
 collision_mask = 2
 motion_mode = 1

@@ -30,6 +30,7 @@ var screenshake_amount: float
 
 #region Event Methods
 func _ready() -> void:
+	GameManager.register_player_signals()
 	players.append_array(find_children("*", "Player", false))
 	
 	for player in players:

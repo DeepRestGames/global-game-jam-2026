@@ -15,6 +15,7 @@ extends CharacterBody2D
 @export var player_num = 0
 @export var move_speed : float = 500
 @export var attack_radius: float = 100
+@export var hit_timer: float = 0.2
 @export var knockback_strength: float = 100
 @export var knockback_falloff: float = 0.75
 @export var input_vector_deadzone : float = -1;
@@ -47,13 +48,14 @@ func _unhandled_input(event: InputEvent) -> void:
 	
 	if event.is_action_pressed("attack_action" + str(player_num)):
 		attack_area_collision.disabled = false
+		await get_tree().create_timer(hit_timer, false, true, false).timeout
+		attack_area_collision.set_deferred("disabled", true)
 #endregion
 #region Signal Handlers
 func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body is Player:
 		var direction = (attack_area.global_position - global_position).normalized()
 		body.get_hit(direction)
-	attack_area_collision.set_deferred("disabled", true)
 #endregion
 #region Regular Methods
 func get_hit(direction):
@@ -79,4 +81,5 @@ func _handle_knockback(delta):
 	_knockback_direction *= knockback_falloff
 	if is_zero_approx(velocity.length()):
 		_knockback_direction = Vector2.ZERO
+		_is_stunned = false
 #endregion

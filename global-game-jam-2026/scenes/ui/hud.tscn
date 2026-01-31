@@ -1,0 +1,377 @@
+[gd_scene format=3 uid="uid://d1kwjvqdg8us3"]
+
+[ext_resource type="Script" uid="uid://bh33c3dtsvlei" path="res://scripts/ui/hud_corner.gd" id="1_5ysmq"]
+[ext_resource type="Script" uid="uid://cxvulddac3dpg" path="res://scripts/ui/join_corner.gd" id="1_6fi6k"]
+[ext_resource type="Texture2D" uid="uid://dk4e3hqpaq5ds" path="res://art/kenney_input_prompts/flair_circle_0.png" id="1_oo0fn"]
+[ext_resource type="Texture2D" uid="uid://5jpk2ikkj057" path="res://art/kenney_input_prompts/flair_circle_8.png" id="2_5ysmq"]
+[ext_resource type="PackedScene" uid="uid://bf403c82bgphu" path="res://scenes/ui/join_dialogue.tscn" id="2_oj5la"]
+[ext_resource type="FontFile" uid="uid://dm6lltnyidosy" path="res://art/Sancreek-Regular.ttf" id="4_oj5la"]
+[ext_resource type="Texture2D" uid="uid://dd36teilvjpxd" path="res://art/mask_ui/maskchacho_icon.png" id="5_4jqwt"]
+[ext_resource type="FontFile" uid="uid://i1bt8t87wphx" path="res://art/Dotrice-Regular.otf" id="7_gss2c"]
+[ext_resource type="Texture2D" uid="uid://4dmy5nplogyx" path="res://art/mask_ui/maskador.png" id="9_kicr4"]
+[ext_resource type="Texture2D" uid="uid://duiioxf7cicy3" path="res://art/mask_ui/maskino.png" id="10_mj13f"]
+[ext_resource type="Texture2D" uid="uid://bty0bdsvs4gky" path="res://art/mask_ui/maskcaliente_icon.png" id="11_0h1do"]
+
+[node name="HUD" type="CanvasLayer" unique_id=1628968700]
+
+[node name="JoinDialogues" type="MarginContainer" parent="." unique_id=927844739]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="TopLeft" type="Control" parent="JoinDialogues" unique_id=1599680969 node_paths=PackedStringArray("hud")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_6fi6k")
+hud = NodePath("../../Ingame/TopLeft")
+
+[node name="JoinDialogue" parent="JoinDialogues/TopLeft" unique_id=675644655 instance=ExtResource("2_oj5la")]
+layout_mode = 1
+offset_right = 420.0
+offset_bottom = 300.0
+
+[node name="TopRight" type="Control" parent="JoinDialogues" unique_id=1047189444 node_paths=PackedStringArray("hud")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+script = ExtResource("1_6fi6k")
+hud = NodePath("../../Ingame/TopRight")
+player_id = 1
+
+[node name="JoinDialogue" parent="JoinDialogues/TopRight" unique_id=1852921260 instance=ExtResource("2_oj5la")]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -420.0
+offset_right = 0.0
+offset_bottom = 300.0
+grow_horizontal = 0
+
+[node name="BottomLeft" type="Control" parent="JoinDialogues" unique_id=2024643277 node_paths=PackedStringArray("hud")]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+script = ExtResource("1_6fi6k")
+hud = NodePath("../../Ingame/BottomLeft")
+player_id = 2
+
+[node name="JoinDialogue" parent="JoinDialogues/BottomLeft" unique_id=321962010 instance=ExtResource("2_oj5la")]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -300.0
+offset_right = 420.0
+offset_bottom = 0.0
+grow_vertical = 0
+
+[node name="BottomRight" type="Control" parent="JoinDialogues" unique_id=1468399472 node_paths=PackedStringArray("hud")]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("1_6fi6k")
+hud = NodePath("../../Ingame/BottomRight")
+player_id = 3
+
+[node name="JoinDialogue" parent="JoinDialogues/BottomRight" unique_id=1358907978 instance=ExtResource("2_oj5la")]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -420.0
+offset_top = -300.0
+offset_right = 0.0
+offset_bottom = 0.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Ingame" type="MarginContainer" parent="." unique_id=274198513]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_top = 32
+theme_override_constants/margin_bottom = 32
+
+[node name="TopLeft" type="Control" parent="Ingame" unique_id=1356286748]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_5ysmq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ingame/TopLeft" unique_id=320495813]
+layout_mode = 1
+offset_right = 420.0
+offset_bottom = 350.0
+
+[node name="Label" type="Label" parent="Ingame/TopLeft/VBoxContainer" unique_id=1153559865]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0.58431375, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_oj5la")
+theme_override_font_sizes/font_size = 64
+text = "MASKCACHO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Ingame/TopLeft/VBoxContainer" unique_id=209840904]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Ingame/TopLeft/VBoxContainer/AspectRatioContainer" unique_id=1969991329]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="TextureRect" type="TextureRect" parent="Ingame/TopLeft/VBoxContainer/AspectRatioContainer/MarginContainer" unique_id=265872735]
+show_behind_parent = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+texture = ExtResource("5_4jqwt")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Ingame/TopLeft/VBoxContainer/AspectRatioContainer" unique_id=2137161769]
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("1_oo0fn")
+texture_progress = ExtResource("2_5ysmq")
+tint_progress = Color(0, 0.58431375, 1, 1)
+
+[node name="Label" type="Label" parent="Ingame/TopLeft/VBoxContainer/AspectRatioContainer" unique_id=282799814]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1.0618497, 0.2880992, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("7_gss2c")
+theme_override_font_sizes/font_size = 48
+text = " K.O."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TopRight" type="Control" parent="Ingame" unique_id=1542103471]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+script = ExtResource("1_5ysmq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ingame/TopRight" unique_id=83839169]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -420.0
+offset_bottom = 350.0
+grow_horizontal = 0
+
+[node name="Label" type="Label" parent="Ingame/TopRight/VBoxContainer" unique_id=1693129132]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.5058824, 0.011764706, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_oj5la")
+theme_override_font_sizes/font_size = 64
+text = "EL MASKADOR"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Ingame/TopRight/VBoxContainer" unique_id=1454101626]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Ingame/TopRight/VBoxContainer/AspectRatioContainer" unique_id=675301069]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="TextureRect" type="TextureRect" parent="Ingame/TopRight/VBoxContainer/AspectRatioContainer/MarginContainer" unique_id=1152110410]
+show_behind_parent = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+texture = ExtResource("9_kicr4")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Ingame/TopRight/VBoxContainer/AspectRatioContainer" unique_id=161351685]
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("1_oo0fn")
+texture_progress = ExtResource("2_5ysmq")
+tint_progress = Color(1, 0.5058824, 0.011764706, 1)
+
+[node name="Label" type="Label" parent="Ingame/TopRight/VBoxContainer/AspectRatioContainer" unique_id=1755921096]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1.0618497, 0.2880992, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("7_gss2c")
+theme_override_font_sizes/font_size = 48
+text = " K.O."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomLeft" type="Control" parent="Ingame" unique_id=1663329633]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+script = ExtResource("1_5ysmq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ingame/BottomLeft" unique_id=743827087]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_top = -350.0
+offset_right = 420.0
+grow_vertical = 0
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Ingame/BottomLeft/VBoxContainer" unique_id=464668062]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Ingame/BottomLeft/VBoxContainer/AspectRatioContainer" unique_id=623822207]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="TextureRect" type="TextureRect" parent="Ingame/BottomLeft/VBoxContainer/AspectRatioContainer/MarginContainer" unique_id=2035860087]
+show_behind_parent = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+texture = ExtResource("10_mj13f")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Ingame/BottomLeft/VBoxContainer/AspectRatioContainer" unique_id=1846794973]
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("1_oo0fn")
+texture_progress = ExtResource("2_5ysmq")
+
+[node name="Label" type="Label" parent="Ingame/BottomLeft/VBoxContainer/AspectRatioContainer" unique_id=2021593040]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1.0618497, 0.2880992, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("7_gss2c")
+theme_override_font_sizes/font_size = 48
+text = " K.O."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Ingame/BottomLeft/VBoxContainer" unique_id=767647563]
+layout_mode = 2
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_oj5la")
+theme_override_font_sizes/font_size = 64
+text = "MASKERIÑO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BottomRight" type="Control" parent="Ingame" unique_id=734549407]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+script = ExtResource("1_5ysmq")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ingame/BottomRight" unique_id=1678295774]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -420.0
+offset_top = -350.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="AspectRatioContainer" type="AspectRatioContainer" parent="Ingame/BottomRight/VBoxContainer" unique_id=1703660004]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="Ingame/BottomRight/VBoxContainer/AspectRatioContainer" unique_id=524164749]
+layout_mode = 2
+theme_override_constants/margin_left = 80
+theme_override_constants/margin_top = 80
+theme_override_constants/margin_right = 80
+theme_override_constants/margin_bottom = 80
+
+[node name="TextureRect" type="TextureRect" parent="Ingame/BottomRight/VBoxContainer/AspectRatioContainer/MarginContainer" unique_id=1217397228]
+show_behind_parent = true
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 3
+texture = ExtResource("11_0h1do")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="Ingame/BottomRight/VBoxContainer/AspectRatioContainer" unique_id=1598863322]
+layout_mode = 2
+size_flags_vertical = 3
+value = 100.0
+fill_mode = 4
+nine_patch_stretch = true
+texture_under = ExtResource("1_oo0fn")
+texture_progress = ExtResource("2_5ysmq")
+tint_progress = Color(0.5882353, 0.33333334, 0.7647059, 1)
+
+[node name="Label" type="Label" parent="Ingame/BottomRight/VBoxContainer/AspectRatioContainer" unique_id=2115470805]
+visible = false
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_colors/font_color = Color(1.0618497, 0.2880992, 0, 1)
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_fonts/font = ExtResource("7_gss2c")
+theme_override_font_sizes/font_size = 48
+text = " K.O."
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Label" type="Label" parent="Ingame/BottomRight/VBoxContainer" unique_id=1748866779]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.5882353, 0.33333334, 0.7647059, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("4_oj5la")
+theme_override_font_sizes/font_size = 64
+text = "MASKALIENTE"
+horizontal_alignment = 1
+vertical_alignment = 1

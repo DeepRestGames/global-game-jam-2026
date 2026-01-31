@@ -5,7 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://byi1ojixdhjxs" path="res://art/player/base_character_sprite_sheet.png" id="2_lvxji"]
 [ext_resource type="Texture2D" uid="uid://daok2j868d14i" path="res://art/hand-fist-solid-full.svg" id="3_emvbc"]
 [ext_resource type="Texture2D" uid="uid://caslbj3lm1u2u" path="res://art/x-solid-full.svg" id="4_lvxji"]
-[ext_resource type="PackedScene" uid="uid://ha6xmy26ea2q" path="res://Scenes/knockout_minigame/knockout_minigame.tscn" id="5_p47bc"]
+[ext_resource type="PackedScene" uid="uid://ha6xmy26ea2q" path="res://scenes/knockout_minigame/knockout_minigame.tscn" id="5_p47bc"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fcb3x"]
 radius = 27.0

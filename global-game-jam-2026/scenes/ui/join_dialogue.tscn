@@ -1,0 +1,37 @@
+[gd_scene format=3 uid="uid://bf403c82bgphu"]
+
+[ext_resource type="Texture2D" uid="uid://du3iclq3g7sl7" path="res://art/join_game_icon.png" id="1_1s3jg"]
+[ext_resource type="FontFile" uid="uid://dm6lltnyidosy" path="res://art/Sancreek-Regular.ttf" id="1_kivds"]
+
+[node name="JoinDialogue" type="VBoxContainer" unique_id=675644655]
+offset_right = 340.0
+offset_bottom = 500.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="TopLeft" type="Label" parent="." unique_id=294474234]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_kivds")
+theme_override_font_sizes/font_size = 64
+text = "PRESS"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1299395426]
+layout_mode = 2
+size_flags_vertical = 3
+texture = ExtResource("1_1s3jg")
+expand_mode = 2
+stretch_mode = 5
+
+[node name="TopLeft2" type="Label" parent="." unique_id=727993467]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("1_kivds")
+theme_override_font_sizes/font_size = 64
+text = "TO JOIN!"
+horizontal_alignment = 1
+vertical_alignment = 1

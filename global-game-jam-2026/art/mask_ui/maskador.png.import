@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3y7tynsudfb4"
-path="res://.godot/imported/arena_background.png-65042d782085968208707612c9ace601.ctex"
+uid="uid://4dmy5nplogyx"
+path="res://.godot/imported/maskador.png-656c48797dd981f41c3bcce875a08b6d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/arena_background.png"
-dest_files=["res://.godot/imported/arena_background.png-65042d782085968208707612c9ace601.ctex"]
+source_file="res://art/mask_ui/maskador.png"
+dest_files=["res://.godot/imported/maskador.png-656c48797dd981f41c3bcce875a08b6d.ctex"]
 
 [params]
 

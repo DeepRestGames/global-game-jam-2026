@@ -1,21 +1,38 @@
-[gd_scene format=3 uid="uid://coom4byisda41"]
+[gd_scene format=3 uid="uid://b36wdrqemc1e"]
 
-[ext_resource type="Script" uid="uid://cfk4oc8p6k25k" path="res://scripts/player/player.gd" id="1_h54ih"]
-[ext_resource type="Texture2D" uid="uid://buspm1155yp47" path="res://icon.svg" id="1_s0eop"]
-[ext_resource type="Script" uid="uid://cvomp0auuytee" path="res://scripts/player/player_input.gd" id="2_ft8w5"]
+[ext_resource type="Script" uid="uid://b17x6sqwu013f" path="res://scripts/player/player.gd" id="1_sjcu7"]
+[ext_resource type="Texture2D" uid="uid://dtc744ifdyncd" path="res://art/mask-solid-full.svg" id="2_fcb3x"]
+[ext_resource type="Texture2D" uid="uid://daok2j868d14i" path="res://art/hand-fist-solid-full.svg" id="3_emvbc"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ft8w5"]
-radius = 13.0
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fcb3x"]
+radius = 40.0
+height = 128.0
 
-[node name="Player" type="CharacterBody2D" unique_id=146036831]
-script = ExtResource("1_h54ih")
+[sub_resource type="CircleShape2D" id="CircleShape2D_emvbc"]
+radius = 16.0
 
-[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1522911389]
-scale = Vector2(0.234375, 0.234375)
-texture = ExtResource("1_s0eop")
+[node name="Player" type="CharacterBody2D" unique_id=881583183]
+motion_mode = 1
+script = ExtResource("1_sjcu7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=451729393]
-shape = SubResource("CapsuleShape2D_ft8w5")
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1023717745]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_fcb3x")
 
-[node name="PlayerInput" type="Node2D" parent="." unique_id=94998574]
-script = ExtResource("2_ft8w5")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1765045839]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_fcb3x")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1992181612]
+collision_layer = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="AttackArea" unique_id=344514588]
+scale = Vector2(0.05, 0.05)
+texture = ExtResource("3_emvbc")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=260382679]
+shape = SubResource("CircleShape2D_emvbc")
+disabled = true
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

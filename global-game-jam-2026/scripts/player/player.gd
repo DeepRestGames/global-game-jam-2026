@@ -12,9 +12,10 @@ extends CharacterBody2D
 #endregion
 #region @export Variables
 @export var player_color: Color = Color.YELLOW
+@export var player_num = 0
 @export var move_speed : float = 500
 @export var attack_radius: float = 100
-@export var knockback_strength: float = 4000
+@export var knockback_strength: float = 100
 @export var knockback_falloff: float = 0.75
 @export var input_vector_deadzone : float = -1;
 @export var is_player_dummy = false
@@ -25,7 +26,7 @@ var _knockback_direction = Vector2.ZERO
 #endregion
 #region @onready Variables
 @onready var sprite_2d: Sprite2D = $Sprite2D
-@onready var attack_area: AttackArea = $AttackArea
+@onready var attack_area: Area2D = $AttackArea
 @onready var attack_area_collision: CollisionShape2D = $AttackArea/CollisionShape2D
 #endregion
 
@@ -34,17 +35,17 @@ func _ready():
 	sprite_2d.self_modulate = player_color
 
 
-func _physics_process(_delta):
+func _physics_process(delta):
 	velocity = Vector2.ZERO
 	_handle_movement()
-	_handle_knockback()
+	_handle_knockback(delta)
 	move_and_slide()
 
 
 func _unhandled_input(event: InputEvent) -> void:
 	if is_player_dummy: return
 	
-	if event.is_action_pressed("attack_action"):
+	if event.is_action_pressed("attack_action" + str(player_num)):
 		attack_area_collision.disabled = false
 #endregion
 #region Signal Handlers
@@ -61,7 +62,8 @@ func get_hit(direction):
 	_knockback_direction = direction
 
 func _handle_movement():
-	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down", input_vector_deadzone)
+	var input_vector = Input.get_vector("move_left" + str(player_num), \
+		"move_right" + str(player_num), "move_up" + str(player_num), "move_down" + str(player_num), input_vector_deadzone)
 	if !is_player_dummy and input_vector != Vector2.ZERO:
 		attack_area.position = input_vector.normalized() * attack_radius
 
@@ -69,10 +71,10 @@ func _handle_movement():
 		velocity = input_vector * move_speed
 	
 	
-func _handle_knockback():
+func _handle_knockback(delta):
 	if _knockback_direction == Vector2.ZERO: return
 	
-	velocity += _knockback_direction * knockback_strength
+	velocity += _knockback_direction * knockback_strength * 1 / delta
 
 	_knockback_direction *= knockback_falloff
 	if is_zero_approx(velocity.length()):

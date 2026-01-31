@@ -13,12 +13,14 @@ extends CharacterBody2D
 @export var player_color: Color = Color.YELLOW
 @export var move_speed : float = 500
 @export var attack_radius: float = 100
-@export var knockback_strength: float = 25
+@export var knockback_strength: float = 4000
+@export var knockback_falloff: float = 0.75
 @export var input_vector_deadzone : float = -1;
 @export var is_player_dummy = false
 #endregion
 #region Regular Variables
 var _is_stunned = false
+var _knockback_direction = Vector2.ZERO
 #endregion
 #region @onready Variables
 @onready var sprite_2d: Sprite2D = $Sprite2D
@@ -31,8 +33,11 @@ func _ready():
 	sprite_2d.self_modulate = player_color
 
 
-func _physics_process(delta):
-	_move(delta)
+func _physics_process(_delta):
+	velocity = Vector2.ZERO
+	_handle_movement()
+	_handle_knockback()
+	move_and_slide()
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -52,16 +57,23 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 func get_hit(direction):
 	print("%s got hit" % self)
 	_is_stunned = true
-	velocity += direction * knockback_strength
+	_knockback_direction = direction
 
-func _move(delta):
+func _handle_movement():
+	var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down", input_vector_deadzone)
+	if !is_player_dummy and input_vector != Vector2.ZERO:
+		attack_area.position = input_vector.normalized() * attack_radius
+
 	if !is_player_dummy and !_is_stunned:
-		var input_vector = Input.get_vector("move_left", "move_right", "move_up", "move_down", input_vector_deadzone)
-		if input_vector != Vector2.ZERO:
-			attack_area.position = input_vector.normalized() * attack_radius
-		
 		velocity = input_vector * move_speed
 	
-	move_and_slide()
+	
+func _handle_knockback():
+	if _knockback_direction == Vector2.ZERO: return
+	
+	velocity += _knockback_direction * knockback_strength
 
+	_knockback_direction *= knockback_falloff
+	if is_zero_approx(velocity.length()):
+		_knockback_direction = Vector2.ZERO
 #endregion

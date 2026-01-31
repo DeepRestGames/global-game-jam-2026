@@ -5,9 +5,9 @@
 [node name="SampleScene" type="Node2D" unique_id=1544376465]
 
 [node name="Player" parent="." unique_id=881583183 instance=ExtResource("1_tvwqd")]
-position = Vector2(335, 205)
+position = Vector2(128, 104)
 
 [node name="Player2" parent="." unique_id=251274839 instance=ExtResource("1_tvwqd")]
-position = Vector2(896, 405)
+position = Vector2(384, 224)
 player_color = Color(0.6901961, 0.050980393, 0, 1)
 is_player_dummy = true

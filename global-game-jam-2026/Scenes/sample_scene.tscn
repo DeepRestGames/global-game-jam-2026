@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dwhiw1sduma0r"]
+[gd_scene format=3 uid="uid://c5sc6e8hv3flr"]
 
 [ext_resource type="Texture2D" uid="uid://buspm1155yp47" path="res://icon.svg" id="1_70445"]
-[ext_resource type="PackedScene" uid="uid://coom4byisda41" path="res://scenes/player/player.tscn" id="2_7kit5"]
+[ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://scenes/player/player.tscn" id="2_38pct"]
 
 [node name="SampleScene" type="Node2D" unique_id=1544376465]
 
@@ -10,15 +10,23 @@ modulate = Color(0.4, 0.4, 0.4, 0.5529412)
 scale = Vector2(20, 20)
 texture = ExtResource("1_70445")
 
-[node name="Player0" parent="." unique_id=146036831 instance=ExtResource("2_7kit5")]
-
-[node name="Player1" parent="." unique_id=363418262 instance=ExtResource("2_7kit5")]
-
-[node name="PlayerInput" parent="Player1" index="2" unique_id=94998574]
-player_num = 1
-
 [node name="Camera2D" type="Camera2D" parent="." unique_id=176100196]
 zoom = Vector2(0.8, 0.8)
 
-[editable path="Player0"]
-[editable path="Player1"]
+[node name="Player" parent="." unique_id=881583183 instance=ExtResource("2_38pct")]
+position = Vector2(-512, -256)
+
+[node name="Player2" parent="." unique_id=63641260 instance=ExtResource("2_38pct")]
+position = Vector2(456, -256)
+player_color = Color(1, 0, 0, 1)
+player_num = 1
+
+[node name="Player3" parent="." unique_id=1475331433 instance=ExtResource("2_38pct")]
+position = Vector2(-512, 128)
+player_color = Color(0, 0, 0.8745098, 1)
+player_num = 2
+
+[node name="Player4" parent="." unique_id=870554375 instance=ExtResource("2_38pct")]
+position = Vector2(456, 128)
+player_color = Color(0.039215688, 1, 0, 1)
+player_num = 3

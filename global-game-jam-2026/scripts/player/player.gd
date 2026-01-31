@@ -1,25 +1,82 @@
+class_name Player
 extends CharacterBody2D
 
+#region Signals
+#endregion
+#region Enums
+#endregion
+#region Constants
 
-const SPEED = 300.0
-const JUMP_VELOCITY = -400.0
+#endregion
+#region Static Variables
+#endregion
+#region @export Variables
+@export var player_color: Color = Color.YELLOW
+@export var player_num = 0
+@export var move_speed : float = 500
+@export var attack_radius: float = 100
+@export var knockback_strength: float = 100
+@export var knockback_falloff: float = 0.75
+@export var input_vector_deadzone : float = -1;
+@export var is_player_dummy = false
+#endregion
+#region Regular Variables
+var _is_stunned = false
+var _knockback_direction = Vector2.ZERO
+#endregion
+#region @onready Variables
+@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var attack_area: Area2D = $AttackArea
+@onready var attack_area_collision: CollisionShape2D = $AttackArea/CollisionShape2D
+#endregion
+
+#region Event Methods
+func _ready():
+	sprite_2d.self_modulate = player_color
 
 
-@onready var player_input = $PlayerInput
-
-
-func _ready() -> void:
-	player_input.connect("player_movement", player_movement)
-	player_input.connect("player_punch", player_punch)
-
-
-func player_movement(movement_direction: Vector2) -> void:
-	velocity = movement_direction * SPEED
-
-
-func player_punch() -> void:
-	print("Player punch!")
-
-
-func _physics_process(delta: float) -> void:
+func _physics_process(delta):
+	velocity = Vector2.ZERO
+	_handle_movement()
+	_handle_knockback(delta)
 	move_and_slide()
+
+
+func _unhandled_input(event: InputEvent) -> void:
+	if is_player_dummy: return
+	
+	if event.is_action_pressed("attack_action" + str(player_num)):
+		attack_area_collision.disabled = false
+#endregion
+#region Signal Handlers
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body is Player:
+		var direction = (attack_area.global_position - global_position).normalized()
+		body.get_hit(direction)
+	attack_area_collision.set_deferred("disabled", true)
+#endregion
+#region Regular Methods
+func get_hit(direction):
+	print("%s got hit" % self)
+	_is_stunned = true
+	_knockback_direction = direction
+
+func _handle_movement():
+	var input_vector = Input.get_vector("move_left" + str(player_num), \
+		"move_right" + str(player_num), "move_up" + str(player_num), "move_down" + str(player_num), input_vector_deadzone)
+	if !is_player_dummy and input_vector != Vector2.ZERO:
+		attack_area.position = input_vector.normalized() * attack_radius
+
+	if !is_player_dummy and !_is_stunned:
+		velocity = input_vector * move_speed
+	
+	
+func _handle_knockback(delta):
+	if _knockback_direction == Vector2.ZERO: return
+	
+	velocity += _knockback_direction * knockback_strength * 1 / delta
+
+	_knockback_direction *= knockback_falloff
+	if is_zero_approx(velocity.length()):
+		_knockback_direction = Vector2.ZERO
+#endregion

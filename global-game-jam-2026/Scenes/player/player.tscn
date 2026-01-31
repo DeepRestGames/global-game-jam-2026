@@ -27,6 +27,7 @@ shape = SubResource("CapsuleShape2D_fcb3x")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1992181612]
 collision_layer = 0
+monitorable = false
 
 [node name="Sprite2D" type="Sprite2D" parent="AttackArea" unique_id=344514588]
 scale = Vector2(0.05, 0.05)

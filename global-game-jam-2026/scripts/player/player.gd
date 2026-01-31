@@ -69,16 +69,13 @@ func _unhandled_input(event: InputEvent) -> void:
 #endregion
 #region Signal Handlers
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body is Player and body != self:
-		var direction = (attack_area.global_position - global_position).normalized()
-		hit.emit(direction)
-		body.get_hit(direction)
+	if body is not Player or body == self: return
+	
+	var direction = (attack_area.global_position - global_position).normalized()
+	hit.emit(direction)
+	body.get_hit(direction)
 #endregion
 #region Regular Methods
-func set_input_active(value: bool):
-	_is_input_active = value
-
-
 func get_hit(direction):
 	knocked_back.emit(direction)
 	_is_stunned = true

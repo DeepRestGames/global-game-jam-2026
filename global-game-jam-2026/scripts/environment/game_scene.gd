@@ -10,10 +10,11 @@ extends Node2D
 #region Static Variables
 #endregion
 #region @export Variables
-@export var charge_attack_freeze_frame_duration: float = 0.5
-@export var charge_attack_freeze_frame_screenshake_amount: float = 0.5
-@export var charge_attack_freeze_frame_screenshake_interval: float = 0.05
-@export var charge_attack_screenshake_amount: float = 20
+@export var normal_attack_screenshake_amount: float = 10
+@export var heavy_attack_freeze_frame_duration: float = 0.5
+@export var heavy_attack_freeze_frame_screenshake_amount: float = 5
+@export var heavy_attack_freeze_frame_screenshake_interval: float = 0.05
+@export var heavy_attack_screenshake_amount: float = 20
 #endregion
 #region Regular Variables
 var players: Array
@@ -36,9 +37,12 @@ func _ready() -> void:
 #endregion
 #region Signal Handlers
 func _on_player_knocked_back(direction: Vector2):
-	freeze_frame(charge_attack_freeze_frame_duration)
-	screenshake_dir = direction.normalized()
-	screenshake_amount = charge_attack_screenshake_amount
+	camera_2d.shake(direction.normalized(), normal_attack_screenshake_amount)
+	
+	# TODO: do these on heavy knockback
+	#freeze_frame(heavy_attack_freeze_frame_duration)
+	#screenshake_dir = direction.normalized()
+	#screenshake_amount = heavy_attack_screenshake_amount
 
 
 func _on_freeze_frame_timer_timeout() -> void:
@@ -59,13 +63,8 @@ func freeze_frame(duration: float):
 	get_tree().paused = true
 	freeze_frame_tween = create_tween()
 	freeze_frame_tween.set_loops()
-	freeze_frame_tween.tween_callback(camera_2d.shake.bind(Vector2.ZERO, charge_attack_freeze_frame_screenshake_amount))
-	freeze_frame_tween.tween_interval(charge_attack_freeze_frame_screenshake_interval)
+	freeze_frame_tween.tween_callback(camera_2d.shake.bind(Vector2.ZERO, heavy_attack_freeze_frame_screenshake_amount))
+	freeze_frame_tween.tween_interval(heavy_attack_freeze_frame_screenshake_interval)
 	
 	freeze_frame_timer.start(duration)
-
-
-func _set_player_input_active(value: bool):
-	for player in players:
-		player.set_input_active(value)
 #endregion

@@ -21,13 +21,13 @@ signal recovered
 @export var move_speed : float = 500
 @export var attack_radius: float = 100
 @export var hit_timer: float = 0.2
-@export var knockback_strength: float = 40
-@export var knockback_falloff: float = 0.75
+@export var knockback_strength: float = 500
+@export var knockback_falloff: float = 0.0001
 @export var knocked_out_duration: float = 2
 @export var input_vector_deadzone : float = -1
-@export var is_player_dummy = false
 #endregion
 #region Regular Variables
+var _is_input_active: bool = true
 var _is_stunned = false:
 	set(value):
 		stun_indicator.visible = value
@@ -59,7 +59,7 @@ func _physics_process(delta):
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if is_player_dummy: return
+	if not _is_input_active: return
 	
 	if event.is_action_pressed("attack_action" + str(player_num)):
 		attack_area_collision.disabled = false
@@ -75,6 +75,10 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 		body.get_hit(direction)
 #endregion
 #region Regular Methods
+func set_input_active(value: bool):
+	_is_input_active = value
+
+
 func get_hit(direction):
 	knocked_back.emit(direction)
 	_is_stunned = true
@@ -93,21 +97,23 @@ func get_knocked_out():
 
 
 func _handle_movement():
+	if not _is_input_active: return
+	
 	var input_vector = Input.get_vector("move_left" + str(player_num), \
 		"move_right" + str(player_num), "move_up" + str(player_num), "move_down" + str(player_num), input_vector_deadzone)
-	if !is_player_dummy and input_vector != Vector2.ZERO:
+	if input_vector != Vector2.ZERO:
 		attack_area.position = input_vector.normalized() * attack_radius
 
-	if !is_player_dummy and !_is_stunned:
+	if !_is_stunned:
 		velocity = input_vector * move_speed
 
 
 func _handle_knockback(delta):
 	if _knockback_direction == Vector2.ZERO: return
 	
-	velocity += _knockback_direction * knockback_strength * 1 / delta
+	velocity += _knockback_direction * knockback_strength
 
-	_knockback_direction *= knockback_falloff
+	_knockback_direction *= pow(knockback_falloff, delta)
 	if is_zero_approx(velocity.length()):
 		_knockback_direction = Vector2.ZERO
 		_is_stunned = false

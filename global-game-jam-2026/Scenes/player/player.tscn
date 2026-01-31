@@ -13,6 +13,7 @@ height = 128.0
 radius = 16.0
 
 [node name="Player" type="CharacterBody2D" unique_id=881583183]
+process_mode = 1
 motion_mode = 1
 script = ExtResource("1_sjcu7")
 

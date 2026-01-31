@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://co0xlb5mcbjqu" path="res://scripts/environment/camera.gd" id="1_b6fju"]
 [ext_resource type="Script" uid="uid://bk3s2boednv7" path="res://scripts/environment/ring.gd" id="1_x87qo"]
+[ext_resource type="Texture2D" uid="uid://dgog2ix0inyea" path="res://art/arena_background.png" id="3_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://scenes/player/player.tscn" id="3_ycayy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oqyrl"]
@@ -15,26 +16,17 @@ normal = Vector2(0, 1)
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_6h5vk"]
 normal = Vector2(-1, 0)
 
-[sub_resource type="Gradient" id="Gradient_oqyrl"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 1, 1, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_x87qo"]
-gradient = SubResource("Gradient_oqyrl")
-width = 768
-height = 768
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oqyrl"]
-size = Vector2(8, 768)
+size = Vector2(4, 832)
 
-[sub_resource type="Gradient" id="Gradient_x87qo"]
-offsets = PackedFloat32Array(1)
-colors = PackedColorArray(1, 0, 0, 1)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bw6k5"]
+size = Vector2(6.000061, 1051.9999)
 
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_b6fju"]
-gradient = SubResource("Gradient_x87qo")
-width = 8
-height = 768
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y3j0m"]
+size = Vector2(4, 832)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rurhu"]
+size = Vector2(6.000061, 1051.9999)
 
 [node name="GameScene" type="Node2D" unique_id=2085927401]
 
@@ -44,61 +36,48 @@ script = ExtResource("1_b6fju")
 [node name="Ring" type="Node2D" parent="." unique_id=472433510]
 script = ExtResource("1_x87qo")
 
+[node name="Sprite2D" type="Sprite2D" parent="Ring" unique_id=1947900115]
+texture = ExtResource("3_bw6k5")
+
 [node name="StaticBody2D" type="StaticBody2D" parent="Ring" unique_id=1511064073]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ring/StaticBody2D" unique_id=431483282]
-position = Vector2(0, 384)
+position = Vector2(0, 416)
 shape = SubResource("WorldBoundaryShape2D_oqyrl")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Ring/StaticBody2D" unique_id=808203676]
-position = Vector2(-384, 0)
+position = Vector2(-528, 0)
 shape = SubResource("WorldBoundaryShape2D_x87qo")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Ring/StaticBody2D" unique_id=454886608]
-position = Vector2(0, -384)
+position = Vector2(0, -416)
 shape = SubResource("WorldBoundaryShape2D_b6fju")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Ring/StaticBody2D" unique_id=264058572]
-position = Vector2(384, 0)
+position = Vector2(528, 0)
 shape = SubResource("WorldBoundaryShape2D_6h5vk")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ring/StaticBody2D" unique_id=221755507]
-self_modulate = Color(0.65, 0.65, 0.65, 1)
-texture = SubResource("GradientTexture2D_x87qo")
 
 [node name="Border" type="Area2D" parent="Ring" unique_id=1450656480]
 collision_layer = 0
 monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ring/Border" unique_id=1571493907]
-position = Vector2(-380, 0)
+position = Vector2(-526, 0)
 shape = SubResource("RectangleShape2D_oqyrl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ring/Border/CollisionShape2D" unique_id=147197093]
-texture = SubResource("GradientTexture2D_b6fju")
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Ring/Border" unique_id=1576900950]
-position = Vector2(0, -380.00003)
+position = Vector2(-1.4901161e-08, -412.00003)
 rotation = 1.5703008
-shape = SubResource("RectangleShape2D_oqyrl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ring/Border/CollisionShape2D2" unique_id=568018190]
-texture = SubResource("GradientTexture2D_b6fju")
+shape = SubResource("RectangleShape2D_bw6k5")
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="Ring/Border" unique_id=1688141736]
-position = Vector2(380, 0)
-shape = SubResource("RectangleShape2D_oqyrl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ring/Border/CollisionShape2D3" unique_id=1543324892]
-texture = SubResource("GradientTexture2D_b6fju")
+position = Vector2(524, 0)
+shape = SubResource("RectangleShape2D_y3j0m")
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="Ring/Border" unique_id=542635168]
-position = Vector2(-1.4901161e-08, 379.99997)
+position = Vector2(-0.00049552444, 415.00003)
 rotation = 1.5703008
-shape = SubResource("RectangleShape2D_oqyrl")
-
-[node name="Sprite2D" type="Sprite2D" parent="Ring/Border/CollisionShape2D4" unique_id=1608770280]
-texture = SubResource("GradientTexture2D_b6fju")
+shape = SubResource("RectangleShape2D_rurhu")
 
 [node name="Player" parent="." unique_id=881583183 instance=ExtResource("3_ycayy")]
 position = Vector2(-192, -224)

@@ -16,7 +16,7 @@ extends CharacterBody2D
 @export var move_speed : float = 500
 @export var attack_radius: float = 100
 @export var hit_timer: float = 0.2
-@export var knockback_strength: float = 100
+@export var knockback_strength: float = 40
 @export var knockback_falloff: float = 0.75
 @export var input_vector_deadzone : float = -1;
 @export var is_player_dummy = false
@@ -28,6 +28,7 @@ var _knockback_direction = Vector2.ZERO
 #region @onready Variables
 @onready var sprite_2d: Sprite2D = $Sprite2D
 @onready var attack_area: Area2D = $AttackArea
+@onready var attack_area_sprite_2d: Sprite2D = $AttackArea/Sprite2D
 @onready var attack_area_collision: CollisionShape2D = $AttackArea/CollisionShape2D
 #endregion
 

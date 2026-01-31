@@ -12,11 +12,16 @@ signal update_engagement_value(engagement_value: float)
 #region Static Variables
 #endregion
 #region @export Variables
+
+@export var knockback_engagement_value: float = 0.2
+@export var knockout_engagement_value: float = 0.5
+
 #endregion
 #region Regular Variables
 
-var engagement_value: float = 0.0
-var max_engagement_value: float = 10.0
+var engagement_value: float = 0
+var min_engagement_value: float = 0.0
+var max_engagement_value: float = 8.0
 
 #endregion
 #region @onready Variables
@@ -28,15 +33,24 @@ var max_engagement_value: float = 10.0
 #endregion
 #region Regular Methods
 
-func _ready() -> void:
+
+func setup_players() -> void:
+	var players = get_tree().get_nodes_in_group("Player") as Array[Player]
+	for player in players:
+		player.knocked_back.connect(on_knockback.unbind(1))
+		player.knocked_out.connect(on_knockout.unbind(1))
+
+
+func on_knockback() -> void:
+	engagement_value += knockback_engagement_value
+	engagement_value = clampf(engagement_value, min_engagement_value, max_engagement_value)
 	emit_signal("update_engagement_value", engagement_value)
-	
-	# TODO Add connection to knockout, countdown and other signals that should generate a reaction in the crowd
 
 
 func on_knockout() -> void:
-	engagement_value += 5
-	engagement_value = clampf(engagement_value, 0.0, max_engagement_value)
+	engagement_value += knockout_engagement_value
+	engagement_value = clampf(engagement_value, min_engagement_value, max_engagement_value)
 	emit_signal("update_engagement_value", engagement_value)
+
 
 #endregion

@@ -22,5 +22,4 @@ func setup_multiplayer_input(player_count: int) -> void:
 			for event in range(actionEventList.size()):
 				currentEvent = actionEventList[event].duplicate(true)
 				currentEvent.set_device(player)
-				print(currentEvent.device)
 				InputMap.action_add_event(currentAction,currentEvent)

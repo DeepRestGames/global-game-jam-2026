@@ -10,6 +10,8 @@ signal recovered
 signal upgraded(player)
 signal downgraded(player)
 signal move(direction)
+signal knockout_minigame_setup(value: float)
+signal knockout_minigame_progress()
 #endregion
 #region Enums
 #endregion
@@ -32,13 +34,14 @@ signal move(direction)
 @export var knockback_strength: float = 1000
 @export var knockback_falloff: float = 0.0001
 @export var knocked_out_duration: float = 2
+@export var knockback_minigame_max: float = 10
 @export_group("Boss Modifiers")
 @export var boss_size_factor = 1.7
 @export var boss_move_speed_factor = 0.5
 @export var boss_knockback_strength: float = 3000
 #endregion
 #region Regular Variables
-var _is_input_active: bool = true
+var _is_joined: bool = false
 var _is_stunned = false
 var _is_knocked_out = false
 var _knockback_force = Vector2.ZERO
@@ -56,8 +59,6 @@ var _is_boss = false
 
 #region Event Methods
 func _ready():
-	sprite_2d.self_modulate = player_color
-	player_indicator_sprite.self_modulate = player_color
 	knockout_minigame.finished.connect(_on_knockout_minigame_finished)
 
 
@@ -69,10 +70,12 @@ func _physics_process(delta):
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	
+	if not _is_joined: return
+
 	if event.is_action_pressed("attack_action" + str(player_num)):
 		if _is_knocked_out:
 			knockout_minigame.increase_progress()
+			knockout_minigame_progress.emit()
 		elif !_is_stunned:
 			attack_area_collision.disabled = false
 			attacked.emit()
@@ -108,7 +111,8 @@ func get_knocked_out():
 	_knockback_force = Vector2.ZERO
 	_is_stunned = false
 	_is_knocked_out = true
-	knockout_minigame.setup(10)
+	knockout_minigame.setup(knockback_minigame_max)
+	knockout_minigame_setup.emit(knockback_minigame_max)
 	knocked_out.emit(_knockback_force)
 
 
@@ -134,8 +138,14 @@ func downgrade_player():
 	belt.handle_spawn_animation()
 
 
+func spawn_in():
+	_is_joined = true
+	sprite_2d.self_modulate = player_color
+	player_indicator_sprite.self_modulate = player_color
+
+
 func _handle_movement():
-	if not _is_input_active: return
+	if not _is_joined: return
 	
 	var input_vector = Input.get_vector("move_left" + str(player_num), \
 		"move_right" + str(player_num), "move_up" + str(player_num), "move_down" + str(player_num), input_vector_deadzone)

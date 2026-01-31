@@ -64,7 +64,6 @@ func on_animation_finished(animation_name) -> void:
 
 #endregion
 #region Regular Methods
-
 func _ready() -> void:
 	on_recovered()
 	

@@ -40,8 +40,6 @@ func _ready() -> void:
 
 
 func update_animation(engagement_value: float) -> void:
-	print(engagement_value)
-	
 	movement_cycle_duration_multiplier = randf_range(engagement_value - animation_cycle_duration_modifier, engagement_value + animation_cycle_duration_modifier)
 	movement_cycle_duration_multiplier = clampf(movement_cycle_duration_multiplier, 0.2, 10)
 

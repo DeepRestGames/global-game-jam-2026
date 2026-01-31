@@ -1,0 +1,150 @@
+[gd_scene format=3 uid="uid://c1auxea0b26xw"]
+
+[ext_resource type="Script" uid="uid://dxvvyfcxelp7f" path="res://Scenes/knockout_minigame/button_animation.gd" id="1_hiutc"]
+[ext_resource type="Texture2D" uid="uid://dyb24fuoim8yi" path="res://art/kenney_input_prompts/generic_button.png" id="2_mjfk2"]
+[ext_resource type="Texture2D" uid="uid://bkh15lbxk8ba2" path="res://art/kenney_input_prompts/generic_button_pressed.png" id="3_2x3j4"]
+[ext_resource type="Texture2D" uid="uid://4d00p44ruwpi" path="res://art/mash_button_icon.png" id="4_mjfk2"]
+
+[sub_resource type="Animation" id="Animation_mjfk2"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonIdle:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonPressed:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ButtonPressedCurlyLine:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_hiutc"]
+resource_name = "animate_button"
+length = 0.4
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ButtonIdle:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ButtonPressed:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ButtonPressedCurlyLine:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mjfk2"]
+_data = {
+&"RESET": SubResource("Animation_mjfk2"),
+&"animate_button": SubResource("Animation_hiutc")
+}
+
+[node name="ButtonAnimation" type="Control" unique_id=2014714988]
+layout_mode = 3
+anchors_preset = 0
+script = ExtResource("1_hiutc")
+
+[node name="ButtonIdle" type="TextureRect" parent="." unique_id=2100972110]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.000008
+offset_top = -84.00001
+offset_right = 78.99999
+offset_bottom = 43.999992
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.17453292
+texture = ExtResource("2_mjfk2")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ButtonPressed" type="TextureRect" parent="." unique_id=750327074]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -49.0
+offset_top = -84.0
+offset_right = 79.0
+offset_bottom = 44.0
+grow_horizontal = 2
+grow_vertical = 2
+rotation = 0.17453292
+texture = ExtResource("3_2x3j4")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ButtonPressedCurlyLine" type="TextureRect" parent="." unique_id=491988770]
+visible = false
+layout_mode = 0
+offset_left = -40.0
+offset_top = -69.0
+offset_right = 79.0
+offset_bottom = 14.0
+texture = ExtResource("4_mjfk2")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=329805606]
+libraries/ = SubResource("AnimationLibrary_mjfk2")
+autoplay = &"animate_button"

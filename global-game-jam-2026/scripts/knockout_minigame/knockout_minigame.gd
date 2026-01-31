@@ -26,12 +26,12 @@ signal finished
 func setup(max_value):
 	texture_progress_bar.value = 0
 	texture_progress_bar.max_value = max_value
-	show()
+	#show() # TODO removed temporarily, maybe re-added after playtest
 
 
 func increase_progress():
 	texture_progress_bar.value += 1
 	if texture_progress_bar.value >= texture_progress_bar.max_value:
 		finished.emit()
-		hide()
+		#hide() # TODO removed temporarily, maybe re-added after playtest
 #endregion

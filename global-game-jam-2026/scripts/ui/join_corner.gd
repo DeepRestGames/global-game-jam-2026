@@ -29,6 +29,9 @@ func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("attack_action" + str(player_id)):
 		hide()
 		hud.show()
+		var player = get_tree().get_nodes_in_group("Player").filter( \
+			func(x): return x.player_num == player_id)[0] as Player
+		player.spawn_in()
 #endregion
 #region Signal Handlers
 #endregion

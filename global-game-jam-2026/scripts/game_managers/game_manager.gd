@@ -27,11 +27,13 @@ func _ready() -> void:
 #region Signal Handlers
 func _on_player_knocked():
 	_knocked_players += 1
+	print(_knocked_players)
 	if _is_win_condition_active() and _current_boss_player != null: _trigger_win(_current_boss_player)
 
 
 func _on_player_recovered():
 	_knocked_players -= 1
+	print(_knocked_players)
 	if _is_countdown_active: _stop_win()
 #endregion
 #region Regular Methods

@@ -4,12 +4,14 @@
 [ext_resource type="Script" uid="uid://cxvulddac3dpg" path="res://scripts/ui/join_corner.gd" id="1_6fi6k"]
 [ext_resource type="Texture2D" uid="uid://dk4e3hqpaq5ds" path="res://art/kenney_input_prompts/flair_circle_0.png" id="1_oo0fn"]
 [ext_resource type="Texture2D" uid="uid://5jpk2ikkj057" path="res://art/kenney_input_prompts/flair_circle_8.png" id="2_5ysmq"]
-[ext_resource type="PackedScene" uid="uid://bf403c82bgphu" path="res://scenes/ui/join_dialogue.tscn" id="2_oj5la"]
+[ext_resource type="PackedScene" uid="uid://bf403c82bgphu" path="res://Scenes/ui/join_dialogue.tscn" id="2_oj5la"]
 [ext_resource type="FontFile" uid="uid://dm6lltnyidosy" path="res://art/Sancreek-Regular.ttf" id="4_oj5la"]
 [ext_resource type="Texture2D" uid="uid://dd36teilvjpxd" path="res://art/mask_ui/maskchacho_icon.png" id="5_4jqwt"]
 [ext_resource type="FontFile" uid="uid://i1bt8t87wphx" path="res://art/Dotrice-Regular.otf" id="7_gss2c"]
+[ext_resource type="Texture2D" uid="uid://dyb24fuoim8yi" path="res://art/kenney_input_prompts/generic_button.png" id="9_akapp"]
 [ext_resource type="Texture2D" uid="uid://4dmy5nplogyx" path="res://art/mask_ui/maskador.png" id="9_kicr4"]
 [ext_resource type="Texture2D" uid="uid://duiioxf7cicy3" path="res://art/mask_ui/maskino.png" id="10_mj13f"]
+[ext_resource type="Texture2D" uid="uid://bkh15lbxk8ba2" path="res://art/kenney_input_prompts/generic_button_pressed.png" id="10_neqsq"]
 [ext_resource type="Texture2D" uid="uid://bty0bdsvs4gky" path="res://art/mask_ui/maskcaliente_icon.png" id="11_0h1do"]
 
 [node name="HUD" type="CanvasLayer" unique_id=1628968700]
@@ -166,6 +168,50 @@ theme_override_font_sizes/font_size = 48
 text = " K.O."
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="ButtonAnimation" type="Control" parent="Ingame/TopLeft" unique_id=936289584]
+visible = false
+layout_mode = 1
+anchors_preset = 0
+offset_left = 326.0
+offset_top = 131.0
+offset_right = 326.0
+offset_bottom = 131.0
+
+[node name="ButtonIdle" type="TextureRect" parent="Ingame/TopLeft/ButtonAnimation" unique_id=1470247437]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -85.0
+offset_right = 126.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_akapp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="ButtonPressed" type="TextureRect" parent="Ingame/TopLeft/ButtonAnimation" unique_id=982588039]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -126.0
+offset_top = -85.0
+offset_right = 126.0
+offset_bottom = 85.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("10_neqsq")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="TopRight" type="Control" parent="Ingame" unique_id=1542103471]
 visible = false

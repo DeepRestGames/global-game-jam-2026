@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 GameManager="*uid://bfn7skaurg6tm"
 MultiplayerInputSetup="*uid://dvcqjb4y4x507"
+CrowdManager="*uid://d2nid8x5gsat3"
 
 [display]
 

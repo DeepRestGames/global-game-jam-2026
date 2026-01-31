@@ -9,6 +9,7 @@ signal knocked_out
 signal recovered
 signal upgraded(player)
 signal downgraded(player)
+signal move(direction)
 #endregion
 #region Enums
 #endregion
@@ -39,13 +40,7 @@ signal downgraded(player)
 #region Regular Variables
 var _is_input_active: bool = true
 var _is_stunned = false:
-	set(value):
-		stun_indicator.visible = value
-		_is_stunned = value
 var _is_knocked_out = false:
-	set(value):
-		stun_indicator.visible = value 
-		_is_knocked_out = value
 var _knockback_force = Vector2.ZERO
 var _is_boss = false
 #endregion
@@ -54,7 +49,7 @@ var _is_boss = false
 @onready var attack_area: Area2D = $AttackArea
 @onready var attack_area_sprite_2d: Sprite2D = $AttackArea/Sprite2D
 @onready var attack_area_collision: CollisionShape2D = $AttackArea/CollisionShape2D
-@onready var stun_indicator: Node2D = $StunIndicator
+@onready var player_indicator_sprite: Sprite2D = $PlayerIndicatorSprite
 @onready var belt: Belt = $"../Belt"
 @onready var knockout_minigame: KnockoutMinigame = $KnockoutMinigame
 #endregion
@@ -62,6 +57,7 @@ var _is_boss = false
 #region Event Methods
 func _ready():
 	sprite_2d.self_modulate = player_color
+	player_indicator_sprite.self_modulate = player_color
 	knockout_minigame.finished.connect(_on_knockout_minigame_finished)
 
 
@@ -145,9 +141,13 @@ func _handle_movement():
 		"move_right" + str(player_num), "move_up" + str(player_num), "move_down" + str(player_num), input_vector_deadzone)
 	if input_vector != Vector2.ZERO:
 		attack_area.position = input_vector.normalized() * attack_radius
+		player_indicator_sprite.rotation = input_vector.angle()
 
 	if !_is_stunned and !_is_knocked_out:
 		velocity = input_vector * move_speed
+	
+	if velocity != Vector2.ZERO:
+		move.emit(velocity)
 
 
 func _handle_knockback(delta):

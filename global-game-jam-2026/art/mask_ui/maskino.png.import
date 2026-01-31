@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c3y7tynsudfb4"
-path="res://.godot/imported/arena_background.png-65042d782085968208707612c9ace601.ctex"
+uid="uid://duiioxf7cicy3"
+path="res://.godot/imported/maskino.png-d48bc009bef81342b3c8ed68d111c59f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/arena_background.png"
-dest_files=["res://.godot/imported/arena_background.png-65042d782085968208707612c9ace601.ctex"]
+source_file="res://art/mask_ui/maskino.png"
+dest_files=["res://.godot/imported/maskino.png-d48bc009bef81342b3c8ed68d111c59f.ctex"]
 
 [params]
 

@@ -49,7 +49,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(7, 4)]
+"values": [Vector2(7, -32)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -661,7 +661,7 @@ texture = ExtResource("2_75vfm")
 offset = Vector2(9.5, 0)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1023717745]
-position = Vector2(7, 4)
+position = Vector2(7, -32)
 texture = ExtResource("2_lvxji")
 region_enabled = true
 region_rect = Rect2(48, 45, 79, 95)

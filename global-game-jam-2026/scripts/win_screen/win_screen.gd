@@ -50,5 +50,6 @@ func stop_countdown():
 
 func show_menu():
 	player_name.text = _winning_player.player_name
+	player_name.modulate = _winning_player.player_color
 	menu.show()
 #endregion

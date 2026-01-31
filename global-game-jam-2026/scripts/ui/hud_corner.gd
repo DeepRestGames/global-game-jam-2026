@@ -17,6 +17,7 @@ var player: Player
 #endregion
 #region @onready Variables
 @onready var texture_progress_bar: TextureProgressBar = $VBoxContainer/AspectRatioContainer/TextureProgressBar
+@onready var button_animation: ButtonAnimation = $ButtonAnimation
 #endregion
 
 #region Event Methods
@@ -25,15 +26,20 @@ func _ready():
 		func(x): return x.player_num == player_id)[0] as Player
 	player.knockout_minigame_setup.connect(_on_player_knockout_minigame_setup)
 	player.knockout_minigame_progress.connect(_on_player_knockout_minigame_progress)
+	player.recovered.connect(_on_player_recovered)
 #endregion
 #region Signal Handlers
 func _on_player_knockout_minigame_setup(max_value):
 	texture_progress_bar.value = 0
 	texture_progress_bar.max_value = max_value
+	button_animation.show()
 
 
 func _on_player_knockout_minigame_progress():
 	texture_progress_bar.value += 1
+
+func _on_player_recovered():
+	button_animation.hide()
 #endregion
 #region Regular Methods
 #endregion

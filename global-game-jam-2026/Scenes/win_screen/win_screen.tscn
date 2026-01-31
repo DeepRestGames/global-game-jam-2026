@@ -168,16 +168,19 @@ layout_mode = 2
 [node name="PlayerName" type="Label" parent="Menu/MarginContainer/BoxContainer" unique_id=1059208635]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("3_sqnk6")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/font_size = 80
 text = "<PLAYER_NAME>"
 
 [node name="WinningText" type="Label" parent="Menu/MarginContainer/BoxContainer" unique_id=1071150358]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("3_sqnk6")
-theme_override_font_sizes/font_size = 48
-text = "IS THE REAL LUCHA LIBRE!"
+theme_override_font_sizes/font_size = 44
+text = "King de los Luchadores"
+horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/MarginContainer/BoxContainer" unique_id=352268510]
 layout_mode = 2
@@ -191,12 +194,14 @@ theme_override_constants/separation = 8
 
 [node name="RestartGame" type="Button" parent="Menu/MarginContainer/BoxContainer/MarginContainer/Menu" unique_id=1266303314]
 layout_mode = 2
+theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("3_sqnk6")
 theme_override_font_sizes/font_size = 32
 text = "RESTART GAME"
 
 [node name="MainMenu" type="Button" parent="Menu/MarginContainer/BoxContainer/MarginContainer/Menu" unique_id=1772879482]
 layout_mode = 2
+theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("3_sqnk6")
 theme_override_font_sizes/font_size = 32
 text = "MAIN MENU"

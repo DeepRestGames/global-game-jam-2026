@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c1auxea0b26xw"]
 
-[ext_resource type="Script" uid="uid://dxvvyfcxelp7f" path="res://Scenes/knockout_minigame/button_animation.gd" id="1_hiutc"]
-[ext_resource type="Texture2D" uid="uid://dyb24fuoim8yi" path="res://art/kenney_input_prompts/generic_button.png" id="2_mjfk2"]
-[ext_resource type="Texture2D" uid="uid://bkh15lbxk8ba2" path="res://art/kenney_input_prompts/generic_button_pressed.png" id="3_2x3j4"]
+[ext_resource type="Script" uid="uid://dxvvyfcxelp7f" path="res://scripts/knockout_minigame/button_animation.gd" id="1_hiutc"]
+[ext_resource type="Texture2D" uid="uid://14dgpgxdgm0t" path="res://art/kenney_input_prompts/generic_button.svg" id="2_mjfk2"]
+[ext_resource type="Texture2D" uid="uid://s6go5lg55836" path="res://art/kenney_input_prompts/generic_button_pressed.svg" id="3_2x3j4"]
 [ext_resource type="Texture2D" uid="uid://4d00p44ruwpi" path="res://art/mash_button_icon.png" id="4_mjfk2"]
 
 [sub_resource type="Animation" id="Animation_mjfk2"]
@@ -93,8 +93,10 @@ _data = {
 }
 
 [node name="ButtonAnimation" type="Control" unique_id=2014714988]
+modulate = Color(0.7254902, 0, 0, 1)
 layout_mode = 3
 anchors_preset = 0
+rotation = 0.2617994
 script = ExtResource("1_hiutc")
 
 [node name="ButtonIdle" type="TextureRect" parent="." unique_id=2100972110]
@@ -136,6 +138,7 @@ stretch_mode = 5
 
 [node name="ButtonPressedCurlyLine" type="TextureRect" parent="." unique_id=491988770]
 visible = false
+self_modulate = Color(0.94, 0.94, 0.94, 1)
 layout_mode = 0
 offset_left = -40.0
 offset_top = -69.0

@@ -27,8 +27,8 @@ signal downgraded
 @export_group("Attack and Knockback")
 @export var attack_radius: float = 100
 @export var hit_timer: float = 0.2
-@export var knockback_strength: float = 40
-@export var knockback_falloff: float = 0.75
+@export var knockback_strength: float = 500
+@export var knockback_falloff: float = 0.0001
 @export var knocked_out_duration: float = 2
 @export_group("Boss Modifiers")
 @export var boss_size_factor = 1.7
@@ -36,6 +36,7 @@ signal downgraded
 @export var boss_move_speed_factor = 0.5
 #endregion
 #region Regular Variables
+var _is_input_active: bool = true
 var _is_stunned = false:
 	set(value):
 		stun_indicator.visible = value
@@ -71,6 +72,7 @@ func _physics_process(delta):
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	
 	if event.is_action_pressed("attack_action" + str(player_num)):
 		if _is_knocked_out:
 			knockout_minigame.increase_progress()
@@ -82,10 +84,11 @@ func _unhandled_input(event: InputEvent) -> void:
 #endregion
 #region Signal Handlers
 func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body is Player and body != self:
-		var direction = (attack_area.global_position - global_position).normalized()
-		hit.emit(direction)
-		body.get_hit(direction)
+	if body is not Player or body == self: return
+
+	var direction = (attack_area.global_position - global_position).normalized()
+	hit.emit(direction)
+	body.get_hit(direction)
 
 
 func _on_knockout_minigame_finished():
@@ -136,6 +139,8 @@ func downgrade_player():
 
 
 func _handle_movement():
+	if not _is_input_active: return
+	
 	var input_vector = Input.get_vector("move_left" + str(player_num), \
 		"move_right" + str(player_num), "move_up" + str(player_num), "move_down" + str(player_num), input_vector_deadzone)
 	if input_vector != Vector2.ZERO:
@@ -148,9 +153,9 @@ func _handle_movement():
 func _handle_knockback(delta):
 	if _knockback_direction == Vector2.ZERO: return
 	
-	velocity += _knockback_direction * knockback_strength * 1 / delta
+	velocity += _knockback_direction * knockback_strength
 
-	_knockback_direction *= knockback_falloff
+	_knockback_direction *= pow(knockback_falloff, delta)
 	if is_zero_approx(velocity.length()):
 		_knockback_direction = Vector2.ZERO
 		_is_stunned = false

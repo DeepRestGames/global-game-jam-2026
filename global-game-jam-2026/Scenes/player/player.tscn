@@ -14,6 +14,7 @@ height = 128.0
 radius = 16.0
 
 [node name="Player" type="CharacterBody2D" unique_id=881583183]
+process_mode = 1
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_sjcu7")
@@ -28,6 +29,7 @@ shape = SubResource("CapsuleShape2D_fcb3x")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1992181612]
 collision_layer = 0
+monitorable = false
 
 [node name="Sprite2D" type="Sprite2D" parent="AttackArea" unique_id=344514588]
 scale = Vector2(0.05, 0.05)

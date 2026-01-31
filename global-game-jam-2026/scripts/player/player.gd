@@ -6,6 +6,7 @@ extends CharacterBody2D
 #region Enums
 #endregion
 #region Constants
+
 #endregion
 #region Static Variables
 #endregion

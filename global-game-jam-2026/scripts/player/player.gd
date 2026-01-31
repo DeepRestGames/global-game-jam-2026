@@ -3,8 +3,8 @@ extends CharacterBody2D
 
 #region Signals
 signal attacked(direction)
-signal hit(direction)
-signal knocked_back(direction)
+signal hit(force)
+signal knocked_back(force)
 signal knocked_out
 signal recovered
 signal upgraded
@@ -27,13 +27,13 @@ signal downgraded
 @export_group("Attack and Knockback")
 @export var attack_radius: float = 100
 @export var hit_timer: float = 0.2
-@export var knockback_strength: float = 500
+@export var knockback_strength: float = 1000
 @export var knockback_falloff: float = 0.0001
 @export var knocked_out_duration: float = 2
 @export_group("Boss Modifiers")
 @export var boss_size_factor = 1.7
-@export var boss_knockback_factor = 1.5
 @export var boss_move_speed_factor = 0.5
+@export var boss_knockback_strength = 3000
 #endregion
 #region Regular Variables
 var _is_input_active: bool = true
@@ -45,7 +45,7 @@ var _is_knocked_out = false:
 	set(value):
 		stun_indicator.visible = value 
 		_is_knocked_out = value
-var _knockback_direction = Vector2.ZERO
+var _knockback_force = Vector2.ZERO
 var _is_boss = false
 #endregion
 #region @onready Variables
@@ -87,8 +87,9 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 	if body is not Player or body == self: return
 
 	var direction = (attack_area.global_position - global_position).normalized()
-	hit.emit(direction)
-	body.get_hit(direction)
+	var hit_force = direction * (boss_knockback_strength if _is_boss else knockback_strength)
+	hit.emit(hit_force)
+	body.get_hit(hit_force)
 
 
 func _on_knockout_minigame_finished():
@@ -96,10 +97,10 @@ func _on_knockout_minigame_finished():
 	recovered.emit()
 #endregion
 #region Regular Methods
-func get_hit(direction):
-	knocked_back.emit(direction)
+func get_hit(force):
+	knocked_back.emit(force)
 	_is_stunned = true
-	_knockback_direction = direction
+	_knockback_force = force
 
 
 func get_knocked_out():
@@ -107,11 +108,11 @@ func get_knocked_out():
 	
 	if _is_boss: downgrade_player()
 	
-	_knockback_direction = Vector2.ZERO
+	_knockback_force = Vector2.ZERO
 	_is_stunned = false
 	_is_knocked_out = true
 	knockout_minigame.setup(10)
-	knocked_out.emit(_knockback_direction)
+	knocked_out.emit(_knockback_force)
 
 
 func upgrade_player():
@@ -120,7 +121,6 @@ func upgrade_player():
 	_is_boss = true
 	scale *= Vector2.ONE * boss_size_factor
 	move_speed *= boss_move_speed_factor
-	knockback_strength *= boss_knockback_factor
 	upgraded.emit()
 
 
@@ -130,7 +130,6 @@ func downgrade_player():
 	_is_boss = false
 	scale /= Vector2.ONE * boss_size_factor
 	move_speed /= boss_move_speed_factor
-	knockback_strength /= boss_knockback_factor
 	downgraded.emit()
 	
 	belt.position = position
@@ -151,13 +150,13 @@ func _handle_movement():
 
 
 func _handle_knockback(delta):
-	if _knockback_direction == Vector2.ZERO: return
+	if _knockback_force == Vector2.ZERO: return
 	
-	velocity += _knockback_direction * knockback_strength
+	velocity += _knockback_force
 
-	_knockback_direction *= pow(knockback_falloff, delta)
+	_knockback_force *= pow(knockback_falloff, delta)
 	if is_zero_approx(velocity.length()):
-		_knockback_direction = Vector2.ZERO
+		_knockback_force = Vector2.ZERO
 		_is_stunned = false
 		recovered.emit()
 #endregion

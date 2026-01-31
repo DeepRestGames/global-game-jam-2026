@@ -5,14 +5,14 @@
 [ext_resource type="Texture2D" uid="uid://byi1ojixdhjxs" path="res://art/player/base_character_sprite_sheet.png" id="2_lvxji"]
 [ext_resource type="Texture2D" uid="uid://daok2j868d14i" path="res://art/hand-fist-solid-full.svg" id="3_emvbc"]
 [ext_resource type="Texture2D" uid="uid://caslbj3lm1u2u" path="res://art/x-solid-full.svg" id="4_lvxji"]
-[ext_resource type="PackedScene" uid="uid://ha6xmy26ea2q" path="res://scenes/knockout_minigame/knockout_minigame.tscn" id="5_p47bc"]
+[ext_resource type="PackedScene" uid="uid://ha6xmy26ea2q" path="res://Scenes/knockout_minigame/knockout_minigame.tscn" id="5_p47bc"]
+[ext_resource type="Script" uid="uid://d2vtqr1hey1gl" path="res://scripts/player/player_animation.gd" id="7_xxarj"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fcb3x"]
-radius = 27.0
-height = 82.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_6upyo"]
+radius = 19.026299
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_emvbc"]
-radius = 16.0
+radius = 26.076809
 
 [sub_resource type="Animation" id="Animation_lvxji"]
 length = 0.001
@@ -114,7 +114,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(22, 4)]
+"values": [Vector2(22, -32)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -178,7 +178,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(22, 4)]
+"values": [Vector2(22, -32)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -241,7 +241,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-9, 1)]
+"values": [Vector2(-9, -35)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -304,7 +304,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-9, 1)]
+"values": [Vector2(-9, -35)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -367,7 +367,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(3, 4)]
+"values": [Vector2(3, -32)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -430,7 +430,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(3, 4)]
+"values": [Vector2(3, -32)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -507,7 +507,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(6, 4)]
+"values": [Vector2(6, -32)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -584,7 +584,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(6, 4)]
+"values": [Vector2(6, -32)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -644,7 +644,7 @@ script = ExtResource("1_sjcu7")
 attack_radius = 50.0
 
 [node name="PlayerIndicatorSprite" type="Sprite2D" parent="." unique_id=1216887979]
-position = Vector2(0, 33)
+position = Vector2(0.5, -2.5)
 scale = Vector2(1.1, 1.1)
 texture = ExtResource("2_75vfm")
 offset = Vector2(9.5, 0)
@@ -656,10 +656,11 @@ region_enabled = true
 region_rect = Rect2(48, 45, 79, 95)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1765045839]
-visible = false
-shape = SubResource("CapsuleShape2D_fcb3x")
+position = Vector2(0.5, 0.5)
+shape = SubResource("CircleShape2D_6upyo")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1992181612]
+position = Vector2(0.5, -35.5)
 collision_layer = 0
 monitorable = false
 
@@ -694,6 +695,8 @@ offset_right = 89.0
 offset_bottom = -68.0
 
 [node name="PlayerAnimation" type="Node2D" parent="." unique_id=1185091264]
+position = Vector2(0.5, -35.5)
+script = ExtResource("7_xxarj")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="PlayerAnimation" unique_id=1064241945]
 root_node = NodePath("../..")

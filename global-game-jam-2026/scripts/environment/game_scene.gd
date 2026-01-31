@@ -26,11 +26,13 @@ var screenshake_amount: float
 #region @onready Variables
 @onready var camera_2d: Camera = $Camera2D
 @onready var freeze_frame_timer: Timer = $FreezeFrameTimer
+@onready var win_screen: CanvasLayer = $WinScreen
 #endregion
 
 #region Event Methods
 func _ready() -> void:
 	GameManager.register_player_signals()
+	GameManager.register_win_screen(win_screen)
 	CrowdManager.setup_players()
 	players.append_array(find_children("*", "Player", false))
 	for player in players:

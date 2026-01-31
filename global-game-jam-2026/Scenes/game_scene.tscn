@@ -7,8 +7,8 @@
 [ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://Scenes/player/player.tscn" id="3_ycayy"]
 [ext_resource type="PackedScene" uid="uid://c4wr0j51scdnn" path="res://Scenes/background/audience_member.tscn" id="5_y3j0m"]
 [ext_resource type="PackedScene" uid="uid://daiealbrrehsm" path="res://Scenes/belt/belt.tscn" id="7_7iton"]
-[ext_resource type="PackedScene" uid="uid://qmub7mce6o11" path="res://Scenes/win_screen/win_screen.tscn" id="7_kk2rg"]
 [ext_resource type="PackedScene" uid="uid://d1kwjvqdg8us3" path="res://Scenes/ui/hud.tscn" id="7_kk2rg"]
+[ext_resource type="PackedScene" uid="uid://qmub7mce6o11" path="res://Scenes/win_screen/win_screen.tscn" id="8_ikfsv"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oqyrl"]
 
@@ -1420,9 +1420,9 @@ is_active = true
 [node name="FreezeFrameTimer" type="Timer" parent="." unique_id=463194505]
 one_shot = true
 
-[node name="WinScreen" parent="." unique_id=2043067076 instance=ExtResource("7_kk2rg")]
-
 [node name="HUD" parent="." unique_id=1628968700 instance=ExtResource("7_kk2rg")]
+
+[node name="WinScreen" parent="." unique_id=2043067076 instance=ExtResource("8_ikfsv")]
 
 [connection signal="body_entered" from="Ring/Border" to="Ring" method="_on_border_body_entered"]
 [connection signal="body_exited" from="Ring/Border" to="Ring" method="_on_border_body_exited"]

@@ -15,6 +15,7 @@ var MAX_PLAYERS = 4
 var _knocked_players = 0
 var _current_boss_player: Player
 var _is_countdown_active = false
+var _win_screen
 #endregion
 #region @onready Variables
 #endregion
@@ -47,18 +48,20 @@ func register_player_signals():
 		)
 
 
+func register_win_screen(win_screen: WinScreen):
+	_win_screen = win_screen
+
+
 func _is_win_condition_active():
 	return _knocked_players == (MAX_PLAYERS - 1)
 
 
 func _trigger_win(winning_player):
 	_is_countdown_active = true
-	var win_screen = get_tree().get_first_node_in_group("WinScreen") as WinScreen
-	win_screen.set_winning_player(winning_player)
-	win_screen.start_countdown()
+	_win_screen.set_winning_player(winning_player)
+	_win_screen.start_countdown()
 
 func _stop_win():
-	var win_screen = get_tree().get_first_node_in_group("WinScreen") as WinScreen
-	win_screen.stop_countdown()
+	_win_screen.stop_countdown()
 	_is_countdown_active = false
 #endregion

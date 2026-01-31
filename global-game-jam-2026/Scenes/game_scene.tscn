@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://co0xlb5mcbjqu" path="res://scripts/environment/camera.gd" id="1_b6fju"]
 [ext_resource type="Script" uid="uid://bk3s2boednv7" path="res://scripts/environment/ring.gd" id="1_x87qo"]
 [ext_resource type="Texture2D" uid="uid://dgog2ix0inyea" path="res://art/arena_background.png" id="3_bw6k5"]
-[ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://scenes/player/player.tscn" id="3_ycayy"]
+[ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://Scenes/player/player.tscn" id="3_ycayy"]
+[ext_resource type="PackedScene" uid="uid://daiealbrrehsm" path="res://Scenes/belt/belt.tscn" id="5_y3j0m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oqyrl"]
 
@@ -40,6 +41,8 @@ script = ExtResource("1_x87qo")
 texture = ExtResource("3_bw6k5")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Ring" unique_id=1511064073]
+collision_layer = 2
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Ring/StaticBody2D" unique_id=431483282]
 position = Vector2(0, 416)
@@ -80,26 +83,30 @@ rotation = 1.5703008
 shape = SubResource("RectangleShape2D_rurhu")
 
 [node name="Player" parent="." unique_id=881583183 instance=ExtResource("3_ycayy")]
-position = Vector2(-192, -224)
+position = Vector2(-352, -288)
 scale = Vector2(0.4, 0.4)
 
 [node name="Player2" parent="." unique_id=825266784 instance=ExtResource("3_ycayy")]
-position = Vector2(168, -216)
+position = Vector2(352, -288)
 scale = Vector2(0.4, 0.4)
 player_color = Color(1, 0, 0, 1)
 player_num = 1
 
 [node name="Player3" parent="." unique_id=1839694508 instance=ExtResource("3_ycayy")]
-position = Vector2(-200, 184)
+position = Vector2(-352, 224)
 scale = Vector2(0.4, 0.4)
 player_color = Color(0.011764706, 1, 0, 1)
 player_num = 2
 
 [node name="Player4" parent="." unique_id=49969423 instance=ExtResource("3_ycayy")]
-position = Vector2(184, 184)
+position = Vector2(352, 224)
 scale = Vector2(0.4, 0.4)
 player_color = Color(0, 0, 0.8784314, 1)
 player_num = 3
+
+[node name="Belt" parent="." unique_id=542052037 instance=ExtResource("5_y3j0m")]
+visible = true
+is_active = true
 
 [connection signal="body_entered" from="Ring/Border" to="Ring" method="_on_border_body_entered"]
 [connection signal="body_exited" from="Ring/Border" to="Ring" method="_on_border_body_exited"]

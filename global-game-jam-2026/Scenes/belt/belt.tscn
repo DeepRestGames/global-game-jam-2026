@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://daiealbrrehsm"]
+
+[ext_resource type="Script" uid="uid://birrjf1v6gxct" path="res://scripts/belt/belt.gd" id="1_cynax"]
+[ext_resource type="Texture2D" uid="uid://itr7fydwpab0" path="res://art/crown-solid-full.svg" id="2_h05bw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_0t73s"]
+radius = 32.0
+
+[node name="Belt" type="Area2D" unique_id=542052037]
+visible = false
+script = ExtResource("1_cynax")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=506609313]
+modulate = Color(0.9534305, 0.80704635, 0.23240986, 1)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_h05bw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=53165648]
+shape = SubResource("CircleShape2D_0t73s")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://co0xlb5mcbjqu" path="res://scripts/environment/camera.gd" id="1_b6fju"]
 [ext_resource type="Script" uid="uid://bk3s2boednv7" path="res://scripts/environment/ring.gd" id="1_x87qo"]
-[ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://scenes/player/player.tscn" id="3_ycayy"]
+[ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://Scenes/player/player.tscn" id="3_ycayy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oqyrl"]
 

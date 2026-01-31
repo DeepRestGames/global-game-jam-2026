@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://b17x6sqwu013f" path="res://scripts/player/player.gd" id="1_sjcu7"]
 [ext_resource type="Texture2D" uid="uid://dtc744ifdyncd" path="res://art/mask-solid-full.svg" id="2_fcb3x"]
 [ext_resource type="Texture2D" uid="uid://daok2j868d14i" path="res://art/hand-fist-solid-full.svg" id="3_emvbc"]
+[ext_resource type="Texture2D" uid="uid://caslbj3lm1u2u" path="res://art/x-solid-full.svg" id="4_lvxji"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fcb3x"]
 radius = 40.0
@@ -34,5 +35,18 @@ texture = ExtResource("3_emvbc")
 shape = SubResource("CircleShape2D_emvbc")
 disabled = true
 
+[node name="StunIndicator" type="Node2D" parent="." unique_id=1017290915]
+visible = false
+modulate = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="StunIndicator" unique_id=2067318029]
+position = Vector2(-26, 0)
+scale = Vector2(0.062500045, 0.062500045)
+texture = ExtResource("4_lvxji")
+
+[node name="Sprite2D2" type="Sprite2D" parent="StunIndicator" unique_id=1500901000]
+position = Vector2(26, 0)
+scale = Vector2(0.062500045, 0.062500045)
+texture = ExtResource("4_lvxji")
+
 [connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
-[connection signal="body_exited" from="AttackArea" to="." method="_on_attack_area_body_exited"]

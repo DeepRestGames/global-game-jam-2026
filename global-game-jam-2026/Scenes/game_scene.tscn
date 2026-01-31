@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://bk3s2boednv7" path="res://scripts/environment/ring.gd" id="1_x87qo"]
 [ext_resource type="Texture2D" uid="uid://dgog2ix0inyea" path="res://art/arena_background.png" id="3_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://scenes/player/player.tscn" id="3_ycayy"]
+[ext_resource type="PackedScene" uid="uid://c4wr0j51scdnn" path="res://scenes/background/audience_member.tscn" id="5_y3j0m"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oqyrl"]
 
@@ -100,6 +101,1310 @@ position = Vector2(184, 184)
 scale = Vector2(0.4, 0.4)
 player_color = Color(0, 0, 0.8784314, 1)
 player_num = 3
+
+[node name="Crowd" type="Node2D" parent="." unique_id=2028228863]
+
+[node name="CrowdLeft" type="Node2D" parent="Crowd" unique_id=60280391]
+position = Vector2(-750, 0)
+
+[node name="Body" parent="Crowd/CrowdLeft" unique_id=306028091 instance=ExtResource("5_y3j0m")]
+position = Vector2(149, -707)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body2" parent="Crowd/CrowdLeft" unique_id=1793414710 instance=ExtResource("5_y3j0m")]
+position = Vector2(138, -662)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body3" parent="Crowd/CrowdLeft" unique_id=1634286464 instance=ExtResource("5_y3j0m")]
+position = Vector2(165, -626)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body4" parent="Crowd/CrowdLeft" unique_id=285429079 instance=ExtResource("5_y3j0m")]
+position = Vector2(154, -576)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body5" parent="Crowd/CrowdLeft" unique_id=1092863785 instance=ExtResource("5_y3j0m")]
+position = Vector2(151, -477)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body6" parent="Crowd/CrowdLeft" unique_id=492730117 instance=ExtResource("5_y3j0m")]
+position = Vector2(155, -426)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body7" parent="Crowd/CrowdLeft" unique_id=323972348 instance=ExtResource("5_y3j0m")]
+position = Vector2(147, -377)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body8" parent="Crowd/CrowdLeft" unique_id=1399899548 instance=ExtResource("5_y3j0m")]
+position = Vector2(156, -269)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body9" parent="Crowd/CrowdLeft" unique_id=841295423 instance=ExtResource("5_y3j0m")]
+position = Vector2(162, -229)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body10" parent="Crowd/CrowdLeft" unique_id=1855365331 instance=ExtResource("5_y3j0m")]
+position = Vector2(147, -182)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body11" parent="Crowd/CrowdLeft" unique_id=803151872 instance=ExtResource("5_y3j0m")]
+position = Vector2(158, -134)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body12" parent="Crowd/CrowdLeft" unique_id=1461593347 instance=ExtResource("5_y3j0m")]
+position = Vector2(147, -12)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body13" parent="Crowd/CrowdLeft" unique_id=1592559760 instance=ExtResource("5_y3j0m")]
+position = Vector2(151, 51)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body14" parent="Crowd/CrowdLeft" unique_id=1997119103 instance=ExtResource("5_y3j0m")]
+position = Vector2(170, 102)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body15" parent="Crowd/CrowdLeft" unique_id=1512251104 instance=ExtResource("5_y3j0m")]
+position = Vector2(142, 154)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body16" parent="Crowd/CrowdLeft" unique_id=338150524 instance=ExtResource("5_y3j0m")]
+position = Vector2(163, 216)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body17" parent="Crowd/CrowdLeft" unique_id=176546149 instance=ExtResource("5_y3j0m")]
+position = Vector2(158, 341)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body18" parent="Crowd/CrowdLeft" unique_id=691055365 instance=ExtResource("5_y3j0m")]
+position = Vector2(135, 405)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body19" parent="Crowd/CrowdLeft" unique_id=1245237138 instance=ExtResource("5_y3j0m")]
+position = Vector2(156, 457)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body20" parent="Crowd/CrowdLeft" unique_id=1923585852 instance=ExtResource("5_y3j0m")]
+position = Vector2(137, 530)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body21" parent="Crowd/CrowdLeft" unique_id=1368086601 instance=ExtResource("5_y3j0m")]
+position = Vector2(149, 634)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body22" parent="Crowd/CrowdLeft" unique_id=1854074296 instance=ExtResource("5_y3j0m")]
+position = Vector2(137, 696)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body23" parent="Crowd/CrowdLeft" unique_id=638834952 instance=ExtResource("5_y3j0m")]
+position = Vector2(154, 746)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body24" parent="Crowd/CrowdLeft" unique_id=1499606825 instance=ExtResource("5_y3j0m")]
+position = Vector2(154, 746)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body25" parent="Crowd/CrowdLeft" unique_id=978704331 instance=ExtResource("5_y3j0m")]
+position = Vector2(71.40003, -880.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body26" parent="Crowd/CrowdLeft" unique_id=854327826 instance=ExtResource("5_y3j0m")]
+position = Vector2(60.400032, -835.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body27" parent="Crowd/CrowdLeft" unique_id=1933663223 instance=ExtResource("5_y3j0m")]
+position = Vector2(87.40003, -799.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body28" parent="Crowd/CrowdLeft" unique_id=168491565 instance=ExtResource("5_y3j0m")]
+position = Vector2(76.40003, -749.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body29" parent="Crowd/CrowdLeft" unique_id=1055148546 instance=ExtResource("5_y3j0m")]
+position = Vector2(73.40003, -650.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body30" parent="Crowd/CrowdLeft" unique_id=1415648222 instance=ExtResource("5_y3j0m")]
+position = Vector2(77.40003, -599.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body31" parent="Crowd/CrowdLeft" unique_id=442542207 instance=ExtResource("5_y3j0m")]
+position = Vector2(69.40003, -550.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body32" parent="Crowd/CrowdLeft" unique_id=2064830972 instance=ExtResource("5_y3j0m")]
+position = Vector2(78.40003, -442.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body33" parent="Crowd/CrowdLeft" unique_id=321480583 instance=ExtResource("5_y3j0m")]
+position = Vector2(84.40003, -402.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body34" parent="Crowd/CrowdLeft" unique_id=772143768 instance=ExtResource("5_y3j0m")]
+position = Vector2(69.40003, -355.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body35" parent="Crowd/CrowdLeft" unique_id=1826164048 instance=ExtResource("5_y3j0m")]
+position = Vector2(80.40003, -307.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body36" parent="Crowd/CrowdLeft" unique_id=1781777426 instance=ExtResource("5_y3j0m")]
+position = Vector2(69.40003, -185.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body37" parent="Crowd/CrowdLeft" unique_id=133310106 instance=ExtResource("5_y3j0m")]
+position = Vector2(73.40003, -122.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body38" parent="Crowd/CrowdLeft" unique_id=69984445 instance=ExtResource("5_y3j0m")]
+position = Vector2(92.40003, -71.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body39" parent="Crowd/CrowdLeft" unique_id=1885464138 instance=ExtResource("5_y3j0m")]
+position = Vector2(64.40003, -19.199993)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body40" parent="Crowd/CrowdLeft" unique_id=7769075 instance=ExtResource("5_y3j0m")]
+position = Vector2(85.40003, 42.800007)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body41" parent="Crowd/CrowdLeft" unique_id=1533441882 instance=ExtResource("5_y3j0m")]
+position = Vector2(80.40003, 167.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body42" parent="Crowd/CrowdLeft" unique_id=499336797 instance=ExtResource("5_y3j0m")]
+position = Vector2(57.400032, 231.79999)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body43" parent="Crowd/CrowdLeft" unique_id=580134443 instance=ExtResource("5_y3j0m")]
+position = Vector2(78.40003, 283.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body44" parent="Crowd/CrowdLeft" unique_id=463354786 instance=ExtResource("5_y3j0m")]
+position = Vector2(59.400032, 356.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body45" parent="Crowd/CrowdLeft" unique_id=430809938 instance=ExtResource("5_y3j0m")]
+position = Vector2(71.40003, 460.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body46" parent="Crowd/CrowdLeft" unique_id=1907769526 instance=ExtResource("5_y3j0m")]
+position = Vector2(59.400032, 522.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body47" parent="Crowd/CrowdLeft" unique_id=1698086063 instance=ExtResource("5_y3j0m")]
+position = Vector2(76.40003, 572.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body48" parent="Crowd/CrowdLeft" unique_id=185100850 instance=ExtResource("5_y3j0m")]
+position = Vector2(76.40003, 572.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body49" parent="Crowd/CrowdLeft" unique_id=1294516034 instance=ExtResource("5_y3j0m")]
+position = Vector2(5.4000397, -829.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body50" parent="Crowd/CrowdLeft" unique_id=883331647 instance=ExtResource("5_y3j0m")]
+position = Vector2(-5.5999603, -784.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body51" parent="Crowd/CrowdLeft" unique_id=1247959586 instance=ExtResource("5_y3j0m")]
+position = Vector2(21.40004, -748.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body52" parent="Crowd/CrowdLeft" unique_id=1469259024 instance=ExtResource("5_y3j0m")]
+position = Vector2(10.40004, -698.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body53" parent="Crowd/CrowdLeft" unique_id=797149980 instance=ExtResource("5_y3j0m")]
+position = Vector2(7.4000397, -599.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body54" parent="Crowd/CrowdLeft" unique_id=2124534652 instance=ExtResource("5_y3j0m")]
+position = Vector2(11.40004, -548.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body55" parent="Crowd/CrowdLeft" unique_id=888026135 instance=ExtResource("5_y3j0m")]
+position = Vector2(3.4000397, -499.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body56" parent="Crowd/CrowdLeft" unique_id=1028992516 instance=ExtResource("5_y3j0m")]
+position = Vector2(12.40004, -391.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body57" parent="Crowd/CrowdLeft" unique_id=60281796 instance=ExtResource("5_y3j0m")]
+position = Vector2(18.40004, -351.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body58" parent="Crowd/CrowdLeft" unique_id=1712693920 instance=ExtResource("5_y3j0m")]
+position = Vector2(3.4000397, -304.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body59" parent="Crowd/CrowdLeft" unique_id=1737672896 instance=ExtResource("5_y3j0m")]
+position = Vector2(14.40004, -256.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body60" parent="Crowd/CrowdLeft" unique_id=843553936 instance=ExtResource("5_y3j0m")]
+position = Vector2(3.4000397, -134.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body61" parent="Crowd/CrowdLeft" unique_id=1646651407 instance=ExtResource("5_y3j0m")]
+position = Vector2(7.4000397, -71.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body62" parent="Crowd/CrowdLeft" unique_id=2118790274 instance=ExtResource("5_y3j0m")]
+position = Vector2(26.40004, -20.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body63" parent="Crowd/CrowdLeft" unique_id=1545167118 instance=ExtResource("5_y3j0m")]
+position = Vector2(-1.5999603, 31.800003)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body64" parent="Crowd/CrowdLeft" unique_id=2030478699 instance=ExtResource("5_y3j0m")]
+position = Vector2(19.40004, 93.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body65" parent="Crowd/CrowdLeft" unique_id=1899766396 instance=ExtResource("5_y3j0m")]
+position = Vector2(14.40004, 218.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body66" parent="Crowd/CrowdLeft" unique_id=1408594219 instance=ExtResource("5_y3j0m")]
+position = Vector2(-8.59996, 282.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body67" parent="Crowd/CrowdLeft" unique_id=1513756714 instance=ExtResource("5_y3j0m")]
+position = Vector2(12.40004, 334.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body68" parent="Crowd/CrowdLeft" unique_id=1134499757 instance=ExtResource("5_y3j0m")]
+position = Vector2(-6.5999603, 407.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body69" parent="Crowd/CrowdLeft" unique_id=198737694 instance=ExtResource("5_y3j0m")]
+position = Vector2(5.4000397, 511.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body70" parent="Crowd/CrowdLeft" unique_id=568961508 instance=ExtResource("5_y3j0m")]
+position = Vector2(-6.5999603, 573.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body71" parent="Crowd/CrowdLeft" unique_id=1833671015 instance=ExtResource("5_y3j0m")]
+position = Vector2(10.40004, 623.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body72" parent="Crowd/CrowdLeft" unique_id=1719942337 instance=ExtResource("5_y3j0m")]
+position = Vector2(10.40004, 623.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body73" parent="Crowd/CrowdLeft" unique_id=987630892 instance=ExtResource("5_y3j0m")]
+position = Vector2(-62.599953, -601.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body74" parent="Crowd/CrowdLeft" unique_id=1273456435 instance=ExtResource("5_y3j0m")]
+position = Vector2(-73.59995, -556.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body75" parent="Crowd/CrowdLeft" unique_id=1946258051 instance=ExtResource("5_y3j0m")]
+position = Vector2(-46.599953, -520.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body76" parent="Crowd/CrowdLeft" unique_id=1400405478 instance=ExtResource("5_y3j0m")]
+position = Vector2(-57.599953, -470.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body77" parent="Crowd/CrowdLeft" unique_id=742898882 instance=ExtResource("5_y3j0m")]
+position = Vector2(-60.599953, -371.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body78" parent="Crowd/CrowdLeft" unique_id=1387475444 instance=ExtResource("5_y3j0m")]
+position = Vector2(-56.599953, -320.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body79" parent="Crowd/CrowdLeft" unique_id=601451465 instance=ExtResource("5_y3j0m")]
+position = Vector2(-64.59995, -271.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body80" parent="Crowd/CrowdLeft" unique_id=1557151125 instance=ExtResource("5_y3j0m")]
+position = Vector2(-55.599953, -163.20003)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body81" parent="Crowd/CrowdLeft" unique_id=1532411528 instance=ExtResource("5_y3j0m")]
+position = Vector2(-49.599953, -123.20003)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body82" parent="Crowd/CrowdLeft" unique_id=1071921688 instance=ExtResource("5_y3j0m")]
+position = Vector2(-64.59995, -76.20003)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body83" parent="Crowd/CrowdLeft" unique_id=1691544666 instance=ExtResource("5_y3j0m")]
+position = Vector2(-53.599953, -28.200027)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body84" parent="Crowd/CrowdLeft" unique_id=505489857 instance=ExtResource("5_y3j0m")]
+position = Vector2(-64.59995, 93.79999)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body85" parent="Crowd/CrowdLeft" unique_id=774812907 instance=ExtResource("5_y3j0m")]
+position = Vector2(-60.599953, 156.79999)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body86" parent="Crowd/CrowdLeft" unique_id=303466913 instance=ExtResource("5_y3j0m")]
+position = Vector2(-41.599953, 207.79999)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body87" parent="Crowd/CrowdLeft" unique_id=432492958 instance=ExtResource("5_y3j0m")]
+position = Vector2(-69.59995, 259.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body88" parent="Crowd/CrowdLeft" unique_id=1065656136 instance=ExtResource("5_y3j0m")]
+position = Vector2(-48.599953, 321.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body89" parent="Crowd/CrowdLeft" unique_id=1053309525 instance=ExtResource("5_y3j0m")]
+position = Vector2(-53.599953, 446.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body90" parent="Crowd/CrowdLeft" unique_id=769960151 instance=ExtResource("5_y3j0m")]
+position = Vector2(-76.59995, 510.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body91" parent="Crowd/CrowdLeft" unique_id=1561411455 instance=ExtResource("5_y3j0m")]
+position = Vector2(-55.599953, 562.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body92" parent="Crowd/CrowdLeft" unique_id=430861541 instance=ExtResource("5_y3j0m")]
+position = Vector2(-74.59995, 635.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body93" parent="Crowd/CrowdLeft" unique_id=583085767 instance=ExtResource("5_y3j0m")]
+position = Vector2(-62.599953, 739.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body94" parent="Crowd/CrowdLeft" unique_id=1420807884 instance=ExtResource("5_y3j0m")]
+position = Vector2(-74.59995, 801.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body95" parent="Crowd/CrowdLeft" unique_id=518586476 instance=ExtResource("5_y3j0m")]
+position = Vector2(-57.599953, 851.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body96" parent="Crowd/CrowdLeft" unique_id=811281392 instance=ExtResource("5_y3j0m")]
+position = Vector2(-57.599953, 851.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body97" parent="Crowd/CrowdLeft" unique_id=922566750 instance=ExtResource("5_y3j0m")]
+position = Vector2(-122.599945, -733.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body98" parent="Crowd/CrowdLeft" unique_id=219071942 instance=ExtResource("5_y3j0m")]
+position = Vector2(-133.59995, -688.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body99" parent="Crowd/CrowdLeft" unique_id=702267118 instance=ExtResource("5_y3j0m")]
+position = Vector2(-106.599945, -652.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body100" parent="Crowd/CrowdLeft" unique_id=1704534419 instance=ExtResource("5_y3j0m")]
+position = Vector2(-117.599945, -602.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body101" parent="Crowd/CrowdLeft" unique_id=71563555 instance=ExtResource("5_y3j0m")]
+position = Vector2(-120.599945, -503.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body102" parent="Crowd/CrowdLeft" unique_id=2142539514 instance=ExtResource("5_y3j0m")]
+position = Vector2(-116.599945, -452.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body103" parent="Crowd/CrowdLeft" unique_id=1700245850 instance=ExtResource("5_y3j0m")]
+position = Vector2(-124.599945, -403.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body104" parent="Crowd/CrowdLeft" unique_id=2032500731 instance=ExtResource("5_y3j0m")]
+position = Vector2(-115.599945, -295.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body105" parent="Crowd/CrowdLeft" unique_id=472496450 instance=ExtResource("5_y3j0m")]
+position = Vector2(-109.599945, -255.20001)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body106" parent="Crowd/CrowdLeft" unique_id=341529931 instance=ExtResource("5_y3j0m")]
+position = Vector2(-124.599945, -208.20001)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body107" parent="Crowd/CrowdLeft" unique_id=37414467 instance=ExtResource("5_y3j0m")]
+position = Vector2(-113.599945, -160.20001)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body108" parent="Crowd/CrowdLeft" unique_id=1678611294 instance=ExtResource("5_y3j0m")]
+position = Vector2(-124.599945, -38.199997)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body109" parent="Crowd/CrowdLeft" unique_id=874966824 instance=ExtResource("5_y3j0m")]
+position = Vector2(-120.599945, 24.800003)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body110" parent="Crowd/CrowdLeft" unique_id=36284742 instance=ExtResource("5_y3j0m")]
+position = Vector2(-101.599945, 75.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body111" parent="Crowd/CrowdLeft" unique_id=940947668 instance=ExtResource("5_y3j0m")]
+position = Vector2(-129.59995, 127.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body112" parent="Crowd/CrowdLeft" unique_id=1140908588 instance=ExtResource("5_y3j0m")]
+position = Vector2(-108.599945, 189.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body113" parent="Crowd/CrowdLeft" unique_id=161657853 instance=ExtResource("5_y3j0m")]
+position = Vector2(-113.599945, 314.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body114" parent="Crowd/CrowdLeft" unique_id=1776111687 instance=ExtResource("5_y3j0m")]
+position = Vector2(-136.59995, 378.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body115" parent="Crowd/CrowdLeft" unique_id=1703537102 instance=ExtResource("5_y3j0m")]
+position = Vector2(-115.599945, 430.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body116" parent="Crowd/CrowdLeft" unique_id=590313547 instance=ExtResource("5_y3j0m")]
+position = Vector2(-134.59995, 503.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body117" parent="Crowd/CrowdLeft" unique_id=429976920 instance=ExtResource("5_y3j0m")]
+position = Vector2(-122.599945, 607.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body118" parent="Crowd/CrowdLeft" unique_id=1473475634 instance=ExtResource("5_y3j0m")]
+position = Vector2(-134.59995, 669.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body119" parent="Crowd/CrowdLeft" unique_id=660375766 instance=ExtResource("5_y3j0m")]
+position = Vector2(-117.599945, 719.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body120" parent="Crowd/CrowdLeft" unique_id=2036286367 instance=ExtResource("5_y3j0m")]
+position = Vector2(-117.599945, 719.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body121" parent="Crowd/CrowdLeft" unique_id=1433749699 instance=ExtResource("5_y3j0m")]
+position = Vector2(-199.59995, -567.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body122" parent="Crowd/CrowdLeft" unique_id=1204377549 instance=ExtResource("5_y3j0m")]
+position = Vector2(-210.59995, -522.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body123" parent="Crowd/CrowdLeft" unique_id=339507827 instance=ExtResource("5_y3j0m")]
+position = Vector2(-183.59995, -486.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body124" parent="Crowd/CrowdLeft" unique_id=1481010115 instance=ExtResource("5_y3j0m")]
+position = Vector2(-194.59995, -436.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body125" parent="Crowd/CrowdLeft" unique_id=485692589 instance=ExtResource("5_y3j0m")]
+position = Vector2(-197.59995, -337.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body126" parent="Crowd/CrowdLeft" unique_id=1998804595 instance=ExtResource("5_y3j0m")]
+position = Vector2(-193.59995, -286.2)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body127" parent="Crowd/CrowdLeft" unique_id=464893645 instance=ExtResource("5_y3j0m")]
+position = Vector2(-201.59995, -237.20003)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body128" parent="Crowd/CrowdLeft" unique_id=1283216459 instance=ExtResource("5_y3j0m")]
+position = Vector2(-192.59995, -129.20003)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body129" parent="Crowd/CrowdLeft" unique_id=209904159 instance=ExtResource("5_y3j0m")]
+position = Vector2(-186.59995, -89.20003)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body130" parent="Crowd/CrowdLeft" unique_id=1434687447 instance=ExtResource("5_y3j0m")]
+position = Vector2(-201.59995, -42.200027)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body131" parent="Crowd/CrowdLeft" unique_id=2113338320 instance=ExtResource("5_y3j0m")]
+position = Vector2(-190.59995, 5.7999725)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body132" parent="Crowd/CrowdLeft" unique_id=690509923 instance=ExtResource("5_y3j0m")]
+position = Vector2(-201.59995, 127.79999)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body133" parent="Crowd/CrowdLeft" unique_id=880530911 instance=ExtResource("5_y3j0m")]
+position = Vector2(-197.59995, 190.79999)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body134" parent="Crowd/CrowdLeft" unique_id=64342471 instance=ExtResource("5_y3j0m")]
+position = Vector2(-178.59995, 241.79999)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body135" parent="Crowd/CrowdLeft" unique_id=1123576067 instance=ExtResource("5_y3j0m")]
+position = Vector2(-206.59995, 293.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body136" parent="Crowd/CrowdLeft" unique_id=1436030987 instance=ExtResource("5_y3j0m")]
+position = Vector2(-185.59995, 355.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body137" parent="Crowd/CrowdLeft" unique_id=195258341 instance=ExtResource("5_y3j0m")]
+position = Vector2(-190.59995, 480.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body138" parent="Crowd/CrowdLeft" unique_id=780122569 instance=ExtResource("5_y3j0m")]
+position = Vector2(-213.59995, 544.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body139" parent="Crowd/CrowdLeft" unique_id=1942252074 instance=ExtResource("5_y3j0m")]
+position = Vector2(-192.59995, 596.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body140" parent="Crowd/CrowdLeft" unique_id=841797492 instance=ExtResource("5_y3j0m")]
+position = Vector2(-211.59995, 669.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body141" parent="Crowd/CrowdLeft" unique_id=630601583 instance=ExtResource("5_y3j0m")]
+position = Vector2(-199.59995, 773.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body142" parent="Crowd/CrowdLeft" unique_id=1607202784 instance=ExtResource("5_y3j0m")]
+position = Vector2(-211.59995, 835.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body143" parent="Crowd/CrowdLeft" unique_id=505892321 instance=ExtResource("5_y3j0m")]
+position = Vector2(-194.59995, 885.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="Body144" parent="Crowd/CrowdLeft" unique_id=909771249 instance=ExtResource("5_y3j0m")]
+position = Vector2(-194.59995, 885.8)
+scale = Vector2(0.8, 0.8)
+
+[node name="CrowdLeft2" type="Node2D" parent="Crowd" unique_id=2073647907]
+position = Vector2(784, 0)
+
+[node name="Body" parent="Crowd/CrowdLeft2" unique_id=817795805 instance=ExtResource("5_y3j0m")]
+position = Vector2(149, -707)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body2" parent="Crowd/CrowdLeft2" unique_id=851887327 instance=ExtResource("5_y3j0m")]
+position = Vector2(138, -662)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body3" parent="Crowd/CrowdLeft2" unique_id=867383084 instance=ExtResource("5_y3j0m")]
+position = Vector2(165, -626)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body4" parent="Crowd/CrowdLeft2" unique_id=327544117 instance=ExtResource("5_y3j0m")]
+position = Vector2(154, -576)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body5" parent="Crowd/CrowdLeft2" unique_id=1751916105 instance=ExtResource("5_y3j0m")]
+position = Vector2(151, -477)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body6" parent="Crowd/CrowdLeft2" unique_id=1344188402 instance=ExtResource("5_y3j0m")]
+position = Vector2(155, -426)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body7" parent="Crowd/CrowdLeft2" unique_id=2084875707 instance=ExtResource("5_y3j0m")]
+position = Vector2(147, -377)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body8" parent="Crowd/CrowdLeft2" unique_id=1548128413 instance=ExtResource("5_y3j0m")]
+position = Vector2(156, -269)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body9" parent="Crowd/CrowdLeft2" unique_id=203883281 instance=ExtResource("5_y3j0m")]
+position = Vector2(162, -229)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body10" parent="Crowd/CrowdLeft2" unique_id=1598642727 instance=ExtResource("5_y3j0m")]
+position = Vector2(147, -182)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body11" parent="Crowd/CrowdLeft2" unique_id=1571809993 instance=ExtResource("5_y3j0m")]
+position = Vector2(158, -134)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body12" parent="Crowd/CrowdLeft2" unique_id=1173707788 instance=ExtResource("5_y3j0m")]
+position = Vector2(147, -12)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body13" parent="Crowd/CrowdLeft2" unique_id=1526044562 instance=ExtResource("5_y3j0m")]
+position = Vector2(151, 51)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body14" parent="Crowd/CrowdLeft2" unique_id=1847754441 instance=ExtResource("5_y3j0m")]
+position = Vector2(170, 102)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body15" parent="Crowd/CrowdLeft2" unique_id=1948680360 instance=ExtResource("5_y3j0m")]
+position = Vector2(142, 154)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body16" parent="Crowd/CrowdLeft2" unique_id=86143949 instance=ExtResource("5_y3j0m")]
+position = Vector2(163, 216)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body17" parent="Crowd/CrowdLeft2" unique_id=1008742262 instance=ExtResource("5_y3j0m")]
+position = Vector2(158, 341)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body18" parent="Crowd/CrowdLeft2" unique_id=759957126 instance=ExtResource("5_y3j0m")]
+position = Vector2(135, 405)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body19" parent="Crowd/CrowdLeft2" unique_id=1857237327 instance=ExtResource("5_y3j0m")]
+position = Vector2(156, 457)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body20" parent="Crowd/CrowdLeft2" unique_id=907110229 instance=ExtResource("5_y3j0m")]
+position = Vector2(137, 530)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body21" parent="Crowd/CrowdLeft2" unique_id=602070226 instance=ExtResource("5_y3j0m")]
+position = Vector2(149, 634)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body22" parent="Crowd/CrowdLeft2" unique_id=622731585 instance=ExtResource("5_y3j0m")]
+position = Vector2(137, 696)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body23" parent="Crowd/CrowdLeft2" unique_id=672486004 instance=ExtResource("5_y3j0m")]
+position = Vector2(154, 746)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body24" parent="Crowd/CrowdLeft2" unique_id=438872512 instance=ExtResource("5_y3j0m")]
+position = Vector2(154, 746)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body25" parent="Crowd/CrowdLeft2" unique_id=1068132533 instance=ExtResource("5_y3j0m")]
+position = Vector2(71.40003, -880.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body26" parent="Crowd/CrowdLeft2" unique_id=1073680555 instance=ExtResource("5_y3j0m")]
+position = Vector2(60.400032, -835.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body27" parent="Crowd/CrowdLeft2" unique_id=1267709770 instance=ExtResource("5_y3j0m")]
+position = Vector2(87.40003, -799.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body28" parent="Crowd/CrowdLeft2" unique_id=1366696042 instance=ExtResource("5_y3j0m")]
+position = Vector2(76.40003, -749.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body29" parent="Crowd/CrowdLeft2" unique_id=1984456465 instance=ExtResource("5_y3j0m")]
+position = Vector2(73.40003, -650.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body30" parent="Crowd/CrowdLeft2" unique_id=477896355 instance=ExtResource("5_y3j0m")]
+position = Vector2(77.40003, -599.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body31" parent="Crowd/CrowdLeft2" unique_id=522483046 instance=ExtResource("5_y3j0m")]
+position = Vector2(69.40003, -550.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body32" parent="Crowd/CrowdLeft2" unique_id=965311804 instance=ExtResource("5_y3j0m")]
+position = Vector2(78.40003, -442.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body33" parent="Crowd/CrowdLeft2" unique_id=1216645867 instance=ExtResource("5_y3j0m")]
+position = Vector2(84.40003, -402.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body34" parent="Crowd/CrowdLeft2" unique_id=2119672052 instance=ExtResource("5_y3j0m")]
+position = Vector2(69.40003, -355.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body35" parent="Crowd/CrowdLeft2" unique_id=611145422 instance=ExtResource("5_y3j0m")]
+position = Vector2(80.40003, -307.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body36" parent="Crowd/CrowdLeft2" unique_id=1539376765 instance=ExtResource("5_y3j0m")]
+position = Vector2(69.40003, -185.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body37" parent="Crowd/CrowdLeft2" unique_id=1958245369 instance=ExtResource("5_y3j0m")]
+position = Vector2(73.40003, -122.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body38" parent="Crowd/CrowdLeft2" unique_id=447729708 instance=ExtResource("5_y3j0m")]
+position = Vector2(92.40003, -71.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body39" parent="Crowd/CrowdLeft2" unique_id=472131610 instance=ExtResource("5_y3j0m")]
+position = Vector2(64.40003, -19.199993)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body40" parent="Crowd/CrowdLeft2" unique_id=967293268 instance=ExtResource("5_y3j0m")]
+position = Vector2(85.40003, 42.800007)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body41" parent="Crowd/CrowdLeft2" unique_id=738648144 instance=ExtResource("5_y3j0m")]
+position = Vector2(80.40003, 167.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body42" parent="Crowd/CrowdLeft2" unique_id=433197061 instance=ExtResource("5_y3j0m")]
+position = Vector2(57.400032, 231.79999)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body43" parent="Crowd/CrowdLeft2" unique_id=1599432733 instance=ExtResource("5_y3j0m")]
+position = Vector2(78.40003, 283.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body44" parent="Crowd/CrowdLeft2" unique_id=1026755585 instance=ExtResource("5_y3j0m")]
+position = Vector2(59.400032, 356.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body45" parent="Crowd/CrowdLeft2" unique_id=1843312686 instance=ExtResource("5_y3j0m")]
+position = Vector2(71.40003, 460.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body46" parent="Crowd/CrowdLeft2" unique_id=609199517 instance=ExtResource("5_y3j0m")]
+position = Vector2(59.400032, 522.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body47" parent="Crowd/CrowdLeft2" unique_id=1170878024 instance=ExtResource("5_y3j0m")]
+position = Vector2(76.40003, 572.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body48" parent="Crowd/CrowdLeft2" unique_id=1760647200 instance=ExtResource("5_y3j0m")]
+position = Vector2(76.40003, 572.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body49" parent="Crowd/CrowdLeft2" unique_id=1721353220 instance=ExtResource("5_y3j0m")]
+position = Vector2(5.4000397, -829.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body50" parent="Crowd/CrowdLeft2" unique_id=304818764 instance=ExtResource("5_y3j0m")]
+position = Vector2(-5.5999603, -784.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body51" parent="Crowd/CrowdLeft2" unique_id=2071111697 instance=ExtResource("5_y3j0m")]
+position = Vector2(21.40004, -748.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body52" parent="Crowd/CrowdLeft2" unique_id=633202540 instance=ExtResource("5_y3j0m")]
+position = Vector2(10.40004, -698.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body53" parent="Crowd/CrowdLeft2" unique_id=1108121003 instance=ExtResource("5_y3j0m")]
+position = Vector2(7.4000397, -599.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body54" parent="Crowd/CrowdLeft2" unique_id=293952438 instance=ExtResource("5_y3j0m")]
+position = Vector2(11.40004, -548.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body55" parent="Crowd/CrowdLeft2" unique_id=1393051358 instance=ExtResource("5_y3j0m")]
+position = Vector2(3.4000397, -499.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body56" parent="Crowd/CrowdLeft2" unique_id=1490267905 instance=ExtResource("5_y3j0m")]
+position = Vector2(12.40004, -391.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body57" parent="Crowd/CrowdLeft2" unique_id=1323536404 instance=ExtResource("5_y3j0m")]
+position = Vector2(18.40004, -351.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body58" parent="Crowd/CrowdLeft2" unique_id=739184249 instance=ExtResource("5_y3j0m")]
+position = Vector2(3.4000397, -304.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body59" parent="Crowd/CrowdLeft2" unique_id=383545044 instance=ExtResource("5_y3j0m")]
+position = Vector2(14.40004, -256.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body60" parent="Crowd/CrowdLeft2" unique_id=2120953679 instance=ExtResource("5_y3j0m")]
+position = Vector2(3.4000397, -134.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body61" parent="Crowd/CrowdLeft2" unique_id=2070051595 instance=ExtResource("5_y3j0m")]
+position = Vector2(7.4000397, -71.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body62" parent="Crowd/CrowdLeft2" unique_id=993450598 instance=ExtResource("5_y3j0m")]
+position = Vector2(26.40004, -20.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body63" parent="Crowd/CrowdLeft2" unique_id=704888375 instance=ExtResource("5_y3j0m")]
+position = Vector2(-1.5999603, 31.800003)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body64" parent="Crowd/CrowdLeft2" unique_id=53718641 instance=ExtResource("5_y3j0m")]
+position = Vector2(19.40004, 93.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body65" parent="Crowd/CrowdLeft2" unique_id=1822010199 instance=ExtResource("5_y3j0m")]
+position = Vector2(14.40004, 218.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body66" parent="Crowd/CrowdLeft2" unique_id=329958275 instance=ExtResource("5_y3j0m")]
+position = Vector2(-8.59996, 282.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body67" parent="Crowd/CrowdLeft2" unique_id=2094381657 instance=ExtResource("5_y3j0m")]
+position = Vector2(12.40004, 334.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body68" parent="Crowd/CrowdLeft2" unique_id=61054882 instance=ExtResource("5_y3j0m")]
+position = Vector2(-6.5999603, 407.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body69" parent="Crowd/CrowdLeft2" unique_id=1834140424 instance=ExtResource("5_y3j0m")]
+position = Vector2(5.4000397, 511.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body70" parent="Crowd/CrowdLeft2" unique_id=1584103442 instance=ExtResource("5_y3j0m")]
+position = Vector2(-6.5999603, 573.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body71" parent="Crowd/CrowdLeft2" unique_id=780990419 instance=ExtResource("5_y3j0m")]
+position = Vector2(10.40004, 623.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body72" parent="Crowd/CrowdLeft2" unique_id=1360796229 instance=ExtResource("5_y3j0m")]
+position = Vector2(10.40004, 623.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body73" parent="Crowd/CrowdLeft2" unique_id=1978524605 instance=ExtResource("5_y3j0m")]
+position = Vector2(-62.599953, -601.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body74" parent="Crowd/CrowdLeft2" unique_id=163388826 instance=ExtResource("5_y3j0m")]
+position = Vector2(-73.59995, -556.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body75" parent="Crowd/CrowdLeft2" unique_id=1477513135 instance=ExtResource("5_y3j0m")]
+position = Vector2(-46.599953, -520.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body76" parent="Crowd/CrowdLeft2" unique_id=1655539945 instance=ExtResource("5_y3j0m")]
+position = Vector2(-57.599953, -470.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body77" parent="Crowd/CrowdLeft2" unique_id=1100091279 instance=ExtResource("5_y3j0m")]
+position = Vector2(-60.599953, -371.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body78" parent="Crowd/CrowdLeft2" unique_id=503385130 instance=ExtResource("5_y3j0m")]
+position = Vector2(-56.599953, -320.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body79" parent="Crowd/CrowdLeft2" unique_id=228660590 instance=ExtResource("5_y3j0m")]
+position = Vector2(-64.59995, -271.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body80" parent="Crowd/CrowdLeft2" unique_id=1548701412 instance=ExtResource("5_y3j0m")]
+position = Vector2(-55.599953, -163.20003)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body81" parent="Crowd/CrowdLeft2" unique_id=1478766550 instance=ExtResource("5_y3j0m")]
+position = Vector2(-49.599953, -123.20003)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body82" parent="Crowd/CrowdLeft2" unique_id=2014070410 instance=ExtResource("5_y3j0m")]
+position = Vector2(-64.59995, -76.20003)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body83" parent="Crowd/CrowdLeft2" unique_id=1860691390 instance=ExtResource("5_y3j0m")]
+position = Vector2(-53.599953, -28.200027)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body84" parent="Crowd/CrowdLeft2" unique_id=1006011738 instance=ExtResource("5_y3j0m")]
+position = Vector2(-64.59995, 93.79999)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body85" parent="Crowd/CrowdLeft2" unique_id=163103218 instance=ExtResource("5_y3j0m")]
+position = Vector2(-60.599953, 156.79999)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body86" parent="Crowd/CrowdLeft2" unique_id=1951040516 instance=ExtResource("5_y3j0m")]
+position = Vector2(-41.599953, 207.79999)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body87" parent="Crowd/CrowdLeft2" unique_id=1421973339 instance=ExtResource("5_y3j0m")]
+position = Vector2(-69.59995, 259.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body88" parent="Crowd/CrowdLeft2" unique_id=333347622 instance=ExtResource("5_y3j0m")]
+position = Vector2(-48.599953, 321.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body89" parent="Crowd/CrowdLeft2" unique_id=1189704035 instance=ExtResource("5_y3j0m")]
+position = Vector2(-53.599953, 446.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body90" parent="Crowd/CrowdLeft2" unique_id=369590207 instance=ExtResource("5_y3j0m")]
+position = Vector2(-76.59995, 510.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body91" parent="Crowd/CrowdLeft2" unique_id=1146898435 instance=ExtResource("5_y3j0m")]
+position = Vector2(-55.599953, 562.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body92" parent="Crowd/CrowdLeft2" unique_id=1389691971 instance=ExtResource("5_y3j0m")]
+position = Vector2(-74.59995, 635.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body93" parent="Crowd/CrowdLeft2" unique_id=1778947817 instance=ExtResource("5_y3j0m")]
+position = Vector2(-62.599953, 739.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body94" parent="Crowd/CrowdLeft2" unique_id=19290027 instance=ExtResource("5_y3j0m")]
+position = Vector2(-74.59995, 801.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body95" parent="Crowd/CrowdLeft2" unique_id=2137820931 instance=ExtResource("5_y3j0m")]
+position = Vector2(-57.599953, 851.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body96" parent="Crowd/CrowdLeft2" unique_id=798373038 instance=ExtResource("5_y3j0m")]
+position = Vector2(-57.599953, 851.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body97" parent="Crowd/CrowdLeft2" unique_id=1385533709 instance=ExtResource("5_y3j0m")]
+position = Vector2(-122.599945, -733.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body98" parent="Crowd/CrowdLeft2" unique_id=1812597461 instance=ExtResource("5_y3j0m")]
+position = Vector2(-133.59995, -688.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body99" parent="Crowd/CrowdLeft2" unique_id=1591929197 instance=ExtResource("5_y3j0m")]
+position = Vector2(-106.599945, -652.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body100" parent="Crowd/CrowdLeft2" unique_id=460251859 instance=ExtResource("5_y3j0m")]
+position = Vector2(-117.599945, -602.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body101" parent="Crowd/CrowdLeft2" unique_id=1546028872 instance=ExtResource("5_y3j0m")]
+position = Vector2(-120.599945, -503.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body102" parent="Crowd/CrowdLeft2" unique_id=1480829101 instance=ExtResource("5_y3j0m")]
+position = Vector2(-116.599945, -452.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body103" parent="Crowd/CrowdLeft2" unique_id=1942529569 instance=ExtResource("5_y3j0m")]
+position = Vector2(-124.599945, -403.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body104" parent="Crowd/CrowdLeft2" unique_id=70775885 instance=ExtResource("5_y3j0m")]
+position = Vector2(-115.599945, -295.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body105" parent="Crowd/CrowdLeft2" unique_id=329087413 instance=ExtResource("5_y3j0m")]
+position = Vector2(-109.599945, -255.20001)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body106" parent="Crowd/CrowdLeft2" unique_id=2125791516 instance=ExtResource("5_y3j0m")]
+position = Vector2(-124.599945, -208.20001)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body107" parent="Crowd/CrowdLeft2" unique_id=1003771817 instance=ExtResource("5_y3j0m")]
+position = Vector2(-113.599945, -160.20001)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body108" parent="Crowd/CrowdLeft2" unique_id=213715700 instance=ExtResource("5_y3j0m")]
+position = Vector2(-124.599945, -38.199997)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body109" parent="Crowd/CrowdLeft2" unique_id=604668482 instance=ExtResource("5_y3j0m")]
+position = Vector2(-120.599945, 24.800003)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body110" parent="Crowd/CrowdLeft2" unique_id=706973684 instance=ExtResource("5_y3j0m")]
+position = Vector2(-101.599945, 75.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body111" parent="Crowd/CrowdLeft2" unique_id=868127331 instance=ExtResource("5_y3j0m")]
+position = Vector2(-129.59995, 127.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body112" parent="Crowd/CrowdLeft2" unique_id=1301998378 instance=ExtResource("5_y3j0m")]
+position = Vector2(-108.599945, 189.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body113" parent="Crowd/CrowdLeft2" unique_id=448227690 instance=ExtResource("5_y3j0m")]
+position = Vector2(-113.599945, 314.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body114" parent="Crowd/CrowdLeft2" unique_id=670186407 instance=ExtResource("5_y3j0m")]
+position = Vector2(-136.59995, 378.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body115" parent="Crowd/CrowdLeft2" unique_id=278234548 instance=ExtResource("5_y3j0m")]
+position = Vector2(-115.599945, 430.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body116" parent="Crowd/CrowdLeft2" unique_id=1840826318 instance=ExtResource("5_y3j0m")]
+position = Vector2(-134.59995, 503.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body117" parent="Crowd/CrowdLeft2" unique_id=1222797576 instance=ExtResource("5_y3j0m")]
+position = Vector2(-122.599945, 607.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body118" parent="Crowd/CrowdLeft2" unique_id=402517011 instance=ExtResource("5_y3j0m")]
+position = Vector2(-134.59995, 669.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body119" parent="Crowd/CrowdLeft2" unique_id=750917006 instance=ExtResource("5_y3j0m")]
+position = Vector2(-117.599945, 719.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body120" parent="Crowd/CrowdLeft2" unique_id=1004358093 instance=ExtResource("5_y3j0m")]
+position = Vector2(-117.599945, 719.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body121" parent="Crowd/CrowdLeft2" unique_id=1928407607 instance=ExtResource("5_y3j0m")]
+position = Vector2(-199.59995, -567.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body122" parent="Crowd/CrowdLeft2" unique_id=1422401968 instance=ExtResource("5_y3j0m")]
+position = Vector2(-210.59995, -522.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body123" parent="Crowd/CrowdLeft2" unique_id=2048797769 instance=ExtResource("5_y3j0m")]
+position = Vector2(-183.59995, -486.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body124" parent="Crowd/CrowdLeft2" unique_id=1503011742 instance=ExtResource("5_y3j0m")]
+position = Vector2(-194.59995, -436.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body125" parent="Crowd/CrowdLeft2" unique_id=2019724352 instance=ExtResource("5_y3j0m")]
+position = Vector2(-197.59995, -337.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body126" parent="Crowd/CrowdLeft2" unique_id=1309567668 instance=ExtResource("5_y3j0m")]
+position = Vector2(-193.59995, -286.2)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body127" parent="Crowd/CrowdLeft2" unique_id=1924399418 instance=ExtResource("5_y3j0m")]
+position = Vector2(-201.59995, -237.20003)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body128" parent="Crowd/CrowdLeft2" unique_id=1625028771 instance=ExtResource("5_y3j0m")]
+position = Vector2(-192.59995, -129.20003)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body129" parent="Crowd/CrowdLeft2" unique_id=1762255657 instance=ExtResource("5_y3j0m")]
+position = Vector2(-186.59995, -89.20003)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body130" parent="Crowd/CrowdLeft2" unique_id=1293245053 instance=ExtResource("5_y3j0m")]
+position = Vector2(-201.59995, -42.200027)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body131" parent="Crowd/CrowdLeft2" unique_id=34168568 instance=ExtResource("5_y3j0m")]
+position = Vector2(-190.59995, 5.7999725)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body132" parent="Crowd/CrowdLeft2" unique_id=564495135 instance=ExtResource("5_y3j0m")]
+position = Vector2(-201.59995, 127.79999)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body133" parent="Crowd/CrowdLeft2" unique_id=224797485 instance=ExtResource("5_y3j0m")]
+position = Vector2(-197.59995, 190.79999)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body134" parent="Crowd/CrowdLeft2" unique_id=1468402412 instance=ExtResource("5_y3j0m")]
+position = Vector2(-178.59995, 241.79999)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body135" parent="Crowd/CrowdLeft2" unique_id=1782933009 instance=ExtResource("5_y3j0m")]
+position = Vector2(-206.59995, 293.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body136" parent="Crowd/CrowdLeft2" unique_id=1234709401 instance=ExtResource("5_y3j0m")]
+position = Vector2(-185.59995, 355.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body137" parent="Crowd/CrowdLeft2" unique_id=1127318132 instance=ExtResource("5_y3j0m")]
+position = Vector2(-190.59995, 480.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body138" parent="Crowd/CrowdLeft2" unique_id=95920355 instance=ExtResource("5_y3j0m")]
+position = Vector2(-213.59995, 544.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body139" parent="Crowd/CrowdLeft2" unique_id=1300069019 instance=ExtResource("5_y3j0m")]
+position = Vector2(-192.59995, 596.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body140" parent="Crowd/CrowdLeft2" unique_id=644059021 instance=ExtResource("5_y3j0m")]
+position = Vector2(-211.59995, 669.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body141" parent="Crowd/CrowdLeft2" unique_id=808480747 instance=ExtResource("5_y3j0m")]
+position = Vector2(-199.59995, 773.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body142" parent="Crowd/CrowdLeft2" unique_id=554164038 instance=ExtResource("5_y3j0m")]
+position = Vector2(-211.59995, 835.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body143" parent="Crowd/CrowdLeft2" unique_id=714178468 instance=ExtResource("5_y3j0m")]
+position = Vector2(-194.59995, 885.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
+
+[node name="Body144" parent="Crowd/CrowdLeft2" unique_id=738213194 instance=ExtResource("5_y3j0m")]
+position = Vector2(-194.59995, 885.8)
+scale = Vector2(0.8, 0.8)
+flip_h = true
 
 [connection signal="body_entered" from="Ring/Border" to="Ring" method="_on_border_body_entered"]
 [connection signal="body_exited" from="Ring/Border" to="Ring" method="_on_border_body_exited"]

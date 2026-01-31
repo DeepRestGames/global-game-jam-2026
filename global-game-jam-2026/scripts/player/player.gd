@@ -46,7 +46,7 @@ var _knockback_force = Vector2.ZERO
 var _is_boss = false
 #endregion
 #region @onready Variables
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: Sprite2D = $SpritePivot/Sprite2D
 @onready var attack_area: Area2D = $AttackArea
 @onready var attack_area_sprite_2d: Sprite2D = $AttackArea/Sprite2D
 @onready var attack_area_collision: CollisionShape2D = $AttackArea/CollisionShape2D

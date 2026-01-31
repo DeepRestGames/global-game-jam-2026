@@ -16,7 +16,7 @@ var looking_right = true
 #endregion
 #region @onready Variables
 @onready var player: Player = $".."
-@onready var sprite_2d: Sprite2D = $"../Sprite2D"
+@onready var sprite_2d: Sprite2D = $"../SpritePivot/Sprite2D"
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 #endregion
 

@@ -19,19 +19,21 @@ extends Camera2D
 #endregion
 
 #region Event Methods
-func _input(event: InputEvent) -> void:
-	if event.is_action_pressed("shake_screen"):
-		shake(Vector2.LEFT, screenshake_strength)
-
-
 func _process(delta: float) -> void:
-	offset *= falloff_factor
+	offset *= falloff_factor * 1 / delta
 #endregion
 #region Signal Handlers
 #endregion
 #region Regular Methods
 func shake(dir: Vector2, amount: float):
-	offset += dir * amount
+	if dir == Vector2.ZERO: offset += _get_random_dir() * amount
+	else: offset += dir * amount
+
+
+func freeze_frame(duration: float):
+	Engine.time_scale = 0
+	await get_tree().create_timer(duration, false, false, true).timeout
+	Engine.time_scale = 1
 
 
 func _get_random_dir():

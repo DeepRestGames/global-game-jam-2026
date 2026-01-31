@@ -11,9 +11,14 @@ config_version=5
 [application]
 
 config/name="global-game-jam-2026"
-run/main_scene="uid://c5sc6e8hv3flr"
+run/main_scene="uid://cnnthot0gwh0t"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+GameManager="*uid://bfn7skaurg6tm"
+MultiplayerInputSetup="*uid://dvcqjb4y4x507"
 
 [display]
 
@@ -21,11 +26,6 @@ window/size/viewport_width=1920
 window/size/viewport_height=1080
 window/size/mode=3
 window/stretch/mode="canvas_items"
-
-[autoload]
-
-GameManager="*uid://bfn7skaurg6tm"
-MultiplayerInputSetup="*uid://dvcqjb4y4x507"
 
 [input]
 

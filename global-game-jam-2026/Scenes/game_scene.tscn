@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://co0xlb5mcbjqu" path="res://scripts/environment/camera.gd" id="1_b6fju"]
 [ext_resource type="Script" uid="uid://bk3s2boednv7" path="res://scripts/environment/ring.gd" id="1_x87qo"]
+[ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://scenes/player/player.tscn" id="3_ycayy"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oqyrl"]
 
@@ -62,6 +63,7 @@ position = Vector2(384, 0)
 shape = SubResource("WorldBoundaryShape2D_6h5vk")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ring/StaticBody2D" unique_id=221755507]
+self_modulate = Color(0.65, 0.65, 0.65, 1)
 texture = SubResource("GradientTexture2D_x87qo")
 
 [node name="Border" type="Area2D" parent="Ring" unique_id=1450656480]
@@ -97,6 +99,28 @@ shape = SubResource("RectangleShape2D_oqyrl")
 
 [node name="Sprite2D" type="Sprite2D" parent="Ring/Border/CollisionShape2D4" unique_id=1608770280]
 texture = SubResource("GradientTexture2D_b6fju")
+
+[node name="Player" parent="." unique_id=881583183 instance=ExtResource("3_ycayy")]
+position = Vector2(-192, -224)
+scale = Vector2(0.4, 0.4)
+
+[node name="Player2" parent="." unique_id=825266784 instance=ExtResource("3_ycayy")]
+position = Vector2(168, -216)
+scale = Vector2(0.4, 0.4)
+player_color = Color(1, 0, 0, 1)
+player_num = 1
+
+[node name="Player3" parent="." unique_id=1839694508 instance=ExtResource("3_ycayy")]
+position = Vector2(-200, 184)
+scale = Vector2(0.4, 0.4)
+player_color = Color(0.011764706, 1, 0, 1)
+player_num = 2
+
+[node name="Player4" parent="." unique_id=49969423 instance=ExtResource("3_ycayy")]
+position = Vector2(184, 184)
+scale = Vector2(0.4, 0.4)
+player_color = Color(0, 0, 0.8784314, 1)
+player_num = 3
 
 [connection signal="body_entered" from="Ring/Border" to="Ring" method="_on_border_body_entered"]
 [connection signal="body_exited" from="Ring/Border" to="Ring" method="_on_border_body_exited"]

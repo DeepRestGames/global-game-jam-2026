@@ -7,6 +7,7 @@ signal hit(force)
 signal knocked_back(force)
 signal knocked_out
 signal recovered
+signal knockback_recovered
 signal upgraded(player)
 signal downgraded(player)
 signal move(direction)
@@ -25,6 +26,7 @@ signal knockout_minigame_progress()
 @export var player_color: Color = Color.YELLOW
 @export_enum("MASKCACHO", "EL MASKADOR", "MASKERIÑO", "MASKALIENTE") var player_name: String = "MASKCACHO"
 @export var player_num = 0
+@export var base_sprite_sheet: Texture2D
 @export_group("Movement")
 @export var input_vector_deadzone : float = -1
 @export var move_speed : float = 500
@@ -48,13 +50,14 @@ var _knockback_force = Vector2.ZERO
 var _is_boss = false
 #endregion
 #region @onready Variables
-@onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var sprite_2d: Sprite2D = $SpritePivot/Sprite2D
 @onready var attack_area: Area2D = $AttackArea
 @onready var attack_area_sprite_2d: Sprite2D = $AttackArea/Sprite2D
 @onready var attack_area_collision: CollisionShape2D = $AttackArea/CollisionShape2D
 @onready var player_indicator_sprite: Sprite2D = $PlayerIndicatorSprite
 @onready var belt: Belt = $"../Belt"
 @onready var knockout_minigame: KnockoutMinigame = $KnockoutMinigame
+@onready var the_mask_sprite_sheet: Texture2D = preload("res://art/player/the_mask_sprite_sheet.png")
 #endregion
 
 #region Event Methods
@@ -121,6 +124,7 @@ func upgrade_player():
 	
 	_is_boss = true
 	scale *= Vector2.ONE * boss_size_factor
+	sprite_2d.texture = the_mask_sprite_sheet
 	move_speed *= boss_move_speed_factor
 	upgraded.emit(self)
 
@@ -130,6 +134,7 @@ func downgrade_player():
 	
 	_is_boss = false
 	scale /= Vector2.ONE * boss_size_factor
+	sprite_2d.texture = base_sprite_sheet
 	move_speed /= boss_move_speed_factor
 	downgraded.emit(self)
 	
@@ -141,6 +146,7 @@ func downgrade_player():
 func spawn_in():
 	_is_joined = true
 	sprite_2d.self_modulate = player_color
+	sprite_2d.texture = base_sprite_sheet
 	player_indicator_sprite.self_modulate = player_color
 
 
@@ -156,7 +162,7 @@ func _handle_movement():
 	if !_is_stunned and !_is_knocked_out:
 		velocity = input_vector * move_speed
 	
-	if velocity != Vector2.ZERO:
+	if !is_zero_approx(velocity.length()):
 		move.emit(velocity)
 
 
@@ -169,4 +175,5 @@ func _handle_knockback(delta):
 	if is_zero_approx(velocity.length()):
 		_knockback_force = Vector2.ZERO
 		_is_stunned = false
+		knockback_recovered.emit()
 #endregion

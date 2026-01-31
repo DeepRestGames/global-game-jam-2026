@@ -18,6 +18,7 @@ extends Area2D
 #region Regular Variables
 #endregion
 #region @onready Variables
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 #endregion
 
 #region Event Methods
@@ -29,9 +30,15 @@ func _on_body_entered(body: Node2D) -> void:
 	if body is Player:
 		body.upgrade_player()
 		hide()
+		animation_player.stop()
 		is_active = false
 #endregion
 #region Regular Methods
+
+func _ready() -> void:
+	animation_player.play("Idle")
+
+
 func handle_spawn_animation():
 	var tween_y = create_tween()
 	tween_y.set_ease(Tween.EASE_OUT)
@@ -45,4 +52,6 @@ func handle_spawn_animation():
 	tween_x.set_trans(Tween.TRANS_SINE)
 	tween_x.tween_property(self, "position:x", 0, bounce_up_duration + bounce_down_duration)
 	tween_x.tween_callback(func(): is_active = true)
+	
+	animation_player.play("Idle")
 #endregion

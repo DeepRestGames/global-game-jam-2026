@@ -31,8 +31,8 @@ var screenshake_amount: float
 #region Event Methods
 func _ready() -> void:
 	GameManager.register_player_signals()
+	CrowdManager.setup_players()
 	players.append_array(find_children("*", "Player", false))
-	
 	for player in players:
 		player.knocked_back.connect(_on_player_knocked_back)
 #endregion

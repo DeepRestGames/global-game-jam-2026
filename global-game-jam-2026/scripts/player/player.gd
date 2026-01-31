@@ -39,8 +39,8 @@ signal move(direction)
 #endregion
 #region Regular Variables
 var _is_input_active: bool = true
-var _is_stunned = false:
-var _is_knocked_out = false:
+var _is_stunned = false
+var _is_knocked_out = false
 var _knockback_force = Vector2.ZERO
 var _is_boss = false
 #endregion

@@ -41,6 +41,7 @@ func _on_player_knockout_minigame_progress():
 	texture_progress_bar.value += 1
 
 func _on_player_recovered():
+	label.hide()
 	button_animation.hide()
 #endregion
 #region Regular Methods

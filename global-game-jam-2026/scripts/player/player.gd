@@ -84,6 +84,10 @@ func _physics_process(delta):
 	move_and_slide()
 
 
+func _process(delta):
+	_set_z_layer()
+
+
 func _unhandled_input(event: InputEvent) -> void:
 	if not _is_spawned: return
 
@@ -166,6 +170,12 @@ func spawn_in():
 	collision_shape_2d.disabled = false
 	_is_spawned = true
 	spawned.emit()
+
+
+func _set_z_layer():
+	var y_max = 1000
+	var result = int(clamp(remap(position.y, -y_max, y_max, 0.0, 100.0), 0.0, 100.0))
+	z_index = result
 
 
 func _handle_movement():

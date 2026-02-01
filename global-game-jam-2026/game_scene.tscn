@@ -1438,7 +1438,21 @@ player = NodePath("../../Player4")
 [node name="Player1" parent="." unique_id=881583183 instance=ExtResource("3_ycayy")]
 position = Vector2(-1216, -104)
 player_color = Color(0, 0.58431375, 1, 1)
+is_looking_right = true
+player_name = "MASKCACHO"
+player_num = 0
 base_sprite_sheet = ExtResource("7_5dgvu")
+input_vector_deadzone = -1.0
+move_speed = 500.0
+hit_timer = 0.2
+knockback_strength = 1000.0
+knockback_falloff = 0.0001
+stun_recovery_threshold = 10.0
+knocked_out_duration = 2.0
+knockback_minigame_init = 10.0
+boss_size_factor = 1.7
+boss_move_speed_factor = 0.5
+boss_knockback_strength = 3000.0
 
 [node name="Player2" parent="." unique_id=825266784 instance=ExtResource("3_ycayy")]
 position = Vector2(1216, -144)
@@ -1447,13 +1461,36 @@ is_looking_right = false
 player_name = "EL MASKADOR"
 player_num = 1
 base_sprite_sheet = ExtResource("8_uscyt")
+input_vector_deadzone = -1.0
+move_speed = 500.0
+hit_timer = 0.2
+knockback_strength = 1000.0
+knockback_falloff = 0.0001
+stun_recovery_threshold = 10.0
+knocked_out_duration = 2.0
+knockback_minigame_init = 10.0
+boss_size_factor = 1.7
+boss_move_speed_factor = 0.5
+boss_knockback_strength = 3000.0
 
 [node name="Player3" parent="." unique_id=1839694508 instance=ExtResource("3_ycayy")]
 position = Vector2(-1216, 64)
 player_color = Color(1, 1, 1, 1)
+is_looking_right = true
 player_name = "MASKERIÑO"
 player_num = 2
 base_sprite_sheet = ExtResource("9_4xiap")
+input_vector_deadzone = -1.0
+move_speed = 500.0
+hit_timer = 0.2
+knockback_strength = 1000.0
+knockback_falloff = 0.0001
+stun_recovery_threshold = 10.0
+knocked_out_duration = 2.0
+knockback_minigame_init = 10.0
+boss_size_factor = 1.7
+boss_move_speed_factor = 0.5
+boss_knockback_strength = 3000.0
 
 [node name="Player4" parent="." unique_id=49969423 instance=ExtResource("3_ycayy")]
 position = Vector2(1216, 104)
@@ -1462,6 +1499,17 @@ is_looking_right = false
 player_name = "MASKALIENTE"
 player_num = 3
 base_sprite_sheet = ExtResource("10_wywco")
+input_vector_deadzone = -1.0
+move_speed = 500.0
+hit_timer = 0.2
+knockback_strength = 1000.0
+knockback_falloff = 0.0001
+stun_recovery_threshold = 10.0
+knocked_out_duration = 2.0
+knockback_minigame_init = 10.0
+boss_size_factor = 1.7
+boss_move_speed_factor = 0.5
+boss_knockback_strength = 3000.0
 
 [node name="Belt" parent="." unique_id=542052037 instance=ExtResource("7_7iton")]
 position = Vector2(0, -655)

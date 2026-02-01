@@ -34,6 +34,7 @@ var screenshake_amount: float
 @onready var player_2_spawn: Marker2D = $SpawnPoints/Player2Spawn
 @onready var player_3_spawn: Marker2D = $SpawnPoints/Player3Spawn
 @onready var player_4_spawn: Marker2D = $SpawnPoints/Player4Spawn
+@onready var tutorial: Control = $Ring/Control
 #endregion
 
 #region Event Methods
@@ -129,6 +130,10 @@ func _on_player_4_joined(source: Player) -> void:
 	tween_x.tween_callback(source.spawn_in)
 #endregion
 #region Regular Methods
+func hide_tutorial():
+	tutorial.hide()
+
+
 func freeze_frame(duration: float):
 	if freeze_frame_tween:
 		freeze_frame_tween.kill()

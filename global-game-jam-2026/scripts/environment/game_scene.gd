@@ -48,6 +48,7 @@ var screenshake_amount: float
 #region Event Methods
 func _ready() -> void:
 	get_tree().paused = false
+	audio_stream_player.stop()
 	audio_stream_player.play()
 	
 	GameManager.spawned_players = 0

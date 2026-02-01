@@ -18,19 +18,17 @@
 [ext_resource type="AudioStream" uid="uid://dyvar7hraf77m" path="res://sound/CROWD_Loop_01.wav" id="7_snaye"]
 [ext_resource type="AudioStream" uid="uid://d0hqvbea1t4mf" path="res://sound/CROWD_Loop_02.wav" id="8_1wc4g"]
 [ext_resource type="Texture2D" uid="uid://bsp75ptajjn2i" path="res://art/kenney_input_prompts/generic_joystick_left.svg" id="8_78j2m"]
-[ext_resource type="Texture2D" uid="uid://dkhw30rwv8wbn" path="res://art/player/maskador_sprite_sheet.png" id="8_uscyt"]
 [ext_resource type="AudioStream" uid="uid://bg4xyxgxhlwxt" path="res://sound/CROWD_cheer_el_maskador_02.wav" id="9_1wc4g"]
-[ext_resource type="Texture2D" uid="uid://ddyqem8hdxkiu" path="res://art/player/maskino_sprite_sheet.png" id="9_4xiap"]
 [ext_resource type="Texture2D" uid="uid://fdhrxnj3dta1" path="res://art/kenney_input_prompts/generic_joystick_right.svg" id="9_na8jj"]
 [ext_resource type="AudioStream" uid="uid://b83p2rhq8yohv" path="res://sound/CROWD_cheer_maskaliente_04.wav" id="10_78j2m"]
 [ext_resource type="PackedScene" uid="uid://qmub7mce6o11" path="res://Scenes/win_screen/win_screen.tscn" id="10_miq82"]
-[ext_resource type="Texture2D" uid="uid://bjg7xckeax0lh" path="res://art/player/maskchacho_sprite_sheet_color.png" id="12_snaye"]
-[ext_resource type="Texture2D" uid="uid://c08apc2lhexu0" path="res://art/player/maskador_sprite_sheet_color.png" id="13_1wc4g"]
-[ext_resource type="Texture2D" uid="uid://5rq4wpbyb3el" path="res://art/player/maskino_sprite_sheet_color.png" id="14_78j2m"]
-[ext_resource type="Texture2D" uid="uid://cef5ppcbcncie" path="res://art/player/maskcaliente_sprite_sheet_color.png" id="15_na8jj"]
 [ext_resource type="AudioStream" uid="uid://deuu75mxugvvq" path="res://sound/CROWD_cheer_maskchacho_05.wav" id="11_na8jj"]
 [ext_resource type="AudioStream" uid="uid://dl0thcgia85lv" path="res://sound/CROWD_cheer_maskerino_06.wav" id="12_jv0we"]
+[ext_resource type="Texture2D" uid="uid://bjg7xckeax0lh" path="res://art/player/maskchacho_sprite_sheet_color.png" id="12_snaye"]
+[ext_resource type="Texture2D" uid="uid://c08apc2lhexu0" path="res://art/player/maskador_sprite_sheet_color.png" id="13_1wc4g"]
 [ext_resource type="Texture2D" uid="uid://dqk7xb41otpj8" path="res://art/the_mask_shadow.png" id="13_bpcsf"]
+[ext_resource type="Texture2D" uid="uid://5rq4wpbyb3el" path="res://art/player/maskino_sprite_sheet_color.png" id="14_78j2m"]
+[ext_resource type="Texture2D" uid="uid://cef5ppcbcncie" path="res://art/player/maskcaliente_sprite_sheet_color.png" id="15_na8jj"]
 [ext_resource type="Texture2D" uid="uid://cyi2ovk4ws1he" path="res://art/environment/spotlight_on_ring.png" id="20_f54l4"]
 [ext_resource type="AudioStream" uid="uid://cx4xrw1h71sa3" path="res://music/ost_1_intro_loop.wav" id="23_5smy7"]
 [ext_resource type="AudioStream" uid="uid://b4vc0g71l5luf" path="res://music/ost_2_transition.wav" id="24_glbr4"]
@@ -203,7 +201,7 @@ _transitions = {
 Vector2i(0, 1): {
 "fade_beats": 1.0,
 "fade_mode": 0,
-"from_time": 3,
+"from_time": 0,
 "to_time": 1
 },
 Vector2i(1, 2): {
@@ -1786,21 +1784,7 @@ player = NodePath("../../Player4")
 [node name="Player1" parent="." unique_id=881583183 instance=ExtResource("3_ycayy")]
 position = Vector2(-1216, -104)
 player_color = Color(0, 0.58431375, 1, 1)
-is_looking_right = true
-player_name = "MASKCACHO"
-player_num = 0
 base_sprite_sheet = ExtResource("12_snaye")
-input_vector_deadzone = -1.0
-move_speed = 500.0
-hit_timer = 0.2
-knockback_strength = 1000.0
-knockback_falloff = 0.0001
-stun_recovery_threshold = 10.0
-knocked_out_duration = 2.0
-knockback_minigame_init = 10.0
-boss_size_factor = 1.7
-boss_move_speed_factor = 0.5
-boss_knockback_strength = 3000.0
 
 [node name="Player2" parent="." unique_id=825266784 instance=ExtResource("3_ycayy")]
 position = Vector2(1216, -144)
@@ -1809,36 +1793,13 @@ is_looking_right = false
 player_name = "EL MASKADOR"
 player_num = 1
 base_sprite_sheet = ExtResource("13_1wc4g")
-input_vector_deadzone = -1.0
-move_speed = 500.0
-hit_timer = 0.2
-knockback_strength = 1000.0
-knockback_falloff = 0.0001
-stun_recovery_threshold = 10.0
-knocked_out_duration = 2.0
-knockback_minigame_init = 10.0
-boss_size_factor = 1.7
-boss_move_speed_factor = 0.5
-boss_knockback_strength = 3000.0
 
 [node name="Player3" parent="." unique_id=1839694508 instance=ExtResource("3_ycayy")]
 position = Vector2(-1216, 64)
 player_color = Color(1, 1, 1, 1)
-is_looking_right = true
 player_name = "MASKERIÑO"
 player_num = 2
 base_sprite_sheet = ExtResource("14_78j2m")
-input_vector_deadzone = -1.0
-move_speed = 500.0
-hit_timer = 0.2
-knockback_strength = 1000.0
-knockback_falloff = 0.0001
-stun_recovery_threshold = 10.0
-knocked_out_duration = 2.0
-knockback_minigame_init = 10.0
-boss_size_factor = 1.7
-boss_move_speed_factor = 0.5
-boss_knockback_strength = 3000.0
 
 [node name="Player4" parent="." unique_id=49969423 instance=ExtResource("3_ycayy")]
 position = Vector2(1216, 104)
@@ -1847,17 +1808,6 @@ is_looking_right = false
 player_name = "MASKALIENTE"
 player_num = 3
 base_sprite_sheet = ExtResource("15_na8jj")
-input_vector_deadzone = -1.0
-move_speed = 500.0
-hit_timer = 0.2
-knockback_strength = 1000.0
-knockback_falloff = 0.0001
-stun_recovery_threshold = 10.0
-knocked_out_duration = 2.0
-knockback_minigame_init = 10.0
-boss_size_factor = 1.7
-boss_move_speed_factor = 0.5
-boss_knockback_strength = 3000.0
 
 [node name="Belt" parent="." unique_id=542052037 instance=ExtResource("7_7iton")]
 position = Vector2(0, -655)

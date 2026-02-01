@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://dkhw30rwv8wbn" path="res://art/player/maskador_sprite_sheet.png" id="8_uscyt"]
 [ext_resource type="Texture2D" uid="uid://ddyqem8hdxkiu" path="res://art/player/maskino_sprite_sheet.png" id="9_4xiap"]
 [ext_resource type="PackedScene" uid="uid://qmub7mce6o11" path="res://Scenes/win_screen/win_screen.tscn" id="10_miq82"]
-[ext_resource type="PackedScene" uid="uid://qmub7mce6o11" path="res://Scenes/win_screen/win_screen.tscn" id="10_miq82"]
 [ext_resource type="Texture2D" uid="uid://b6vos4q57ylkw" path="res://art/player/maskcaliente_sprite_sheet.png" id="10_wywco"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oqyrl"]
@@ -42,10 +41,6 @@ size = Vector2(6.000061, 1051.9999)
 [node name="GameScene" type="Node2D" unique_id=2085927401]
 process_mode = 3
 script = ExtResource("1_2fmhe")
-heavy_attack_freeze_frame_screenshake_amount = 10.0
-heavy_attack_screenshake_amount = 50.0
-spawn_in_duration = 0.8
-spawn_in_jump_height = 250.0
 heavy_attack_freeze_frame_screenshake_amount = 10.0
 heavy_attack_screenshake_amount = 50.0
 spawn_in_duration = 0.8

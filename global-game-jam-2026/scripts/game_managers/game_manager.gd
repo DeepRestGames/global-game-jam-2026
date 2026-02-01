@@ -57,12 +57,10 @@ func register_win_screen(win_screen: WinScreen):
 
 
 func _is_win_condition_active():
-	print("Spawned: %s" % spawned_players)
 	if spawned_players < 2: return
 	
 	var knocked_players = get_tree().get_nodes_in_group("Player").filter(func(p: Player): return p.is_knocked_out) as Array
 	var knocked_count = knocked_players.size()
-	print("Knocked: %s" % knocked_count)
 	return knocked_count == (spawned_players - 1)
 
 

@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://vcy0skyklk8h"]
+
+[ext_resource type="Texture2D" uid="uid://vak3h6dmukd6" path="res://art/particles/particle_attack.png" id="1_cty02"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_jp56q"]
+
+[sub_resource type="Gradient" id="Gradient_sph3f"]
+offsets = PackedFloat32Array(0.363636, 0.681818, 1)
+colors = PackedColorArray(0.678431, 0.717647, 0.784314, 1, 0.92, 0.92, 0.92, 1, 0.93, 0.93, 0.93, 0.286275)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_f56ef"]
+gradient = SubResource("Gradient_sph3f")
+
+[sub_resource type="Curve" id="Curve_8ns5o"]
+_data = [Vector2(0, 0.786517), 0.0, 2.42697, 0, 0, Vector2(0.220588, 0.966292), 0.0, 0.0, 0, 0, Vector2(1, 0.146068), -2.8015, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_rvlvc"]
+curve = SubResource("Curve_8ns5o")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_cr50e"]
+particle_flag_disable_z = true
+emission_shape = 1
+emission_sphere_radius = 14.88
+angle_min = -180.0
+angle_max = 180.1
+angular_velocity_min = -180.0
+angular_velocity_max = 180.0
+gravity = Vector3(0, -90, 0)
+radial_accel_min = -91.95
+radial_accel_max = 48.28
+scale_min = 0.5
+scale_max = 2.0
+scale_curve = SubResource("CurveTexture_rvlvc")
+color_ramp = SubResource("GradientTexture1D_f56ef")
+
+[node name="attack_particle" type="GPUParticles2D"]
+z_index = -1
+material = SubResource("CanvasItemMaterial_jp56q")
+emitting = false
+amount = 20
+texture = ExtResource("1_cty02")
+lifetime = 0.35
+one_shot = true
+preprocess = 0.2
+explosiveness = 0.6
+process_material = SubResource("ParticleProcessMaterial_cr50e")

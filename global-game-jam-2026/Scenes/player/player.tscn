@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://b17x6sqwu013f" path="res://scripts/player/player.gd" id="1_sjcu7"]
 [ext_resource type="Texture2D" uid="uid://3xussjdpwp6g" path="res://art/player/PlayerOrientationIndicator.png" id="2_75vfm"]
 [ext_resource type="Texture2D" uid="uid://byi1ojixdhjxs" path="res://art/player/base_character_sprite_sheet.png" id="2_lvxji"]
-[ext_resource type="Texture2D" uid="uid://daok2j868d14i" path="res://art/hand-fist-solid-full.svg" id="3_emvbc"]
 [ext_resource type="PackedScene" uid="uid://ha6xmy26ea2q" path="res://Scenes/knockout_minigame/knockout_minigame.tscn" id="5_p47bc"]
 [ext_resource type="Script" uid="uid://d2vtqr1hey1gl" path="res://scripts/player/player_animation.gd" id="7_xxarj"]
 
@@ -12,6 +11,10 @@ radius = 19.026299
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_emvbc"]
 radius = 26.076809
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ca0mu"]
+radius = 24.0
+height = 80.0
 
 [sub_resource type="Animation" id="Animation_lvxji"]
 length = 0.001
@@ -666,16 +669,22 @@ disabled = true
 [node name="AttackArea" type="Area2D" parent="." unique_id=1992181612]
 position = Vector2(0.5, -35.5)
 collision_layer = 0
+collision_mask = 4
 monitorable = false
-
-[node name="Sprite2D" type="Sprite2D" parent="AttackArea" unique_id=344514588]
-visible = false
-scale = Vector2(0.05, 0.05)
-texture = ExtResource("3_emvbc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=260382679]
 shape = SubResource("CircleShape2D_emvbc")
 disabled = true
+
+[node name="HurtArea" type="Area2D" parent="." unique_id=157806990]
+position = Vector2(0, -32)
+collision_layer = 4
+collision_mask = 0
+monitoring = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtArea" unique_id=1695527269]
+shape = SubResource("CapsuleShape2D_ca0mu")
+debug_color = Color(0.7, 0, 0, 0.41960785)
 
 [node name="KnockoutMinigame" parent="." unique_id=242296841 instance=ExtResource("5_p47bc")]
 offset_top = -96.00001
@@ -690,4 +699,4 @@ script = ExtResource("7_xxarj")
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_75vfm")
 
-[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
+[connection signal="area_entered" from="AttackArea" to="." method="_on_attack_area_area_entered"]

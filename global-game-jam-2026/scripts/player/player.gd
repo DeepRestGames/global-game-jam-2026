@@ -58,7 +58,6 @@ var _is_boss = false
 #region @onready Variables
 @onready var sprite_2d: Sprite2D = $SpritePivot/Sprite2D
 @onready var attack_area: Area2D = $AttackArea
-@onready var attack_area_sprite_2d: Sprite2D = $AttackArea/Sprite2D
 @onready var attack_area_collision: CollisionShape2D = $AttackArea/CollisionShape2D
 @onready var player_indicator_sprite: Sprite2D = $PlayerIndicatorSprite
 @onready var belt: Belt = $"../Belt"
@@ -98,20 +97,21 @@ func _unhandled_input(event: InputEvent) -> void:
 			attack_area_collision.set_deferred("disabled", true)
 #endregion
 #region Signal Handlers
-func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body is not Player or body == self: return
+func _on_knockout_minigame_finished():
+	knockback_minigame_max += knockback_minigame_growth
+	_is_knocked_out = false
+	recovered.emit()
+
+
+func _on_attack_area_area_entered(area: Area2D) -> void:
+	var player = area.get_parent()
+	if player is not Player or player == self: return
 
 	var direction = (attack_area.global_position - global_position).normalized()
 	var hit_force = direction * (boss_knockback_strength if _is_boss else knockback_strength)
 	if _is_boss: hit_as_boss.emit(hit_force)
 	hit.emit(hit_force)
-	body.get_hit(hit_force)
-
-
-func _on_knockout_minigame_finished():
-	knockback_minigame_max += knockback_minigame_growth
-	_is_knocked_out = false
-	recovered.emit()
+	player.get_hit(hit_force)
 #endregion
 #region Regular Methods
 func get_hit(force):

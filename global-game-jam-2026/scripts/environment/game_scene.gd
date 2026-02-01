@@ -18,6 +18,8 @@ extends Node2D
 
 @export var spawn_in_duration: float = 2
 @export var spawn_in_jump_height: float = 100
+
+@export var belt_spawn_duration: float = 1
 #endregion
 #region Regular Variables
 var players: Array
@@ -34,6 +36,8 @@ var screenshake_amount: float
 @onready var player_2_spawn: Marker2D = $SpawnPoints/Player2Spawn
 @onready var player_3_spawn: Marker2D = $SpawnPoints/Player3Spawn
 @onready var player_4_spawn: Marker2D = $SpawnPoints/Player4Spawn
+@onready var belt: Belt = $Belt
+@onready var belt_shadow_spawn_in: Sprite2D = $BeltShadowSpawnIn
 #endregion
 
 #region Event Methods
@@ -42,7 +46,9 @@ func _ready() -> void:
 	
 	GameManager.spawned_players = 0
 	GameManager.register_player_signals()
+	GameManager.register_player_corners()
 	GameManager.register_win_screen(win_screen)
+	GameManager.register_game_scene(self)
 	CrowdManager.setup_players()
 	players.append_array(find_children("*", "Player", false))
 	for player in players:
@@ -129,6 +135,24 @@ func _on_player_4_joined(source: Player) -> void:
 	tween_x.tween_callback(source.spawn_in)
 #endregion
 #region Regular Methods
+func spawn_belt():
+	belt_shadow_spawn_in.show()
+	var tween_x = create_tween()
+	tween_x.set_ease(Tween.EASE_IN)
+	tween_x.set_trans(Tween.TRANS_SINE)
+	tween_x.tween_property(belt, "global_position:y", 0, belt_spawn_duration)
+	tween_x.tween_callback(func():
+		belt_shadow_spawn_in.hide()
+		belt.activate_collision()
+		belt.is_active = true
+	)
+	var tween_shadow = create_tween()
+	tween_shadow.set_ease(Tween.EASE_IN)
+	tween_shadow.set_trans(Tween.TRANS_SINE)
+	tween_shadow.tween_property(belt_shadow_spawn_in, "scale:x", 0.8, belt_spawn_duration)
+	tween_shadow.parallel().tween_property(belt_shadow_spawn_in, "scale:y", 1, belt_spawn_duration)
+
+
 func freeze_frame(duration: float):
 	if freeze_frame_tween:
 		freeze_frame_tween.kill()

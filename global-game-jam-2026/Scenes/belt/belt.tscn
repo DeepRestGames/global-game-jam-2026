@@ -70,15 +70,16 @@ _data = {
 }
 
 [node name="Belt" type="Area2D" unique_id=542052037]
-visible = false
 script = ExtResource("1_cynax")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=53165648]
 position = Vector2(0, -1.9073486e-06)
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("CircleShape2D_0t73s")
+disabled = true
 
 [node name="ShadowSprite2D" type="Sprite2D" parent="." unique_id=721463881]
+visible = false
 position = Vector2(0, 30)
 scale = Vector2(0.8, 1)
 texture = ExtResource("2_0t73s")

@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://Scenes/player/player.tscn" id="3_ycayy"]
 [ext_resource type="Texture2D" uid="uid://binq48dgu2xbr" path="res://art/environment/ring_foreground.png" id="5_5dgvu"]
 [ext_resource type="PackedScene" uid="uid://c4wr0j51scdnn" path="res://Scenes/background/audience_member.tscn" id="5_y3j0m"]
+[ext_resource type="PackedScene" uid="uid://cnkhjf8aiwjcf" path="res://Scenes/player/player_corner.tscn" id="6_opqoc"]
 [ext_resource type="Texture2D" uid="uid://k8swq3ajvnpp" path="res://art/player/maskchacho_sprite_sheet.png" id="7_5dgvu"]
 [ext_resource type="PackedScene" uid="uid://daiealbrrehsm" path="res://Scenes/belt/belt.tscn" id="7_7iton"]
 [ext_resource type="PackedScene" uid="uid://d1kwjvqdg8us3" path="res://Scenes/ui/hud.tscn" id="7_kk2rg"]
@@ -14,6 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://ddyqem8hdxkiu" path="res://art/player/maskino_sprite_sheet.png" id="9_4xiap"]
 [ext_resource type="PackedScene" uid="uid://qmub7mce6o11" path="res://Scenes/win_screen/win_screen.tscn" id="10_miq82"]
 [ext_resource type="Texture2D" uid="uid://b6vos4q57ylkw" path="res://art/player/maskcaliente_sprite_sheet.png" id="10_wywco"]
+[ext_resource type="Texture2D" uid="uid://dqk7xb41otpj8" path="res://art/the_mask_shadow.png" id="13_bpcsf"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oqyrl"]
 
@@ -1415,6 +1417,24 @@ position = Vector2(-112, 48)
 [node name="Player4Spawn" type="Marker2D" parent="SpawnPoints" unique_id=842011243]
 position = Vector2(136, 96)
 
+[node name="PlayerCorners" type="Node2D" parent="." unique_id=1661964526]
+
+[node name="PlayerCorner1" parent="PlayerCorners" unique_id=948098482 node_paths=PackedStringArray("player") instance=ExtResource("6_opqoc")]
+position = Vector2(-441, -348)
+player = NodePath("../../Player1")
+
+[node name="PlayerCorner2" parent="PlayerCorners" unique_id=1859176650 node_paths=PackedStringArray("player") instance=ExtResource("6_opqoc")]
+position = Vector2(445, -345)
+player = NodePath("../../Player2")
+
+[node name="PlayerCorner3" parent="PlayerCorners" unique_id=1219122599 node_paths=PackedStringArray("player") instance=ExtResource("6_opqoc")]
+position = Vector2(-442, 344)
+player = NodePath("../../Player3")
+
+[node name="PlayerCorner4" parent="PlayerCorners" unique_id=1478170563 node_paths=PackedStringArray("player") instance=ExtResource("6_opqoc")]
+position = Vector2(443, 345)
+player = NodePath("../../Player4")
+
 [node name="Player1" parent="." unique_id=881583183 instance=ExtResource("3_ycayy")]
 position = Vector2(-1216, -104)
 player_color = Color(0, 0.58431375, 1, 1)
@@ -1444,8 +1464,13 @@ player_num = 3
 base_sprite_sheet = ExtResource("10_wywco")
 
 [node name="Belt" parent="." unique_id=542052037 instance=ExtResource("7_7iton")]
-visible = true
-is_active = true
+position = Vector2(0, -655)
+
+[node name="BeltShadowSpawnIn" type="Sprite2D" parent="." unique_id=265992523]
+visible = false
+position = Vector2(0, 30)
+scale = Vector2(0.2, 0.25)
+texture = ExtResource("13_bpcsf")
 
 [node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1054436377]
 position = Vector2(3, 439)

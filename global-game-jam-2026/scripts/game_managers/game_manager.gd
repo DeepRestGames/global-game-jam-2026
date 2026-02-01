@@ -16,6 +16,7 @@ var spawned_players # ! Set by Game Scene
 var _current_boss_player: Player
 var _is_countdown_active = false
 var _win_screen
+var _game_scene: GameScene
 #endregion
 #region @onready Variables
 #endregion
@@ -35,7 +36,16 @@ func _on_player_recovered():
 
 func _on_player_spawned():
 	spawned_players += 1
-	print(spawned_players)
+
+
+func _on_player_corner_entered():
+	if spawned_players < 2: return
+	
+	var active_corners = get_tree().get_nodes_in_group("PlayerCorner").filter(func(p: PlayerCorner): return p.is_player_inside) as Array
+	if active_corners.size() == spawned_players:
+		_game_scene.spawn_belt()
+		for corner in get_tree().get_nodes_in_group("PlayerCorner"):
+			corner.disable_collision()
 #endregion
 #region Regular Methods
 func register_player_signals():
@@ -50,6 +60,15 @@ func register_player_signals():
 			if p == _current_boss_player: _current_boss_player = null
 		)
 		player.spawned.connect(_on_player_spawned)
+
+
+func register_player_corners():
+	for corner in get_tree().get_nodes_in_group("PlayerCorner"):
+		corner.player_entered.connect(_on_player_corner_entered)
+
+
+func register_game_scene(game_scene: GameScene):
+	_game_scene = game_scene
 
 
 func register_win_screen(win_screen: WinScreen):

@@ -25,13 +25,13 @@ CrowdManager="*uid://d2nid8x5gsat3"
 
 window/size/viewport_width=1920
 window/size/viewport_height=1080
-window/size/mode=3
 window/stretch/mode="canvas_items"
 
 [global_group]
 
 Player=""
 WinScreen=""
+PlayerCorner=""
 
 [input]
 

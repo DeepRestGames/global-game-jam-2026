@@ -41,6 +41,7 @@ signal knockout_minigame_progress()
 @export var knockback_falloff: float = 0.0001
 @export var stun_recovery_threshold: float = 10
 @export var knocked_out_duration: float = 2
+@export var knockback_minigame_init: float = 10 # used on reset, must be same value as below
 @export var knockback_minigame_max: float = 10
 @export var knockback_minigame_growth : float = 5
 @export_group("Boss Modifiers")
@@ -69,6 +70,7 @@ var _is_boss = false
 
 #region Event Methods
 func _ready():
+	knockback_minigame_max = knockback_minigame_init
 	knockout_minigame.finished.connect(_on_knockout_minigame_finished)
 	
 	sprite_2d.self_modulate = player_color

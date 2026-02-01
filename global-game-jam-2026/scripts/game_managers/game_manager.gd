@@ -12,7 +12,7 @@ var MAX_PLAYERS = 4
 #region @export Variables
 #endregion
 #region Regular Variables
-var _knocked_players = 0
+var spawned_players # ! Set by Game Scene
 var _current_boss_player: Player
 var _is_countdown_active = false
 var _win_screen
@@ -26,15 +26,16 @@ func _ready() -> void:
 #endregion
 #region Signal Handlers
 func _on_player_knocked():
-	_knocked_players += 1
-	print(_knocked_players)
 	if _is_win_condition_active() and _current_boss_player != null: _trigger_win(_current_boss_player)
 
 
 func _on_player_recovered():
-	_knocked_players -= 1
-	print(_knocked_players)
 	if _is_countdown_active: _stop_win()
+
+
+func _on_player_spawned():
+	spawned_players += 1
+	print(spawned_players)
 #endregion
 #region Regular Methods
 func register_player_signals():
@@ -48,6 +49,7 @@ func register_player_signals():
 		player.downgraded.connect(func(p):
 			if p == _current_boss_player: _current_boss_player = null
 		)
+		player.spawned.connect(_on_player_spawned)
 
 
 func register_win_screen(win_screen: WinScreen):
@@ -55,7 +57,13 @@ func register_win_screen(win_screen: WinScreen):
 
 
 func _is_win_condition_active():
-	return _knocked_players == (MAX_PLAYERS - 1)
+	print("Spawned: %s" % spawned_players)
+	if spawned_players < 2: return
+	
+	var knocked_players = get_tree().get_nodes_in_group("Player").filter(func(p: Player): return p.is_knocked_out) as Array
+	var knocked_count = knocked_players.size()
+	print("Knocked: %s" % knocked_count)
+	return knocked_count == (spawned_players - 1)
 
 
 func _trigger_win(winning_player):

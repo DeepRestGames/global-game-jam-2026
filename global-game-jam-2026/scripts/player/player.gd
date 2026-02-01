@@ -51,7 +51,7 @@ signal knockout_minigame_progress()
 #region Regular Variables
 var _is_spawned: bool = false
 var _is_stunned = false
-var _is_knocked_out = false
+var is_knocked_out = false
 var _knockback_force = Vector2.ZERO
 var _is_boss = false
 #endregion
@@ -87,7 +87,7 @@ func _unhandled_input(event: InputEvent) -> void:
 	if not _is_spawned: return
 
 	if event.is_action_pressed("attack_action" + str(player_num)):
-		if _is_knocked_out:
+		if is_knocked_out:
 			knockout_minigame.increase_progress()
 			knockout_minigame_progress.emit()
 		elif !_is_stunned:
@@ -97,15 +97,8 @@ func _unhandled_input(event: InputEvent) -> void:
 			attack_area_collision.set_deferred("disabled", true)
 #endregion
 #region Signal Handlers
-func _on_knockout_minigame_finished():
-	knockback_minigame_max += knockback_minigame_growth
-	_is_knocked_out = false
-	recovered.emit()
-
-
-func _on_attack_area_area_entered(area: Area2D) -> void:
-	var player = area.get_parent()
-	if player is not Player or player == self: return
+func _on_attack_area_body_entered(body: Node2D) -> void:
+	if body is not Player or body == self: return
 
 	var direction = (attack_area.global_position - global_position).normalized()
 	var hit_force = direction * (boss_knockback_strength if _is_boss else knockback_strength)
@@ -127,7 +120,7 @@ func get_knocked_out():
 	
 	_knockback_force = Vector2.ZERO
 	_is_stunned = false
-	_is_knocked_out = true
+	is_knocked_out = true
 	knockout_minigame.setup(knockback_minigame_max)
 	knockout_minigame_setup.emit(knockback_minigame_max)
 	knocked_out.emit(_knockback_force)
@@ -178,7 +171,7 @@ func _handle_movement():
 		attack_area.position = input_vector.normalized() * attack_radius
 		player_indicator_sprite.rotation = input_vector.angle()
 
-	if !_is_stunned and !_is_knocked_out:
+	if !_is_stunned and !is_knocked_out:
 		velocity = input_vector * move_speed
 	
 	if !is_zero_approx(velocity.length()):

@@ -37,7 +37,7 @@ func on_knocked_out() -> void:
 		animation_player.play("knocked_out_left")
 
 func on_recovered() -> void:
-	if player._is_knocked_out:
+	if player.is_knocked_out:
 		return
 	
 	if looking_right:
@@ -46,7 +46,7 @@ func on_recovered() -> void:
 		animation_player.play("recovered_left")
 
 func on_knocked_back() -> void:
-	if player._is_knocked_out:
+	if player.is_knocked_out:
 		return
 	
 	if looking_right:

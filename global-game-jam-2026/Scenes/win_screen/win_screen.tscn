@@ -175,7 +175,6 @@ vertical_alignment = 1
 one_shot = true
 
 [node name="Menu" type="VBoxContainer" parent="." unique_id=224217265]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -219,7 +218,7 @@ size_flags_horizontal = 4
 theme_override_constants/outline_size = 12
 theme_override_fonts/font = ExtResource("3_sqnk6")
 theme_override_font_sizes/font_size = 44
-text = "King de los Luchadores"
+text = "el Rey de la batalla"
 horizontal_alignment = 1
 
 [node name="MarginContainer" type="MarginContainer" parent="Menu/Menu/MarginContainer/BoxContainer" unique_id=352268510]

@@ -63,6 +63,7 @@ var _is_boss = false
 @onready var player_indicator_sprite: Sprite2D = $PlayerIndicatorSprite
 @onready var belt: Belt = $"../Belt"
 @onready var knockout_minigame: KnockoutMinigame = $KnockoutMinigame
+@onready var the_mask_sprite_sheet: Texture2D = preload("res://art/player/the_mask_sprite_sheet.png")
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var player_animation: PlayerAnimation = $PlayerAnimation
 #endregion

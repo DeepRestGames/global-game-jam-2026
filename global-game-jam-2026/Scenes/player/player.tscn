@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://3xussjdpwp6g" path="res://art/player/PlayerOrientationIndicator.png" id="2_75vfm"]
 [ext_resource type="Texture2D" uid="uid://byi1ojixdhjxs" path="res://art/player/base_character_sprite_sheet.png" id="2_lvxji"]
 [ext_resource type="PackedScene" uid="uid://ha6xmy26ea2q" path="res://Scenes/knockout_minigame/knockout_minigame.tscn" id="5_p47bc"]
-[ext_resource type="Script" uid="uid://c6g7e3inl2uj1" path="res://scripts/player/player_sounds.gd" id="6_6upyo"]
+[ext_resource type="Script" path="res://scripts/player/player_sounds.gd" id="6_6upyo"]
 [ext_resource type="AudioStream" uid="uid://bky2ccruajgg0" path="res://sound/PLAYER_big_whoosh_01.wav" id="7_kysaj"]
 [ext_resource type="AudioStream" uid="uid://c8tyumnxc5e2e" path="res://sound/PLAYER_small_whoosh_01.wav" id="7_p8lfk"]
 [ext_resource type="Script" uid="uid://d2vtqr1hey1gl" path="res://scripts/player/player_animation.gd" id="7_xxarj"]
@@ -1282,24 +1282,9 @@ y_sort_enabled = true
 collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_sjcu7")
-player_color = null
-is_looking_right = null
-player_name = null
-player_num = null
-input_vector_deadzone = null
-move_speed = null
 attack_radius = 50.0
-hit_timer = null
-knockback_strength = null
-knockback_falloff = null
-stun_recovery_threshold = null
-knocked_out_duration = null
-knockback_minigame_init = null
 knockback_minigame_max = 6.0
 knockback_minigame_growth = 3.0
-boss_size_factor = null
-boss_move_speed_factor = null
-boss_knockback_strength = null
 
 [node name="PlayerIndicatorSprite" type="Sprite2D" parent="." unique_id=1216887979]
 position = Vector2(0.5, -2.5)

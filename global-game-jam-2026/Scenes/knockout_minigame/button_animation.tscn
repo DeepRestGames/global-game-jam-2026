@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://c1auxea0b26xw"]
 
-[ext_resource type="Script" path="res://scripts/knockout_minigame/button_animation.gd" id="1_hiutc"]
+[ext_resource type="Script" uid="uid://dxvvyfcxelp7f" path="res://scripts/knockout_minigame/button_animation.gd" id="1_hiutc"]
 [ext_resource type="Texture2D" uid="uid://14dgpgxdgm0t" path="res://art/kenney_input_prompts/generic_button.svg" id="2_mjfk2"]
 [ext_resource type="Texture2D" uid="uid://s6go5lg55836" path="res://art/kenney_input_prompts/generic_button_pressed.svg" id="3_2x3j4"]
 [ext_resource type="Texture2D" uid="uid://4d00p44ruwpi" path="res://art/mash_button_icon.png" id="4_mjfk2"]
@@ -92,7 +92,7 @@ _data = {
 &"animate_button": SubResource("Animation_hiutc")
 }
 
-[node name="ButtonAnimation" type="Control" unique_id=2014714988]
+[node name="ButtonAnimation" type="Control" unique_id=2014714988 groups=["ButtonAnimation"]]
 modulate = Color(1, 1, 0.23000002, 1)
 layout_mode = 3
 anchors_preset = 0

@@ -62,7 +62,6 @@ var _is_boss = false
 @onready var player_indicator_sprite: Sprite2D = $PlayerIndicatorSprite
 @onready var belt: Belt = $"../Belt"
 @onready var knockout_minigame: KnockoutMinigame = $KnockoutMinigame
-@onready var the_mask_sprite_sheet: Texture2D = preload("res://art/player/the_mask_sprite_sheet.png")
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var player_animation: PlayerAnimation = $PlayerAnimation
 #endregion
@@ -138,7 +137,6 @@ func upgrade_player():
 	
 	_is_boss = true
 	scale *= Vector2.ONE * boss_size_factor
-	sprite_2d.texture = the_mask_sprite_sheet
 	move_speed *= boss_move_speed_factor
 	upgraded.emit(self)
 
@@ -148,7 +146,6 @@ func downgrade_player():
 	
 	_is_boss = false
 	scale /= Vector2.ONE * boss_size_factor
-	sprite_2d.texture = base_sprite_sheet
 	move_speed /= boss_move_speed_factor
 	downgraded.emit(self)
 	

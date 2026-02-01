@@ -72,7 +72,7 @@ func _ready():
 	knockback_minigame_max = knockback_minigame_init
 	knockout_minigame.finished.connect(_on_knockout_minigame_finished)
 	
-	sprite_2d.self_modulate = player_color
+	#sprite_2d.self_modulate = player_color
 	sprite_2d.texture = base_sprite_sheet
 	player_indicator_sprite.self_modulate = player_color
 
@@ -143,6 +143,8 @@ func upgrade_player():
 	
 	_is_boss = true
 	scale *= Vector2.ONE * boss_size_factor
+	sprite_2d.texture = the_mask_sprite_sheet
+	sprite_2d.self_modulate = player_color
 	move_speed *= boss_move_speed_factor
 	upgraded.emit(self)
 
@@ -152,6 +154,8 @@ func downgrade_player():
 	
 	_is_boss = false
 	scale /= Vector2.ONE * boss_size_factor
+	sprite_2d.texture = base_sprite_sheet
+	sprite_2d.self_modulate = Color.WHITE
 	move_speed /= boss_move_speed_factor
 	downgraded.emit(self)
 	

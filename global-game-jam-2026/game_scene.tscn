@@ -13,7 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://cnkhjf8aiwjcf" path="res://Scenes/player/player_corner.tscn" id="6_opqoc"]
 [ext_resource type="Texture2D" uid="uid://14dgpgxdgm0t" path="res://art/kenney_input_prompts/generic_button.svg" id="6_snaye"]
 [ext_resource type="Texture2D" uid="uid://s6go5lg55836" path="res://art/kenney_input_prompts/generic_button_pressed.svg" id="7_1wc4g"]
-[ext_resource type="Texture2D" uid="uid://k8swq3ajvnpp" path="res://art/player/maskchacho_sprite_sheet.png" id="7_5dgvu"]
 [ext_resource type="PackedScene" uid="uid://daiealbrrehsm" path="res://Scenes/belt/belt.tscn" id="7_7iton"]
 [ext_resource type="PackedScene" uid="uid://d1kwjvqdg8us3" path="res://Scenes/ui/hud.tscn" id="7_kk2rg"]
 [ext_resource type="AudioStream" uid="uid://dyvar7hraf77m" path="res://sound/CROWD_Loop_01.wav" id="7_snaye"]
@@ -25,7 +24,10 @@
 [ext_resource type="Texture2D" uid="uid://fdhrxnj3dta1" path="res://art/kenney_input_prompts/generic_joystick_right.svg" id="9_na8jj"]
 [ext_resource type="AudioStream" uid="uid://b83p2rhq8yohv" path="res://sound/CROWD_cheer_maskaliente_04.wav" id="10_78j2m"]
 [ext_resource type="PackedScene" uid="uid://qmub7mce6o11" path="res://Scenes/win_screen/win_screen.tscn" id="10_miq82"]
-[ext_resource type="Texture2D" uid="uid://b6vos4q57ylkw" path="res://art/player/maskcaliente_sprite_sheet.png" id="10_wywco"]
+[ext_resource type="Texture2D" uid="uid://bjg7xckeax0lh" path="res://art/player/maskchacho_sprite_sheet_color.png" id="12_snaye"]
+[ext_resource type="Texture2D" uid="uid://c08apc2lhexu0" path="res://art/player/maskador_sprite_sheet_color.png" id="13_1wc4g"]
+[ext_resource type="Texture2D" uid="uid://5rq4wpbyb3el" path="res://art/player/maskino_sprite_sheet_color.png" id="14_78j2m"]
+[ext_resource type="Texture2D" uid="uid://cef5ppcbcncie" path="res://art/player/maskcaliente_sprite_sheet_color.png" id="15_na8jj"]
 [ext_resource type="AudioStream" uid="uid://deuu75mxugvvq" path="res://sound/CROWD_cheer_maskchacho_05.wav" id="11_na8jj"]
 [ext_resource type="AudioStream" uid="uid://dl0thcgia85lv" path="res://sound/CROWD_cheer_maskerino_06.wav" id="12_jv0we"]
 [ext_resource type="Texture2D" uid="uid://dqk7xb41otpj8" path="res://art/the_mask_shadow.png" id="13_bpcsf"]
@@ -1787,7 +1789,7 @@ player_color = Color(0, 0.58431375, 1, 1)
 is_looking_right = true
 player_name = "MASKCACHO"
 player_num = 0
-base_sprite_sheet = ExtResource("7_5dgvu")
+base_sprite_sheet = ExtResource("12_snaye")
 input_vector_deadzone = -1.0
 move_speed = 500.0
 hit_timer = 0.2
@@ -1806,7 +1808,7 @@ player_color = Color(1, 0.5058824, 0.011764706, 1)
 is_looking_right = false
 player_name = "EL MASKADOR"
 player_num = 1
-base_sprite_sheet = ExtResource("8_uscyt")
+base_sprite_sheet = ExtResource("13_1wc4g")
 input_vector_deadzone = -1.0
 move_speed = 500.0
 hit_timer = 0.2
@@ -1825,7 +1827,7 @@ player_color = Color(1, 1, 1, 1)
 is_looking_right = true
 player_name = "MASKERIÑO"
 player_num = 2
-base_sprite_sheet = ExtResource("9_4xiap")
+base_sprite_sheet = ExtResource("14_78j2m")
 input_vector_deadzone = -1.0
 move_speed = 500.0
 hit_timer = 0.2
@@ -1844,7 +1846,7 @@ player_color = Color(0.5882353, 0.33333334, 0.7647059, 1)
 is_looking_right = false
 player_name = "MASKALIENTE"
 player_num = 3
-base_sprite_sheet = ExtResource("10_wywco")
+base_sprite_sheet = ExtResource("15_na8jj")
 input_vector_deadzone = -1.0
 move_speed = 500.0
 hit_timer = 0.2

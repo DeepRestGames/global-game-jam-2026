@@ -21,8 +21,8 @@ var _winning_player: Player
 @onready var countdown: Control = $Countdown
 @onready var countdown_animation_player: AnimationPlayer = $Countdown/AnimationPlayer
 @onready var menu: Control = $Menu
-@onready var player_name: Label = $Menu/MarginContainer/BoxContainer/PlayerName
-@onready var restart_game: Button = $Menu/MarginContainer/BoxContainer/MarginContainer/Menu/RestartGame
+@onready var player_name: Label = $Menu/Menu/MarginContainer/BoxContainer/PlayerName
+@onready var restart_game: Button = $Menu/Menu/MarginContainer/BoxContainer/MarginContainer/Menu/RestartGame
 #endregion
 
 #region Event Methods

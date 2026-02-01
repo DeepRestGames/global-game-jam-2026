@@ -40,11 +40,13 @@ var screenshake_amount: float
 @onready var belt_shadow_spawn_in: Sprite2D = $BeltShadowSpawnIn
 @onready var tutorial: Control = $Ring/Control
 @onready var hud: Hud = $HUD
+@onready var audio_stream_player: AudioStreamPlayer = $AudioStreamPlayer
 #endregion
 
 #region Event Methods
 func _ready() -> void:
 	get_tree().paused = false
+	audio_stream_player.play()
 	
 	GameManager.spawned_players = 0
 	GameManager.register_player_signals()

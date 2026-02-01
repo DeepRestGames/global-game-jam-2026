@@ -39,6 +39,10 @@ func _on_player_spawned():
 	spawned_players += 1
 
 
+func _on_knock_out_shown():
+	_game_scene.audio_stream_player["parameters/switch_to_clip"] = "Ost 4 Outro"
+
+
 func _on_player_corner_entered():
 	if spawned_players < 2: return
 	
@@ -46,6 +50,7 @@ func _on_player_corner_entered():
 	if active_corners.size() == spawned_players:
 		_game_scene.spawn_belt()
 		_game_scene.hide_tutorial()
+		_game_scene.audio_stream_player["parameters/switch_to_clip"] = "Ost 2 Transition"
 		for corner in get_tree().get_nodes_in_group("PlayerCorner"):
 			if !corner.is_player_inside: _hud.hide_join_ui(corner.player.player_num)
 			
@@ -81,6 +86,7 @@ func register_hud(hud: Hud):
 
 func register_win_screen(win_screen: WinScreen):
 	_win_screen = win_screen
+	_win_screen.ko_label_shown.connect(_on_knock_out_shown)
 
 
 func _is_win_condition_active():

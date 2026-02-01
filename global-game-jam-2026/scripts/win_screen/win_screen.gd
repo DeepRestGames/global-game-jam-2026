@@ -2,6 +2,7 @@ class_name WinScreen
 extends CanvasLayer
 
 #region Signals
+signal ko_label_shown
 #endregion
 #region Enums
 #endregion
@@ -32,6 +33,7 @@ func _on_restart_game_pressed() -> void:
 
 
 func _on_ko_label_shown():
+	ko_label_shown.emit()
 	for button_animation in get_tree().get_nodes_in_group("ButtonAnimation"):
 		button_animation.hide()
 	get_tree().paused = true

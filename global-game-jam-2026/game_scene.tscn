@@ -21,6 +21,11 @@
 [ext_resource type="PackedScene" uid="uid://qmub7mce6o11" path="res://Scenes/win_screen/win_screen.tscn" id="10_miq82"]
 [ext_resource type="Texture2D" uid="uid://b6vos4q57ylkw" path="res://art/player/maskcaliente_sprite_sheet.png" id="10_wywco"]
 [ext_resource type="Texture2D" uid="uid://dqk7xb41otpj8" path="res://art/the_mask_shadow.png" id="13_bpcsf"]
+[ext_resource type="Texture2D" uid="uid://cyi2ovk4ws1he" path="res://art/environment/spotlight_on_ring.png" id="20_f54l4"]
+[ext_resource type="AudioStream" uid="uid://cx4xrw1h71sa3" path="res://music/ost_1_intro_loop.wav" id="23_5smy7"]
+[ext_resource type="AudioStream" uid="uid://b4vc0g71l5luf" path="res://music/ost_2_transition.wav" id="24_glbr4"]
+[ext_resource type="AudioStream" uid="uid://cx2mwv0hbtjek" path="res://music/ost_3_core_loop.wav" id="25_t06ws"]
+[ext_resource type="AudioStream" uid="uid://b00as7glluyfd" path="res://music/ost_4_outro.wav" id="26_0pvt5"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oqyrl"]
 
@@ -165,6 +170,42 @@ tracks/1/keys = {
 _data = {
 &"RESET": SubResource("Animation_snaye"),
 &"button_press": SubResource("Animation_1wc4g")
+}
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_kyyqo"]
+clip_count = 4
+clip_0/name = &"Ost 1 Intro Loop"
+clip_0/stream = ExtResource("23_5smy7")
+clip_0/auto_advance = 0
+clip_1/name = &"Ost 2 Transition"
+clip_1/stream = ExtResource("24_glbr4")
+clip_1/auto_advance = 1
+clip_1/next_clip = 2
+clip_2/name = &"Ost 3 Core Loop"
+clip_2/stream = ExtResource("25_t06ws")
+clip_2/auto_advance = 0
+clip_3/name = &"Ost 4 Outro"
+clip_3/stream = ExtResource("26_0pvt5")
+clip_3/auto_advance = 0
+_transitions = {
+Vector2i(0, 1): {
+"fade_beats": 1.0,
+"fade_mode": 0,
+"from_time": 1,
+"to_time": 1
+},
+Vector2i(1, 2): {
+"fade_beats": 1.0,
+"fade_mode": 0,
+"from_time": 3,
+"to_time": 1
+},
+Vector2i(2, 3): {
+"fade_beats": 1.0,
+"fade_mode": 4,
+"from_time": 3,
+"to_time": 1
+}
 }
 
 [node name="GameScene" type="Node2D" unique_id=2085927401]
@@ -1783,9 +1824,23 @@ texture = ExtResource("5_5dgvu")
 [node name="FreezeFrameTimer" type="Timer" parent="." unique_id=463194505]
 one_shot = true
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=938916541]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1392002193]
+self_modulate = Color(1, 1, 1, 0.3764706)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("20_f54l4")
+
 [node name="HUD" parent="." unique_id=1628968700 instance=ExtResource("7_kk2rg")]
 
 [node name="WinScreen" parent="." unique_id=2043067076 instance=ExtResource("10_miq82")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=445240705]
+stream = SubResource("AudioStreamInteractive_kyyqo")
 
 [connection signal="body_entered" from="Ring/Border" to="Ring" method="_on_border_body_entered"]
 [connection signal="body_exited" from="Ring/Border" to="Ring" method="_on_border_body_exited"]

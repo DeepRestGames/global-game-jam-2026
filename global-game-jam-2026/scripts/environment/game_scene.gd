@@ -38,6 +38,7 @@ var screenshake_amount: float
 @onready var player_4_spawn: Marker2D = $SpawnPoints/Player4Spawn
 @onready var belt: Belt = $Belt
 @onready var belt_shadow_spawn_in: Sprite2D = $BeltShadowSpawnIn
+@onready var tutorial: Control = $Ring/Control
 #endregion
 
 #region Event Methods
@@ -151,6 +152,10 @@ func spawn_belt():
 	tween_shadow.set_trans(Tween.TRANS_SINE)
 	tween_shadow.tween_property(belt_shadow_spawn_in, "scale:x", 0.8, belt_spawn_duration)
 	tween_shadow.parallel().tween_property(belt_shadow_spawn_in, "scale:y", 1, belt_spawn_duration)
+
+
+func hide_tutorial():
+	tutorial.hide()
 
 
 func freeze_frame(duration: float):

@@ -18,6 +18,7 @@ var player: Player
 #region @onready Variables
 @onready var texture_progress_bar: TextureProgressBar = $VBoxContainer/AspectRatioContainer/TextureProgressBar
 @onready var button_animation: ButtonAnimation = $ButtonAnimation
+@onready var label: Label = $VBoxContainer/AspectRatioContainer/Label
 #endregion
 
 #region Event Methods
@@ -32,6 +33,7 @@ func _ready():
 func _on_player_knockout_minigame_setup(max_value):
 	texture_progress_bar.value = 0
 	texture_progress_bar.max_value = max_value
+	label.show()
 	button_animation.show()
 
 
@@ -39,6 +41,7 @@ func _on_player_knockout_minigame_progress():
 	texture_progress_bar.value += 1
 
 func _on_player_recovered():
+	label.hide()
 	button_animation.hide()
 #endregion
 #region Regular Methods

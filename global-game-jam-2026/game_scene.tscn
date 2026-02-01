@@ -6,13 +6,18 @@
 [ext_resource type="Texture2D" uid="uid://df72lpy6b76lw" path="res://art/environment/arena_background.png" id="3_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://Scenes/player/player.tscn" id="3_ycayy"]
 [ext_resource type="Texture2D" uid="uid://binq48dgu2xbr" path="res://art/environment/ring_foreground.png" id="5_5dgvu"]
+[ext_resource type="FontFile" uid="uid://dm6lltnyidosy" path="res://art/Sancreek-Regular.ttf" id="5_opqoc"]
 [ext_resource type="PackedScene" uid="uid://c4wr0j51scdnn" path="res://Scenes/background/audience_member.tscn" id="5_y3j0m"]
 [ext_resource type="PackedScene" uid="uid://cnkhjf8aiwjcf" path="res://Scenes/player/player_corner.tscn" id="6_opqoc"]
+[ext_resource type="Texture2D" uid="uid://14dgpgxdgm0t" path="res://art/kenney_input_prompts/generic_button.svg" id="6_snaye"]
+[ext_resource type="Texture2D" uid="uid://s6go5lg55836" path="res://art/kenney_input_prompts/generic_button_pressed.svg" id="7_1wc4g"]
 [ext_resource type="Texture2D" uid="uid://k8swq3ajvnpp" path="res://art/player/maskchacho_sprite_sheet.png" id="7_5dgvu"]
 [ext_resource type="PackedScene" uid="uid://daiealbrrehsm" path="res://Scenes/belt/belt.tscn" id="7_7iton"]
 [ext_resource type="PackedScene" uid="uid://d1kwjvqdg8us3" path="res://Scenes/ui/hud.tscn" id="7_kk2rg"]
+[ext_resource type="Texture2D" uid="uid://bsp75ptajjn2i" path="res://art/kenney_input_prompts/generic_joystick_left.svg" id="8_78j2m"]
 [ext_resource type="Texture2D" uid="uid://dkhw30rwv8wbn" path="res://art/player/maskador_sprite_sheet.png" id="8_uscyt"]
 [ext_resource type="Texture2D" uid="uid://ddyqem8hdxkiu" path="res://art/player/maskino_sprite_sheet.png" id="9_4xiap"]
+[ext_resource type="Texture2D" uid="uid://fdhrxnj3dta1" path="res://art/kenney_input_prompts/generic_joystick_right.svg" id="9_na8jj"]
 [ext_resource type="PackedScene" uid="uid://qmub7mce6o11" path="res://Scenes/win_screen/win_screen.tscn" id="10_miq82"]
 [ext_resource type="Texture2D" uid="uid://b6vos4q57ylkw" path="res://art/player/maskcaliente_sprite_sheet.png" id="10_wywco"]
 [ext_resource type="Texture2D" uid="uid://dqk7xb41otpj8" path="res://art/the_mask_shadow.png" id="13_bpcsf"]
@@ -39,6 +44,128 @@ size = Vector2(4, 832)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rurhu"]
 size = Vector2(6.000061, 1051.9999)
+
+[sub_resource type="Animation" id="Animation_78j2m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TextureRect2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/TextureRect:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_na8jj"]
+resource_name = "joystick_wiggle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Control/TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Control/TextureRect2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jv0we"]
+_data = {
+&"RESET": SubResource("Animation_78j2m"),
+&"joystick_wiggle": SubResource("Animation_na8jj")
+}
+
+[sub_resource type="Animation" id="Animation_snaye"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1wc4g"]
+resource_name = "button_press"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("TextureRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("TextureRect2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_78j2m"]
+_data = {
+&"RESET": SubResource("Animation_snaye"),
+&"button_press": SubResource("Animation_1wc4g")
+}
 
 [node name="GameScene" type="Node2D" unique_id=2085927401]
 process_mode = 3
@@ -98,6 +225,135 @@ shape = SubResource("RectangleShape2D_y3j0m")
 position = Vector2(-0.00049552444, 415.00003)
 rotation = 1.5703008
 shape = SubResource("RectangleShape2D_rurhu")
+
+[node name="Control" type="Control" parent="Ring" unique_id=1357479064]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -511.0
+offset_top = -399.0
+offset_right = 514.0
+offset_bottom = 396.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Ring/Control" unique_id=437734207]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -250.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.68235296, 0.72156864, 0.78039217, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("5_opqoc")
+theme_override_font_sizes/font_size = 64
+text = "GET INTO YOUR CORNER!"
+horizontal_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Ring/Control" unique_id=2119197572]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_top = 71.0
+offset_bottom = 280.0
+grow_horizontal = 2
+
+[node name="Control2" type="VBoxContainer" parent="Ring/Control/HBoxContainer" unique_id=970308860]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Ring/Control/HBoxContainer/Control2" unique_id=2083919444]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.68235296, 0.72156864, 0.78431374, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("5_opqoc")
+theme_override_font_sizes/font_size = 64
+text = "MOVE"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Ring/Control/HBoxContainer/Control2" unique_id=1866779845]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Ring/Control/HBoxContainer/Control2/Control" unique_id=608195178]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_78j2m")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Ring/Control/HBoxContainer/Control2/Control" unique_id=1184912239]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_na8jj")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ring/Control/HBoxContainer/Control2/Control" unique_id=1196705762]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_jv0we")
+autoplay = &"joystick_wiggle"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Ring/Control/HBoxContainer" unique_id=1973253337]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Label" type="Label" parent="Ring/Control/HBoxContainer/VBoxContainer" unique_id=742188100]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.68235296, 0.72156864, 0.78431374, 1)
+theme_override_constants/outline_size = 12
+theme_override_fonts/font = ExtResource("5_opqoc")
+theme_override_font_sizes/font_size = 64
+text = "PUNCH"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Control" type="Control" parent="Ring/Control/HBoxContainer/VBoxContainer" unique_id=1514728212]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="TextureRect" type="TextureRect" parent="Ring/Control/HBoxContainer/VBoxContainer/Control" unique_id=2020288702]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_snaye")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="TextureRect2" type="TextureRect" parent="Ring/Control/HBoxContainer/VBoxContainer/Control" unique_id=1981603562]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_1wc4g")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Ring/Control/HBoxContainer/VBoxContainer/Control" unique_id=1041650261]
+libraries/ = SubResource("AnimationLibrary_78j2m")
+autoplay = &"button_press"
 
 [node name="Crowd" type="Node2D" parent="." unique_id=2028228863]
 

@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://3xussjdpwp6g" path="res://art/player/PlayerOrientationIndicator.png" id="2_75vfm"]
 [ext_resource type="Texture2D" uid="uid://byi1ojixdhjxs" path="res://art/player/base_character_sprite_sheet.png" id="2_lvxji"]
 [ext_resource type="PackedScene" uid="uid://ha6xmy26ea2q" path="res://Scenes/knockout_minigame/knockout_minigame.tscn" id="5_p47bc"]
-[ext_resource type="Script" path="res://scripts/player/player_sounds.gd" id="6_6upyo"]
+[ext_resource type="Script" uid="uid://c6g7e3inl2uj1" path="res://scripts/player/player_sounds.gd" id="6_6upyo"]
 [ext_resource type="AudioStream" uid="uid://bky2ccruajgg0" path="res://sound/PLAYER_big_whoosh_01.wav" id="7_kysaj"]
 [ext_resource type="AudioStream" uid="uid://c8tyumnxc5e2e" path="res://sound/PLAYER_small_whoosh_01.wav" id="7_p8lfk"]
 [ext_resource type="Script" uid="uid://d2vtqr1hey1gl" path="res://scripts/player/player_animation.gd" id="7_xxarj"]
@@ -1343,11 +1343,13 @@ script = ExtResource("6_6upyo")
 
 [node name="PunchMiss" type="AudioStreamPlayer" parent="Sounds" unique_id=1033487356]
 stream = SubResource("AudioStreamRandomizer_utcu2")
+volume_db = -3.0
 max_polyphony = 10
 bus = &"SFX"
 
 [node name="PunchMissBoss" type="AudioStreamPlayer" parent="Sounds" unique_id=1923236572]
 stream = SubResource("AudioStreamRandomizer_6upyo")
+volume_db = -3.0
 max_polyphony = 10
 bus = &"SFX"
 

@@ -6,7 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://df72lpy6b76lw" path="res://art/environment/arena_background.png" id="3_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://Scenes/player/player.tscn" id="3_ycayy"]
 [ext_resource type="Texture2D" uid="uid://binq48dgu2xbr" path="res://art/environment/ring_foreground.png" id="5_5dgvu"]
-[ext_resource type="Script" path="res://scripts/background/crowd.gd" id="5_nuflt"]
+[ext_resource type="Script" uid="uid://b7na65bkljt6d" path="res://scripts/background/crowd.gd" id="5_nuflt"]
 [ext_resource type="FontFile" uid="uid://dm6lltnyidosy" path="res://art/Sancreek-Regular.ttf" id="5_opqoc"]
 [ext_resource type="PackedScene" uid="uid://c4wr0j51scdnn" path="res://Scenes/background/audience_member.tscn" id="5_y3j0m"]
 [ext_resource type="AudioStream" uid="uid://caborjbairja8" path="res://sound/CROWD_cheer_01.wav" id="6_3d2pr"]
@@ -1731,22 +1731,22 @@ bus = &"Crowd"
 
 [node name="ElMaskador" type="AudioStreamPlayer" parent="Crowd/Sounds" unique_id=1661895338]
 stream = ExtResource("9_1wc4g")
-volume_db = 3.0
+volume_db = 9.0
 bus = &"Crowd"
 
 [node name="Maskaliente" type="AudioStreamPlayer" parent="Crowd/Sounds" unique_id=2105150120]
 stream = ExtResource("10_78j2m")
-volume_db = 3.0
+volume_db = 9.0
 bus = &"Crowd"
 
 [node name="Maskchacho" type="AudioStreamPlayer" parent="Crowd/Sounds" unique_id=2061354140]
 stream = ExtResource("11_na8jj")
-volume_db = 3.0
+volume_db = 9.0
 bus = &"Crowd"
 
 [node name="Maskerino" type="AudioStreamPlayer" parent="Crowd/Sounds" unique_id=1750779716]
 stream = ExtResource("12_jv0we")
-volume_db = 3.0
+volume_db = 9.0
 bus = &"Crowd"
 
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=1075452176]

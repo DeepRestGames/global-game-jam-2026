@@ -6,16 +6,26 @@
 [ext_resource type="Texture2D" uid="uid://df72lpy6b76lw" path="res://art/environment/arena_background.png" id="3_bw6k5"]
 [ext_resource type="PackedScene" uid="uid://b36wdrqemc1e" path="res://Scenes/player/player.tscn" id="3_ycayy"]
 [ext_resource type="Texture2D" uid="uid://binq48dgu2xbr" path="res://art/environment/ring_foreground.png" id="5_5dgvu"]
+[ext_resource type="Script" uid="uid://b7na65bkljt6d" path="res://scripts/background/crowd.gd" id="5_nuflt"]
 [ext_resource type="PackedScene" uid="uid://c4wr0j51scdnn" path="res://Scenes/background/audience_member.tscn" id="5_y3j0m"]
+[ext_resource type="AudioStream" uid="uid://caborjbairja8" path="res://sound/CROWD_cheer_01.wav" id="6_3d2pr"]
 [ext_resource type="PackedScene" uid="uid://cnkhjf8aiwjcf" path="res://Scenes/player/player_corner.tscn" id="6_opqoc"]
 [ext_resource type="Texture2D" uid="uid://k8swq3ajvnpp" path="res://art/player/maskchacho_sprite_sheet.png" id="7_5dgvu"]
 [ext_resource type="PackedScene" uid="uid://daiealbrrehsm" path="res://Scenes/belt/belt.tscn" id="7_7iton"]
 [ext_resource type="PackedScene" uid="uid://d1kwjvqdg8us3" path="res://Scenes/ui/hud.tscn" id="7_kk2rg"]
+[ext_resource type="AudioStream" uid="uid://dyvar7hraf77m" path="res://sound/CROWD_Loop_01.wav" id="7_snaye"]
+[ext_resource type="AudioStream" uid="uid://d0hqvbea1t4mf" path="res://sound/CROWD_Loop_02.wav" id="8_1wc4g"]
 [ext_resource type="Texture2D" uid="uid://dkhw30rwv8wbn" path="res://art/player/maskador_sprite_sheet.png" id="8_uscyt"]
+[ext_resource type="AudioStream" uid="uid://bg4xyxgxhlwxt" path="res://sound/CROWD_cheer_el_maskador_02.wav" id="9_1wc4g"]
 [ext_resource type="Texture2D" uid="uid://ddyqem8hdxkiu" path="res://art/player/maskino_sprite_sheet.png" id="9_4xiap"]
+[ext_resource type="AudioStream" uid="uid://b83p2rhq8yohv" path="res://sound/CROWD_cheer_maskaliente_04.wav" id="10_78j2m"]
 [ext_resource type="PackedScene" uid="uid://qmub7mce6o11" path="res://Scenes/win_screen/win_screen.tscn" id="10_miq82"]
 [ext_resource type="Texture2D" uid="uid://b6vos4q57ylkw" path="res://art/player/maskcaliente_sprite_sheet.png" id="10_wywco"]
+[ext_resource type="AudioStream" uid="uid://deuu75mxugvvq" path="res://sound/CROWD_cheer_maskchacho_05.wav" id="11_na8jj"]
+[ext_resource type="AudioStream" uid="uid://dl0thcgia85lv" path="res://sound/CROWD_cheer_maskerino_06.wav" id="12_jv0we"]
 [ext_resource type="Texture2D" uid="uid://dqk7xb41otpj8" path="res://art/the_mask_shadow.png" id="13_bpcsf"]
+[ext_resource type="AudioStream" uid="uid://cw7yjbehwqdta" path="res://sound/BELL_start_round_01.wav" id="25_f54l4"]
+[ext_resource type="AudioStream" uid="uid://dqlgd25eg5are" path="res://sound/BELL_end_round_01.wav" id="26_5smy7"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oqyrl"]
 
@@ -100,6 +110,7 @@ rotation = 1.5703008
 shape = SubResource("RectangleShape2D_rurhu")
 
 [node name="Crowd" type="Node2D" parent="." unique_id=2028228863]
+script = ExtResource("5_nuflt")
 
 [node name="CrowdLeft" type="Node2D" parent="Crowd" unique_id=60280391]
 position = Vector2(-750, 0)
@@ -1403,6 +1414,44 @@ position = Vector2(-194.59995, 885.8)
 scale = Vector2(0.8, 0.8)
 flip_h = true
 
+[node name="Sounds" type="Node2D" parent="Crowd" unique_id=1515849579]
+
+[node name="Cheer" type="AudioStreamPlayer" parent="Crowd/Sounds" unique_id=142892035]
+stream = ExtResource("6_3d2pr")
+bus = &"Crowd"
+
+[node name="Loop1" type="AudioStreamPlayer" parent="Crowd/Sounds" unique_id=5081802]
+stream = ExtResource("7_snaye")
+volume_db = -10.0
+autoplay = true
+bus = &"Crowd"
+
+[node name="Loop2" type="AudioStreamPlayer" parent="Crowd/Sounds" unique_id=885901982]
+stream = ExtResource("8_1wc4g")
+volume_db = -10.0
+autoplay = true
+bus = &"Crowd"
+
+[node name="ElMaskador" type="AudioStreamPlayer" parent="Crowd/Sounds" unique_id=1661895338]
+stream = ExtResource("9_1wc4g")
+volume_db = 3.0
+bus = &"Crowd"
+
+[node name="Maskaliente" type="AudioStreamPlayer" parent="Crowd/Sounds" unique_id=2105150120]
+stream = ExtResource("10_78j2m")
+volume_db = 3.0
+bus = &"Crowd"
+
+[node name="Maskchacho" type="AudioStreamPlayer" parent="Crowd/Sounds" unique_id=2061354140]
+stream = ExtResource("11_na8jj")
+volume_db = 3.0
+bus = &"Crowd"
+
+[node name="Maskerino" type="AudioStreamPlayer" parent="Crowd/Sounds" unique_id=1750779716]
+stream = ExtResource("12_jv0we")
+volume_db = 3.0
+bus = &"Crowd"
+
 [node name="SpawnPoints" type="Node2D" parent="." unique_id=1075452176]
 
 [node name="Player1Spawn" type="Marker2D" parent="SpawnPoints" unique_id=937681189]
@@ -1482,6 +1531,14 @@ one_shot = true
 [node name="HUD" parent="." unique_id=1628968700 instance=ExtResource("7_kk2rg")]
 
 [node name="WinScreen" parent="." unique_id=2043067076 instance=ExtResource("10_miq82")]
+
+[node name="Sounds" type="Node2D" parent="." unique_id=1395614598]
+
+[node name="Bell_start" type="AudioStreamPlayer" parent="Sounds" unique_id=1641425246]
+stream = ExtResource("25_f54l4")
+
+[node name="Bell_end" type="AudioStreamPlayer" parent="Sounds" unique_id=307518199]
+stream = ExtResource("26_5smy7")
 
 [connection signal="body_entered" from="Ring/Border" to="Ring" method="_on_border_body_entered"]
 [connection signal="body_exited" from="Ring/Border" to="Ring" method="_on_border_body_exited"]

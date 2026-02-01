@@ -2,6 +2,8 @@ class_name WinScreen
 extends CanvasLayer
 
 #region Signals
+signal player_won(player_name)
+signal when_ko_label_is_shown
 #endregion
 #region Enums
 #endregion
@@ -32,6 +34,7 @@ func _on_restart_game_pressed() -> void:
 
 
 func _on_ko_label_shown():
+	when_ko_label_is_shown.emit()
 	get_tree().paused = true
 #endregion
 #region Regular Methods
@@ -54,4 +57,6 @@ func show_menu():
 	player_name.modulate = _winning_player.player_color
 	menu.show()
 	restart_game.grab_focus()
+	
+	player_won.emit(player_name.text)
 #endregion

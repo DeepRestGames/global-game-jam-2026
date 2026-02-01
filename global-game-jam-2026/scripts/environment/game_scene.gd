@@ -38,6 +38,8 @@ var screenshake_amount: float
 @onready var player_4_spawn: Marker2D = $SpawnPoints/Player4Spawn
 @onready var belt: Belt = $Belt
 @onready var belt_shadow_spawn_in: Sprite2D = $BeltShadowSpawnIn
+@onready var bell_start: AudioStreamPlayer = $Sounds/Bell_start
+@onready var bell_end: AudioStreamPlayer = $Sounds/Bell_end
 #endregion
 
 #region Event Methods
@@ -54,6 +56,9 @@ func _ready() -> void:
 	for player in players:
 		player.knocked_back.connect(_on_player_knocked_back)
 		player.hit_as_boss.connect(_on_player_hit_as_boss)
+	
+	win_screen.when_ko_label_is_shown.connect(on_player_won)
+	
 #endregion
 #region Signal Handlers
 func _on_player_knocked_back(direction: Vector2):
@@ -133,6 +138,10 @@ func _on_player_4_joined(source: Player) -> void:
 	tween_x.set_trans(Tween.TRANS_SINE)
 	tween_x.tween_property(source, "global_position:x", player_4_spawn.global_position.x, spawn_in_duration)
 	tween_x.tween_callback(source.spawn_in)
+
+func on_player_won() -> void:
+	bell_end.play()
+
 #endregion
 #region Regular Methods
 func spawn_belt():
@@ -151,6 +160,8 @@ func spawn_belt():
 	tween_shadow.set_trans(Tween.TRANS_SINE)
 	tween_shadow.tween_property(belt_shadow_spawn_in, "scale:x", 0.8, belt_spawn_duration)
 	tween_shadow.parallel().tween_property(belt_shadow_spawn_in, "scale:y", 1, belt_spawn_duration)
+	
+	bell_start.play()
 
 
 func freeze_frame(duration: float):

@@ -18,9 +18,6 @@ extends Node2D
 
 @export var spawn_in_duration: float = 2
 @export var spawn_in_jump_height: float = 100
-
-@export var spawn_in_duration: float = 2
-@export var spawn_in_jump_height: float = 100
 #endregion
 #region Regular Variables
 var players: Array
@@ -33,10 +30,6 @@ var screenshake_amount: float
 @onready var camera_2d: Camera = $Camera2D
 @onready var freeze_frame_timer: Timer = $FreezeFrameTimer
 @onready var win_screen: CanvasLayer = $WinScreen
-@onready var player_1_spawn: Marker2D = $SpawnPoints/Player1Spawn
-@onready var player_2_spawn: Marker2D = $SpawnPoints/Player2Spawn
-@onready var player_3_spawn: Marker2D = $SpawnPoints/Player3Spawn
-@onready var player_4_spawn: Marker2D = $SpawnPoints/Player4Spawn
 @onready var player_1_spawn: Marker2D = $SpawnPoints/Player1Spawn
 @onready var player_2_spawn: Marker2D = $SpawnPoints/Player2Spawn
 @onready var player_3_spawn: Marker2D = $SpawnPoints/Player3Spawn
@@ -54,7 +47,6 @@ func _ready() -> void:
 	players.append_array(find_children("*", "Player", false))
 	for player in players:
 		player.knocked_back.connect(_on_player_knocked_back)
-		player.hit_as_boss.connect(_on_player_hit_as_boss)
 		player.hit_as_boss.connect(_on_player_hit_as_boss)
 #endregion
 #region Signal Handlers

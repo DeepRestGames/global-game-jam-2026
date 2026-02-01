@@ -97,8 +97,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			attack_area_collision.set_deferred("disabled", true)
 #endregion
 #region Signal Handlers
-func _on_attack_area_body_entered(body: Node2D) -> void:
-	if body is not Player or body == self: return
+func _on_knockout_minigame_finished():
+	knockback_minigame_max += knockback_minigame_growth
+	is_knocked_out = false
+	recovered.emit()
+
+
+func _on_attack_area_area_entered(area: Area2D) -> void:
+	var player = area.get_parent()
+	if player is not Player or player == self: return
 
 	var direction = (attack_area.global_position - global_position).normalized()
 	var hit_force = direction * (boss_knockback_strength if _is_boss else knockback_strength)

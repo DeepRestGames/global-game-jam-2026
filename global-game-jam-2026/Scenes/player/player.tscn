@@ -641,6 +641,8 @@ collision_mask = 2
 motion_mode = 1
 script = ExtResource("1_sjcu7")
 attack_radius = 50.0
+knockback_minigame_max = 6.0
+knockback_minigame_growth = 3.0
 
 [node name="PlayerIndicatorSprite" type="Sprite2D" parent="." unique_id=1216887979]
 position = Vector2(0.5, -2.5)
@@ -659,6 +661,7 @@ region_rect = Rect2(48, 45, 79, 95)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1765045839]
 position = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_6upyo")
+disabled = true
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1992181612]
 position = Vector2(0.5, -35.5)
@@ -675,11 +678,9 @@ shape = SubResource("CircleShape2D_emvbc")
 disabled = true
 
 [node name="KnockoutMinigame" parent="." unique_id=242296841 instance=ExtResource("5_p47bc")]
-visible = false
-offset_left = 89.0
-offset_top = -68.0
-offset_right = 89.0
-offset_bottom = -68.0
+offset_top = -96.00001
+offset_bottom = -96.00001
+scale = Vector2(0.7, 0.7)
 
 [node name="PlayerAnimation" type="Node2D" parent="." unique_id=1185091264]
 position = Vector2(0.5, -35.5)

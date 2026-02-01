@@ -70,7 +70,8 @@ func on_animation_finished(animation_name) -> void:
 
 #endregion
 #region Regular Methods
-func _ready() -> void:
+func setup(is_looking_right: bool) -> void:
+	looking_right = is_looking_right
 	on_recovered()
 	
 	player.attacked.connect(on_attacked)

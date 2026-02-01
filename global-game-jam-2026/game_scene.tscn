@@ -10,9 +10,9 @@
 [ext_resource type="Texture2D" uid="uid://k8swq3ajvnpp" path="res://art/player/maskchacho_sprite_sheet.png" id="7_5dgvu"]
 [ext_resource type="PackedScene" uid="uid://daiealbrrehsm" path="res://Scenes/belt/belt.tscn" id="7_7iton"]
 [ext_resource type="PackedScene" uid="uid://d1kwjvqdg8us3" path="res://Scenes/ui/hud.tscn" id="7_kk2rg"]
-[ext_resource type="PackedScene" uid="uid://qmub7mce6o11" path="res://Scenes/win_screen/win_screen.tscn" id="10_miq82"]
 [ext_resource type="Texture2D" uid="uid://dkhw30rwv8wbn" path="res://art/player/maskador_sprite_sheet.png" id="8_uscyt"]
 [ext_resource type="Texture2D" uid="uid://ddyqem8hdxkiu" path="res://art/player/maskino_sprite_sheet.png" id="9_4xiap"]
+[ext_resource type="PackedScene" uid="uid://qmub7mce6o11" path="res://Scenes/win_screen/win_screen.tscn" id="10_miq82"]
 [ext_resource type="Texture2D" uid="uid://b6vos4q57ylkw" path="res://art/player/maskcaliente_sprite_sheet.png" id="10_wywco"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oqyrl"]
@@ -41,6 +41,10 @@ size = Vector2(6.000061, 1051.9999)
 [node name="GameScene" type="Node2D" unique_id=2085927401]
 process_mode = 3
 script = ExtResource("1_2fmhe")
+heavy_attack_freeze_frame_screenshake_amount = 10.0
+heavy_attack_screenshake_amount = 50.0
+spawn_in_duration = 0.8
+spawn_in_jump_height = 250.0
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1601739812]
 script = ExtResource("1_b6fju")
@@ -1397,28 +1401,44 @@ position = Vector2(-194.59995, 885.8)
 scale = Vector2(0.8, 0.8)
 flip_h = true
 
-[node name="Player" parent="." unique_id=881583183 instance=ExtResource("3_ycayy")]
-position = Vector2(-192, -224)
+[node name="SpawnPoints" type="Node2D" parent="." unique_id=1075452176]
+
+[node name="Player1Spawn" type="Marker2D" parent="SpawnPoints" unique_id=937681189]
+position = Vector2(-216, -104)
+
+[node name="Player2Spawn" type="Marker2D" parent="SpawnPoints" unique_id=515659718]
+position = Vector2(200, -144)
+
+[node name="Player3Spawn" type="Marker2D" parent="SpawnPoints" unique_id=296859507]
+position = Vector2(-112, 48)
+
+[node name="Player4Spawn" type="Marker2D" parent="SpawnPoints" unique_id=842011243]
+position = Vector2(136, 96)
+
+[node name="Player1" parent="." unique_id=881583183 instance=ExtResource("3_ycayy")]
+position = Vector2(-1216, -104)
 player_color = Color(0, 0.58431375, 1, 1)
 base_sprite_sheet = ExtResource("7_5dgvu")
 
 [node name="Player2" parent="." unique_id=825266784 instance=ExtResource("3_ycayy")]
-position = Vector2(168, -216)
+position = Vector2(1216, -144)
 player_color = Color(1, 0.5058824, 0.011764706, 1)
+is_looking_right = false
 player_name = "EL MASKADOR"
 player_num = 1
 base_sprite_sheet = ExtResource("8_uscyt")
 
 [node name="Player3" parent="." unique_id=1839694508 instance=ExtResource("3_ycayy")]
-position = Vector2(-200, 184)
+position = Vector2(-1216, 64)
 player_color = Color(1, 1, 1, 1)
 player_name = "MASKERIÑO"
 player_num = 2
 base_sprite_sheet = ExtResource("9_4xiap")
 
 [node name="Player4" parent="." unique_id=49969423 instance=ExtResource("3_ycayy")]
-position = Vector2(184, 184)
+position = Vector2(1216, 104)
 player_color = Color(0.5882353, 0.33333334, 0.7647059, 1)
+is_looking_right = false
 player_name = "MASKALIENTE"
 player_num = 3
 base_sprite_sheet = ExtResource("10_wywco")
@@ -1440,4 +1460,8 @@ one_shot = true
 
 [connection signal="body_entered" from="Ring/Border" to="Ring" method="_on_border_body_entered"]
 [connection signal="body_exited" from="Ring/Border" to="Ring" method="_on_border_body_exited"]
+[connection signal="joined" from="Player1" to="." method="_on_player_1_joined" flags=18]
+[connection signal="joined" from="Player2" to="." method="_on_player_2_joined" flags=18]
+[connection signal="joined" from="Player3" to="." method="_on_player_3_joined" flags=18]
+[connection signal="joined" from="Player4" to="." method="_on_player_4_joined" flags=18]
 [connection signal="timeout" from="FreezeFrameTimer" to="." method="_on_freeze_frame_timer_timeout"]

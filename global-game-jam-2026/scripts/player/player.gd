@@ -2,8 +2,11 @@ class_name Player
 extends CharacterBody2D
 
 #region Signals
+signal joined
+signal spawned
 signal attacked(direction)
 signal hit(force)
+signal hit_as_boss(force)
 signal knocked_back(force)
 signal knocked_out
 signal recovered
@@ -24,6 +27,7 @@ signal knockout_minigame_progress()
 #region @export Variables
 @export_group("General")
 @export var player_color: Color = Color.YELLOW
+@export var is_looking_right: bool = true
 @export_enum("MASKCACHO", "EL MASKADOR", "MASKERIÑO", "MASKALIENTE") var player_name: String = "MASKCACHO"
 @export var player_num = 0
 @export var base_sprite_sheet: Texture2D
@@ -35,15 +39,17 @@ signal knockout_minigame_progress()
 @export var hit_timer: float = 0.2
 @export var knockback_strength: float = 1000
 @export var knockback_falloff: float = 0.0001
+@export var stun_recovery_threshold: float = 10
 @export var knocked_out_duration: float = 2
 @export var knockback_minigame_max: float = 10
+@export var knockback_minigame_growth : float = 5
 @export_group("Boss Modifiers")
 @export var boss_size_factor = 1.7
 @export var boss_move_speed_factor = 0.5
 @export var boss_knockback_strength: float = 3000
 #endregion
 #region Regular Variables
-var _is_joined: bool = false
+var _is_spawned: bool = false
 var _is_stunned = false
 var _is_knocked_out = false
 var _knockback_force = Vector2.ZERO
@@ -58,11 +64,17 @@ var _is_boss = false
 @onready var belt: Belt = $"../Belt"
 @onready var knockout_minigame: KnockoutMinigame = $KnockoutMinigame
 @onready var the_mask_sprite_sheet: Texture2D = preload("res://art/player/the_mask_sprite_sheet.png")
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+@onready var player_animation: PlayerAnimation = $PlayerAnimation
 #endregion
 
 #region Event Methods
 func _ready():
 	knockout_minigame.finished.connect(_on_knockout_minigame_finished)
+	
+	sprite_2d.self_modulate = player_color
+	sprite_2d.texture = base_sprite_sheet
+	player_indicator_sprite.self_modulate = player_color
 
 
 func _physics_process(delta):
@@ -73,7 +85,7 @@ func _physics_process(delta):
 
 
 func _unhandled_input(event: InputEvent) -> void:
-	if not _is_joined: return
+	if not _is_spawned: return
 
 	if event.is_action_pressed("attack_action" + str(player_num)):
 		if _is_knocked_out:
@@ -91,11 +103,13 @@ func _on_attack_area_body_entered(body: Node2D) -> void:
 
 	var direction = (attack_area.global_position - global_position).normalized()
 	var hit_force = direction * (boss_knockback_strength if _is_boss else knockback_strength)
+	if _is_boss: hit_as_boss.emit(hit_force)
 	hit.emit(hit_force)
 	body.get_hit(hit_force)
 
 
 func _on_knockout_minigame_finished():
+	knockback_minigame_max += knockback_minigame_growth
 	_is_knocked_out = false
 	recovered.emit()
 #endregion
@@ -143,15 +157,20 @@ func downgrade_player():
 	belt.handle_spawn_animation()
 
 
+func join():
+	player_animation.setup(is_looking_right)
+	player_indicator_sprite.rotation_degrees = 0 if is_looking_right else 180
+	joined.emit()
+
+
 func spawn_in():
-	_is_joined = true
-	sprite_2d.self_modulate = player_color
-	sprite_2d.texture = base_sprite_sheet
-	player_indicator_sprite.self_modulate = player_color
+	collision_shape_2d.disabled = false
+	_is_spawned = true
+	spawned.emit()
 
 
 func _handle_movement():
-	if not _is_joined: return
+	if not _is_spawned: return
 	
 	var input_vector = Input.get_vector("move_left" + str(player_num), \
 		"move_right" + str(player_num), "move_up" + str(player_num), "move_down" + str(player_num), input_vector_deadzone)
@@ -172,7 +191,7 @@ func _handle_knockback(delta):
 	velocity += _knockback_force
 
 	_knockback_force *= pow(knockback_falloff, delta)
-	if is_zero_approx(velocity.length()):
+	if velocity.length() <= stun_recovery_threshold:
 		_knockback_force = Vector2.ZERO
 		_is_stunned = false
 		knockback_recovered.emit()

@@ -31,7 +31,7 @@ func _input(event: InputEvent) -> void:
 		hud.show()
 		var player = get_tree().get_nodes_in_group("Player").filter( \
 			func(x): return x.player_num == player_id)[0] as Player
-		player.spawn_in()
+		player.join()
 #endregion
 #region Signal Handlers
 #endregion

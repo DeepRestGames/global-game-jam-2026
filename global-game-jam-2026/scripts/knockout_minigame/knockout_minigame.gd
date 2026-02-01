@@ -13,9 +13,11 @@ signal finished
 #region @export Variables
 #endregion
 #region Regular Variables
+var _knockout_progress_value = 0
+var _knockout_progress_max = 100
 #endregion
 #region @onready Variables
-@onready var texture_progress_bar: TextureProgressBar = $TextureProgressBar
+@onready var button_animation: ButtonAnimation = $ButtonAnimation
 #endregion
 
 #region Event Methods
@@ -24,14 +26,14 @@ signal finished
 #endregion
 #region Regular Methods
 func setup(max_value):
-	texture_progress_bar.value = 0
-	texture_progress_bar.max_value = max_value
-	#show() # TODO removed temporarily, maybe re-added after playtest
+	_knockout_progress_value = 0
+	_knockout_progress_max = max_value
+	button_animation.show()
 
 
 func increase_progress():
-	texture_progress_bar.value += 1
-	if texture_progress_bar.value >= texture_progress_bar.max_value:
+	_knockout_progress_value += 1
+	if _knockout_progress_value >= _knockout_progress_max:
 		finished.emit()
-		#hide() # TODO removed temporarily, maybe re-added after playtest
+		button_animation.hide()
 #endregion

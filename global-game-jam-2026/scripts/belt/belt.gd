@@ -21,6 +21,7 @@ extends Area2D
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 @onready var shadow_sprite_2d: Sprite2D = $ShadowSprite2D
+@onready var bump: AudioStreamPlayer = $Bump
 #endregion
 
 #region Event Methods
@@ -56,5 +57,9 @@ func handle_spawn_animation():
 	tween_x.tween_property(self, "position:x", 0, bounce_up_duration + bounce_down_duration)
 	tween_x.tween_callback(func(): is_active = true)
 	
+	await get_tree().create_timer(bounce_down_duration).timeout
+	bump.play()
+	
+	await get_tree().create_timer(bounce_down_duration).timeout
 	animation_player.play("Idle")
 #endregion

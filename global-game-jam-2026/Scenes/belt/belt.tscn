@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://birrjf1v6gxct" path="res://scripts/belt/belt.gd" id="1_cynax"]
 [ext_resource type="Texture2D" uid="uid://dqk7xb41otpj8" path="res://art/the_mask_shadow.png" id="2_0t73s"]
 [ext_resource type="Texture2D" uid="uid://bjgbuuhe0x8s5" path="res://art/the_mask.png" id="2_h05bw"]
+[ext_resource type="AudioStream" uid="uid://cbij5f70qsetx" path="res://sound/MASK_spawn_center_01.wav" id="4_okerm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0t73s"]
 radius = 38.0
@@ -69,6 +70,12 @@ _data = {
 &"RESET": SubResource("Animation_okerm")
 }
 
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_okerm"]
+random_pitch = 1.0594631
+random_volume_offset_db = 1.0
+streams_count = 1
+stream_0/stream = ExtResource("4_okerm")
+
 [node name="Belt" type="Area2D" unique_id=542052037]
 script = ExtResource("1_cynax")
 
@@ -92,5 +99,8 @@ texture = ExtResource("2_h05bw")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=302801539]
 libraries/ = SubResource("AnimationLibrary_lgvi1")
+
+[node name="Bump" type="AudioStreamPlayer" parent="." unique_id=975347741]
+stream = SubResource("AudioStreamRandomizer_okerm")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -10,15 +10,15 @@
 [ext_resource type="PackedScene" uid="uid://c4wr0j51scdnn" path="res://Scenes/background/audience_member.tscn" id="5_y3j0m"]
 [ext_resource type="Texture2D" uid="uid://14dgpgxdgm0t" path="res://art/kenney_input_prompts/generic_button.svg" id="6_snaye"]
 [ext_resource type="Texture2D" uid="uid://s6go5lg55836" path="res://art/kenney_input_prompts/generic_button_pressed.svg" id="7_1wc4g"]
-[ext_resource type="Texture2D" uid="uid://k8swq3ajvnpp" path="res://art/player/maskchacho_sprite_sheet.png" id="7_5dgvu"]
 [ext_resource type="PackedScene" uid="uid://daiealbrrehsm" path="res://Scenes/belt/belt.tscn" id="7_7iton"]
 [ext_resource type="PackedScene" uid="uid://d1kwjvqdg8us3" path="res://Scenes/ui/hud.tscn" id="7_kk2rg"]
 [ext_resource type="Texture2D" uid="uid://bsp75ptajjn2i" path="res://art/kenney_input_prompts/generic_joystick_left.svg" id="8_78j2m"]
-[ext_resource type="Texture2D" uid="uid://dkhw30rwv8wbn" path="res://art/player/maskador_sprite_sheet.png" id="8_uscyt"]
-[ext_resource type="Texture2D" uid="uid://ddyqem8hdxkiu" path="res://art/player/maskino_sprite_sheet.png" id="9_4xiap"]
 [ext_resource type="Texture2D" uid="uid://fdhrxnj3dta1" path="res://art/kenney_input_prompts/generic_joystick_right.svg" id="9_na8jj"]
 [ext_resource type="PackedScene" uid="uid://qmub7mce6o11" path="res://Scenes/win_screen/win_screen.tscn" id="10_miq82"]
-[ext_resource type="Texture2D" uid="uid://b6vos4q57ylkw" path="res://art/player/maskcaliente_sprite_sheet.png" id="10_wywco"]
+[ext_resource type="Texture2D" uid="uid://bjg7xckeax0lh" path="res://art/player/maskchacho_sprite_sheet_color.png" id="12_snaye"]
+[ext_resource type="Texture2D" uid="uid://c08apc2lhexu0" path="res://art/player/maskador_sprite_sheet_color.png" id="13_1wc4g"]
+[ext_resource type="Texture2D" uid="uid://5rq4wpbyb3el" path="res://art/player/maskino_sprite_sheet_color.png" id="14_78j2m"]
+[ext_resource type="Texture2D" uid="uid://cef5ppcbcncie" path="res://art/player/maskcaliente_sprite_sheet_color.png" id="15_na8jj"]
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_oqyrl"]
 
@@ -1674,7 +1674,7 @@ position = Vector2(136, 96)
 [node name="Player1" parent="." unique_id=881583183 instance=ExtResource("3_ycayy")]
 position = Vector2(-1216, -104)
 player_color = Color(0, 0.58431375, 1, 1)
-base_sprite_sheet = ExtResource("7_5dgvu")
+base_sprite_sheet = ExtResource("12_snaye")
 
 [node name="Player2" parent="." unique_id=825266784 instance=ExtResource("3_ycayy")]
 position = Vector2(1216, -144)
@@ -1682,14 +1682,14 @@ player_color = Color(1, 0.5058824, 0.011764706, 1)
 is_looking_right = false
 player_name = "EL MASKADOR"
 player_num = 1
-base_sprite_sheet = ExtResource("8_uscyt")
+base_sprite_sheet = ExtResource("13_1wc4g")
 
 [node name="Player3" parent="." unique_id=1839694508 instance=ExtResource("3_ycayy")]
 position = Vector2(-1216, 64)
 player_color = Color(1, 1, 1, 1)
 player_name = "MASKERIÑO"
 player_num = 2
-base_sprite_sheet = ExtResource("9_4xiap")
+base_sprite_sheet = ExtResource("14_78j2m")
 
 [node name="Player4" parent="." unique_id=49969423 instance=ExtResource("3_ycayy")]
 position = Vector2(1216, 104)
@@ -1697,7 +1697,7 @@ player_color = Color(0.5882353, 0.33333334, 0.7647059, 1)
 is_looking_right = false
 player_name = "MASKALIENTE"
 player_num = 3
-base_sprite_sheet = ExtResource("10_wywco")
+base_sprite_sheet = ExtResource("15_na8jj")
 
 [node name="Belt" parent="." unique_id=542052037 instance=ExtResource("7_7iton")]
 visible = true

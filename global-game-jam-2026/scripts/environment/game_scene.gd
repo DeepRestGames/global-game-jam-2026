@@ -39,6 +39,7 @@ var screenshake_amount: float
 @onready var belt: Belt = $Belt
 @onready var belt_shadow_spawn_in: Sprite2D = $BeltShadowSpawnIn
 @onready var tutorial: Control = $Ring/Control
+@onready var hud: Hud = $HUD
 #endregion
 
 #region Event Methods
@@ -49,6 +50,7 @@ func _ready() -> void:
 	GameManager.register_player_signals()
 	GameManager.register_player_corners()
 	GameManager.register_win_screen(win_screen)
+	GameManager.register_hud(hud)
 	GameManager.register_game_scene(self)
 	CrowdManager.setup_players()
 	players.append_array(find_children("*", "Player", false))

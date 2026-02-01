@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bh33c3dtsvlei" path="res://scripts/ui/hud_corner.gd" id="1_5ysmq"]
 [ext_resource type="Script" uid="uid://cxvulddac3dpg" path="res://scripts/ui/join_corner.gd" id="1_6fi6k"]
+[ext_resource type="Script" uid="uid://ty38fm2quel8" path="res://scripts/ui/hud.gd" id="1_akapp"]
 [ext_resource type="Texture2D" uid="uid://c1amt1ll3qxa0" path="res://art/kenney_input_prompts/flair_circle_0.svg" id="1_oo0fn"]
 [ext_resource type="Texture2D" uid="uid://i7pol7hsr0kt" path="res://art/kenney_input_prompts/flair_circle_8.svg" id="2_5ysmq"]
 [ext_resource type="PackedScene" uid="uid://bf403c82bgphu" path="res://Scenes/ui/join_dialogue.tscn" id="2_oj5la"]
@@ -89,6 +90,7 @@ _data = {
 }
 
 [node name="HUD" type="CanvasLayer" unique_id=1628968700]
+script = ExtResource("1_akapp")
 
 [node name="JoinDialogues" type="MarginContainer" parent="." unique_id=927844739]
 anchors_preset = 15
@@ -99,7 +101,7 @@ grow_vertical = 2
 theme_override_constants/margin_top = 32
 theme_override_constants/margin_bottom = 32
 
-[node name="TopLeft" type="Control" parent="JoinDialogues" unique_id=1599680969 node_paths=PackedStringArray("hud")]
+[node name="TopLeft" type="Control" parent="JoinDialogues" unique_id=1599680969 node_paths=PackedStringArray("hud") groups=["JoinUI"]]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
@@ -111,7 +113,7 @@ layout_mode = 1
 offset_right = 420.0
 offset_bottom = 300.0
 
-[node name="TopRight" type="Control" parent="JoinDialogues" unique_id=1047189444 node_paths=PackedStringArray("hud")]
+[node name="TopRight" type="Control" parent="JoinDialogues" unique_id=1047189444 node_paths=PackedStringArray("hud") groups=["JoinUI"]]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 0
@@ -129,7 +131,7 @@ offset_right = 0.0
 offset_bottom = 300.0
 grow_horizontal = 0
 
-[node name="BottomLeft" type="Control" parent="JoinDialogues" unique_id=2024643277 node_paths=PackedStringArray("hud")]
+[node name="BottomLeft" type="Control" parent="JoinDialogues" unique_id=2024643277 node_paths=PackedStringArray("hud") groups=["JoinUI"]]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 8
@@ -147,7 +149,7 @@ offset_right = 420.0
 offset_bottom = 0.0
 grow_vertical = 0
 
-[node name="BottomRight" type="Control" parent="JoinDialogues" unique_id=1468399472 node_paths=PackedStringArray("hud")]
+[node name="BottomRight" type="Control" parent="JoinDialogues" unique_id=1468399472 node_paths=PackedStringArray("hud") groups=["JoinUI"]]
 layout_mode = 2
 size_flags_horizontal = 8
 size_flags_vertical = 8

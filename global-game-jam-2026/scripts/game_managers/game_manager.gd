@@ -17,6 +17,7 @@ var _current_boss_player: Player
 var _is_countdown_active = false
 var _win_screen
 var _game_scene: GameScene
+var _hud: Hud
 #endregion
 #region @onready Variables
 #endregion
@@ -44,7 +45,10 @@ func _on_player_corner_entered():
 	var active_corners = get_tree().get_nodes_in_group("PlayerCorner").filter(func(p: PlayerCorner): return p.is_player_inside) as Array
 	if active_corners.size() == spawned_players:
 		_game_scene.spawn_belt()
+		_game_scene.hide_tutorial()
 		for corner in get_tree().get_nodes_in_group("PlayerCorner"):
+			if !corner.is_player_inside: _hud.hide_join_ui(corner.player.player_num)
+			
 			corner.disable_collision()
 #endregion
 #region Regular Methods
@@ -69,6 +73,10 @@ func register_player_corners():
 
 func register_game_scene(game_scene: GameScene):
 	_game_scene = game_scene
+
+
+func register_hud(hud: Hud):
+	_hud = hud
 
 
 func register_win_screen(win_screen: WinScreen):
